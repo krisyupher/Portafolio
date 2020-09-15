@@ -1,0 +1,19 @@
+.Container{
+  background-color: rgba(189, 189, 189, 0.733);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+.Number{
+  font-size: 200px;
+  color: rgba(18, 54, 88, 0.856);
+  font-weight: 900;
+  text-shadow: 2px 2px 2px crimson;
+}
+.NotFound{
+  font-size: 120px;
+  color: rgba(33, 66, 97, 0.856);
+  text-shadow: 2px 2px 2px crimson;
+}

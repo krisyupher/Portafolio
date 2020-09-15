@@ -1,0 +1,44 @@
+.Work{
+  background-color: rgb(255, 255, 255);
+  width: 35%;
+  margin: 15px 10px;
+  border-radius: 10px;
+  height: 45vh;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(218, 218, 218);
+}
+.poster{
+  transform: translate(0, -30px);
+  box-shadow: 10px 10px 10px #666;
+  border-radius: 5px;
+  width: 100%;
+  height: 70%;
+}
+.poster img{
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+.Work-description{
+  width: 100%;
+}
+.Work-description h3{
+  font-size: 20px;
+}
+.funcionamiento{
+  font-size: 20px;
+}
+.description{
+  text-align: left;
+  margin: 10px 0;
+  font-weight: 900;
+}
+
+@media (max-width: 767px) {
+  .Work{
+    width: 80%;
+    margin: 30px auto;
+  }
+}

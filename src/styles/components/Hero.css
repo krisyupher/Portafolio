@@ -1,0 +1,57 @@
+.Hero {
+  height: 70vh;
+  /*background-image: url(../../static/photo.png);*/
+  background-image: url(../../static/light.jpg);
+  background-color: rgb(94, 89, 83);
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px 10%;
+}
+.Hero p {
+  font-size: 10vw;
+  font-weight: 700;
+  color: rgba(136, 136, 136, 0.452);
+}
+.Hero h1 {
+  font-size: 4vw;
+  font-weight: 500;
+  color: rgba(201, 201, 201, 0.822);
+}
+.Hero-line{
+  width: 10vw;
+  height: 2px;
+  background-color: rgb(37, 172, 250);
+}
+.Hero h2 {
+  font-size: 2vw;
+  font-weight: 500;
+  color: rgba(170, 170, 170, 0.822);
+}
+
+/*
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (max-width: 1024px) {
+  .Hero p {
+    font-size: 15vw;
+  }
+  .Hero h1 {
+    font-size: 6vw;
+  }
+  .Hero h2 {
+    font-size: 4vw;
+  }
+}
+
+/*
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (max-width: 480px) {
+  .Hero {
+    background-position: center;
+    background-size: auto;
+  }
+}

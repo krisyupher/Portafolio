@@ -1,0 +1,17 @@
+.skills {
+  background-color: rgba(241, 241, 241, 0.884);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 10vh 10vw;
+}
+.skills h2 {
+  font-size: 50px;
+  margin-bottom: 5%;
+}
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: auto;
+  justify-content: center;
+}

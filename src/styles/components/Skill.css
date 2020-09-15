@@ -1,0 +1,33 @@
+.Skill{
+  background: white;
+  border: 1px solid gray;
+  border-radius: 15px;
+  width: 25vw;
+  height: 15vh;
+  display: flex;
+  margin: 0 0.5em 0.5em 0;
+}
+.container-imagen{
+  margin: auto 10px;
+}
+.Skill img{
+  transform: translate(0, -5px);
+  box-shadow: 5px 5px 5px #666;
+  border-radius: 50%;
+  width: 5em;
+  height: 5em;
+}
+.Skill-Container{
+  padding: 2% 0;
+}
+.Skill-Container h4{
+  margin: 0 0 0.5em 0;
+}
+.Skill:hover{
+  box-shadow: 5px 5px 5px #666;
+}
+@media (max-width: 1025px) {
+  .Skill {
+    width: 30em;
+  }
+}
