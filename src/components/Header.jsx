@@ -7,7 +7,7 @@ const Header = () => {
       <div className="Header">
         <ul>
           <li>
-            <NavLink exact to="/krisyupher" activeClassName="is-selected">
+            <NavLink exact to="/countriesflag" activeClassName="is-selected">
               HOME
             </NavLink>
           </li>

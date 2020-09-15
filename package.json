@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@fortawesome/react-fontawesome": "^0.1.8",
-    "gh-pages": "2.1.1"
+    "gh-pages": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
