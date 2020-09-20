@@ -1,27 +1,45 @@
+$azulFuerte: #2f8eab; //titulos
+$grisLineas: #a0a4a4;
 .Header {
   height: 10vh;
-  background-color: rgb(36, 36, 36);
-  border-bottom: 1px solid whitesmoke;
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid $grisLineas;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
+  .CanvasContainer {
+    position: relative;
+    width: 0;
+    height: inherit;
+    #MyCanvasLinesHeader {
+      height: inherit;
+    }
+  }
+  .NameAndJob {
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    align-items: flex-end;
+    min-width: 150px;
+    h2 {
+      color: $grisLineas;
+      text-align: end;
+    }
+    h4 {
+      color: black;
+    }
+  }
 }
 .Header ul {
   display: flex;
   list-style: none;
-  margin: 0 15%;
-  font-size: 2vw;
+  margin: 0 5vw 0 0; 
 }
 .Header ul li a {
-  color: whitesmoke;
+  color: $azulFuerte;
   margin: 0 10px;
   text-decoration: none;
 }
 .is-selected {
-  border-bottom: 3px solid rgba(145, 41, 41, 0.918);
-}
-@media (max-width: 767px) {
-  .Header ul {
-    font-size: 4vw;
-  }
+  border-bottom: 3px solid $grisLineas;
 }

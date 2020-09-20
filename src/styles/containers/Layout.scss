@@ -1,0 +1,22 @@
+$azulFuerte: #2f8eab; //titulos
+$grisLineas: #a0a4a4;
+$azulClaro: #64cbe6;
+
+.ContainerLayout {
+	.ContentContainer {
+		position: relative;
+		z-index: 1;
+	}
+	.CanvasContainerLayout {
+		position: fixed;
+		display: flex;
+		justify-content: flex-end;
+		bottom: 0;
+		right: 0;
+		#MyCanvasLinesLayout {
+			margin-right: 5vw;
+			width: 230px;
+			height: 300px;
+		}
+	}
+}

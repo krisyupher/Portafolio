@@ -1,0 +1,67 @@
+$heightCard: 500px;
+$BorderRadius: 15px;
+.WorkContainer {
+  width: 320px;
+  height: $heightCard;
+  border-radius: $BorderRadius;
+  margin: 8px;
+  text-decoration: none;
+  &:hover {
+    .Work_ContainerData {
+      transition: 2s;
+      filter: grayscale(0.5);
+      /* background: linear-gradient(rgba(255, 255, 255, 0) 0%, rgb(0, 0, 0) 100%); */
+      h3 {
+        transition: 1.5s;
+        padding-top: 50px;
+      }
+      p {
+        height: initial;
+        color: white;
+        transition: 2s;
+        padding: 20px 0;
+      }
+    }
+  }
+  .Work_CotainerImagen {
+    width: inherit;
+    height: 0;
+    border-radius: $BorderRadius;
+    img {
+      border-radius: $BorderRadius;
+      width: inherit;
+      height: $heightCard;
+    }
+  }
+  .Work_ContainerData {
+    transition: 2s;
+    border-radius: $BorderRadius;
+    position: relative;
+    height: $heightCard;
+    width: inherit;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, rgba(100, 203, 230, 1) 100%);
+    h3 {
+      transition: 2s;
+      font-size: 40px;
+      text-align: center;
+      padding-top: 150px;
+      color: white;
+    }
+    hr {
+      width: 80%;
+      background-color: white;
+      margin: auto;
+      border: 1px solid #dfdfdf;
+    }
+    p {
+      height: 0;
+      transition: 2s;
+      box-sizing: border-box;
+      padding: 0;
+      width: 80%;
+      margin: auto;
+      color: transparent;
+      text-align: center;
+    }
+  }
+}

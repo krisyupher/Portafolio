@@ -1,20 +1,18 @@
-import React, { Fragment } from "react"
-import "../styles/components/Work.css"
+import React from "react"
+import "../styles/components/Work.scss"
 const Work = (props) => {
-  const { title, poster, funcionamiento, description, link } = props;
+  const { title, poster, description, link } = props;
   return (
-    <Fragment>
-      <div className="Work">
-        <a href={link} className="poster" target="blank">
-          <img src={poster} alt={title} />
-        </a>
-        <div className="Work-description">
-          <h3>{title}</h3>
-          <p className="funcionamiento">{funcionamiento}</p>
-          <p className="description">{description}</p>
-        </div>
+    <a href={link} target="_blank" className="WorkContainer">
+      <div className="Work_CotainerImagen">
+        <img src={poster} alt={poster} />
       </div>
-    </Fragment>
+      <div className="Work_ContainerData">
+        <h3>{title}</h3>
+        <hr />
+        <p>{description}</p>
+      </div>
+    </a>
   )
 }
 export default Work

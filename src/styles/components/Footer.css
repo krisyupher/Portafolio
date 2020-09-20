@@ -42,7 +42,6 @@
   margin: 0;
   line-height: 55px;
   font-size: 38px;
-  font-family: 'Roboto';
   font-weight: 300;
   animation: plus-out 0.3s;
   transition: all 0.3s;
@@ -182,7 +181,6 @@
 
 .letter{
   font-size: 23px;
-  font-family: 'Roboto';
   color: white;
   position: absolute;
   left: 0;

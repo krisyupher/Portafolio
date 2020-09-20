@@ -1,5 +1,6 @@
 .Hero {
   height: 70vh;
+  width: 100%;
   /*background-image: url(../../static/photo.png);*/
   background-image: url(../../static/light.jpg);
   background-color: rgb(94, 89, 83);

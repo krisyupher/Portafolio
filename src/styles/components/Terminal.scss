@@ -1,0 +1,17 @@
+.TerminalContainer{
+	border: 1px solid snow;
+	background-color: #1e1e1e;
+	height: 25%;
+}
+.HeaderTerminal{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: snow;
+	div{
+		display: flex;
+		p{
+			margin: 7px;
+		}
+	}
+}
