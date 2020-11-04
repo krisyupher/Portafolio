@@ -118,6 +118,7 @@
   z-index: 300;
   transform:  scale(0);
   cursor: pointer;
+  background: rgba(214, 214, 214, 0.123);
 }
 
 .nd1{

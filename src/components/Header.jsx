@@ -23,9 +23,6 @@ const Header = () => {
           <h2>
             CRISTIAN FLOREZ
           </h2>
-          <h4>
-            Developer FrontEnd
-          </h4>
         </div>
         <ul>
           <li>

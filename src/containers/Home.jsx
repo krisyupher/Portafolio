@@ -15,7 +15,7 @@ const Home = () => {
       {explorerLink === "countriesflag" &&
         <div className="sectionViewAndterminal">
           <Countriesflag />
-          <Termianal/>
+          <Termianal />
         </div>}
       {console.log("explorerLink", explorerLink)}
     </div>
