@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4ab937c5c0db1f56204e0607fd3ca4f9",
+    "revision": "328394e675ccd50fddeb251f15ddbb2c",
     "url": "/Portafolio/index.html"
   },
   {
-    "revision": "a69481356b254daefe48",
-    "url": "/Portafolio/static/css/main.504bb5fd.chunk.css"
+    "revision": "a38469afd9d09cca0e18",
+    "url": "/Portafolio/static/css/main.dc97169a.chunk.css"
   },
   {
     "revision": "abafa09e7cf6c1162e1c",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portafolio/static/js/2.54a68904.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a69481356b254daefe48",
-    "url": "/Portafolio/static/js/main.6165814c.chunk.js"
+    "revision": "a38469afd9d09cca0e18",
+    "url": "/Portafolio/static/js/main.50b1f943.chunk.js"
   },
   {
     "revision": "a5166c5545381b6e0a20",
@@ -42,5 +42,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f317b745690e4e2ed4208db086ecdbdd",
     "url": "/Portafolio/static/media/light.f317b745.jpg"
+  },
+  {
+    "revision": "ffcac578df20f16904edfb84d906246b",
+    "url": "/Portafolio/static/media/tres-en-raya-reglas.ffcac578.jpg"
   }
 ]);
