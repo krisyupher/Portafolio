@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "328394e675ccd50fddeb251f15ddbb2c",
+    "revision": "a219e0762bad28970439547415e3da26",
     "url": "/Portafolio/index.html"
   },
   {
-    "revision": "a38469afd9d09cca0e18",
+    "revision": "a3fd92fadf315a49c0bd",
     "url": "/Portafolio/static/css/main.dc97169a.chunk.css"
   },
   {
-    "revision": "abafa09e7cf6c1162e1c",
-    "url": "/Portafolio/static/js/2.54a68904.chunk.js"
+    "revision": "40ac404c80cc64fa352e",
+    "url": "/Portafolio/static/js/2.ca989080.chunk.js"
   },
   {
     "revision": "928d7b5eb39d16fe9a880722c974b51e",
-    "url": "/Portafolio/static/js/2.54a68904.chunk.js.LICENSE.txt"
+    "url": "/Portafolio/static/js/2.ca989080.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "a38469afd9d09cca0e18",
-    "url": "/Portafolio/static/js/main.50b1f943.chunk.js"
+    "revision": "a3fd92fadf315a49c0bd",
+    "url": "/Portafolio/static/js/main.3f2ea4c5.chunk.js"
   },
   {
     "revision": "a5166c5545381b6e0a20",
@@ -30,6 +30,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "679bc0a23d6cd187c9ed91c7ed09d13d",
     "url": "/Portafolio/static/media/Countrys.679bc0a2.png"
+  },
+  {
+    "revision": "52cc3cf1301c0913d359c46476a99b15",
+    "url": "/Portafolio/static/media/Movie-Searcher-TMDB.52cc3cf1.png"
   },
   {
     "revision": "735d5cd86827545d993a814f775412d1",
