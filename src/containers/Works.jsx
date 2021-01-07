@@ -3,6 +3,7 @@ import Work from "../components/Work"
 import BookMePoster from "../static/BookMe.png"
 import ticTacToe from "../static/tres-en-raya-reglas.jpg"
 import Portafolio from "../static/Portafolio.png"
+import MovieSearcherTMDB from "../static/Movie-Searcher-TMDB.png"
 import Countrys from "../static/Countrys.png"
 import "../styles/containers/Works.scss"
 const Works = () => {
@@ -27,6 +28,13 @@ const Works = () => {
             poster={ticTacToe}
             description="React.js, and css. First attempt at PWA (Progressive Web App) download it from your android."
             link="https://krisyupher.github.io/tres-en-linea/"
+          />
+          <Work
+            title="Movie Searcher TMDB"
+            poster={MovieSearcherTMDB}
+            description="IMDB is a repository of information about movies and series that also provides
+            consultation services for fans of the subject."
+            link="https://krisyupher.github.io/Movie-Searcher-TMDB/"
           />
         </div>
       </div>
