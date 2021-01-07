@@ -35,11 +35,11 @@ const Header = () => {
               WORKS
             </NavLink>
           </li>
-          {/*  <li>
+           <li>
             <NavLink to="/skills" activeClassName="is-selected">
               SKILLS
             </NavLink>
-          </li> */}
+          </li>
           {/* <li>
             <NavLink to="/contact" activeClassName="is-selected">
               CONTACT
