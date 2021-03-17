@@ -15,7 +15,7 @@ const Works = () => {
             title="BookMe"
             poster={BookMePoster}
             description="Proyecto reaclizado con React, React-router, carrucel funcional con Whirligig y consumiendo APIs con async await"
-            link="https://github.com/krisyupher/BookMe-platzi/tree/Cristian"
+            link="https://krisyupher.github.io/BookMe-platzi/"
           />
           <Work
             title="Where in the world?"
