@@ -1,11 +1,13 @@
-.Works{
-  h2{
+.Works {
+  height: calc(100vh - 100px);
+  background: #dff4ff;
+  h2 {
     font-size: 50px;
   }
 }
-.cards{
+.cards {
   display: flex;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
