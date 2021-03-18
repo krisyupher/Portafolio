@@ -17,10 +17,8 @@
   }
   img {
     width: inherit;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+    border-radius: inherit;
     max-height: 400px;
-    min-height: 350px;
     object-fit: cover;
   }
   .Work_ContainerData {
@@ -41,6 +39,12 @@
         color: #012938;
         font-size: 40px;
         padding-right: 15px;
+      }
+      .logo {
+        width: 40px;
+        height: 40px;
+        min-height: none;
+        border-radius: 50%;
       }
       h3 {
         font-size: 1.3em;
