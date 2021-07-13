@@ -1,12 +1,16 @@
-import React, { Fragment } from "react"
-import "../styles/components/Skill.scss"
+import React, { Fragment } from "react";
+import "../styles/components/Skill.scss";
 const Skill = (props) => {
   const { title, logoSkill, description, place, link } = props;
   return (
     <Fragment>
       <div className="Skill">
         <div className="container-imagen">
-          <a href={`https://platzi.com${link}`} target="_blank">
+          <a
+            href={`https://platzi.com${link}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src={logoSkill} alt={logoSkill} />
           </a>
           <h4>{place}</h4>
@@ -17,6 +21,6 @@ const Skill = (props) => {
         </div>
       </div>
     </Fragment>
-  )
-}
-export default Skill
+  );
+};
+export default Skill;

@@ -4,7 +4,6 @@ import Linkedin from "../static/linkedin.png"
 import github from "../static/github.png"
 import Instagram from "../static/instagram.png"
 /*import Youtube from "../static/youtube.png"*/
-import Facebook from "../static/facebook.png"
 import "../styles/components/Footer.css"
 const Footer = () => {
   return (

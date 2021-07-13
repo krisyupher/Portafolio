@@ -8,7 +8,6 @@ const Layout = ({ children }) => {
     var c = document.getElementById("MyCanvasLinesLayout");
     var ctx = c.getContext("2d");
     for (let i = 0; i < 30; i++) {
-      { console.log(c.width) }
       ctx.moveTo(0, i * 30);
       ctx.lineTo(i * 30, 0);
       ctx.strokeStyle = "#64cbe6";

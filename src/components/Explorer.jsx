@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from "react-router-dom";
 import "../styles/components/Explorer.css"
 const Explorer = ({ stateExplorer }) => {
 	return (

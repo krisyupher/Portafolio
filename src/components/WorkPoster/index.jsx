@@ -6,7 +6,12 @@ import "./WorkPoster.scss";
 const WorkPoster = (props) => {
   const { title, poster, description, linkView, date, Link } = props;
   return (
-    <a href={linkView} target="_blank" className="WorkContainer">
+    <a
+      href={linkView}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="WorkContainer"
+    >
       <img src={poster} alt={poster} />
       <div className="Work_ContainerData">
         <div className="titleContainer">
