@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import "../styles/components/Skill.scss";
 const Skill = (props) => {
-  const { title, logoSkill, description, place, link } = props;
+  const { title, logoSkill, description, place, link, backGround = "" } = props;
   return (
     <Fragment>
-      <div className="Skill">
+      <div className={backGround === "Black" ? "SkillBlack" : "SkillWhite"}>
         <div className="container-imagen">
           <a
             href={`https://platzi.com${link}`}
@@ -13,7 +13,6 @@ const Skill = (props) => {
           >
             <img src={logoSkill} alt={logoSkill} />
           </a>
-          <h4>{place}</h4>
         </div>
         <div className="Skill-Container">
           <h4>{title}</h4>

@@ -24,6 +24,7 @@ $grisLineas: #a0a4a4;
     h2 {
       color: $grisLineas;
       text-align: end;
+      cursor: pointer;
     }
     h4 {
       color: black;
@@ -33,7 +34,7 @@ $grisLineas: #a0a4a4;
 .Header ul {
   display: flex;
   list-style: none;
-  margin: 0 5vw 0 0; 
+  margin: 0 5vw 0 0;
 }
 .Header ul li a {
   color: $azulFuerte;

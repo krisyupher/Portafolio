@@ -1,0 +1,44 @@
+Header {
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  .textContainer {
+    display: flex;
+    h1 {
+      font-size: 3em;
+      margin: 1rem 0;
+      cursor: pointer;
+      @media (max-width: 1024px) {
+        font-size: 2em;
+      }
+    }
+    .textWhite {
+      color: white;
+    }
+    .textOrange {
+      color: orangered;
+    }
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    a {
+      display: flex;
+      align-items: center;
+      color: white;
+      font-size: 1.3em;
+      height: inherit;
+      padding: 0 0.5rem;
+      height: 100%;
+      transition-duration: 1s;
+      @media (max-width: 1024px) {
+        font-size: 1em;
+      }
+      &:hover {
+        transition-property: height;
+        background: orangered;
+      }
+    }
+  }
+}

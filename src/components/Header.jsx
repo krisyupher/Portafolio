@@ -1,7 +1,10 @@
-import React, { Fragment } from "react"
-import { NavLink } from "react-router-dom"
-import "../styles/components/Header.scss"
+import React, { Fragment } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import "../styles/components/Header.scss";
 const Header = () => {
+  const dispatch = useDispatch();
   setTimeout(() => {
     var c = document.getElementById("MyCanvasLinesHeader");
     var ctx = c.getContext("2d");
@@ -13,6 +16,20 @@ const Header = () => {
       ctx.stroke();
     }
   }, 100);
+  const togleView = (min, max) => {
+    const result = Math.round(Math.random() * (max - min) + min);
+    let view;
+    if (result === 1) {
+      view = "Home";
+    } else {
+      view = "designByAndresOviedo";
+    }
+    dispatch({
+      type: "SET_VIEW_RENDER",
+      payload: view,
+    });
+  };
+
   return (
     <Fragment>
       <div className="Header">
@@ -20,7 +37,11 @@ const Header = () => {
           <canvas id="MyCanvasLinesHeader" />
         </div>
         <div className="NameAndJob">
-          <h2>
+          <h2
+            onClick={() => {
+              togleView(1, 2);
+            }}
+          >
             CRISTIAN FLOREZ
           </h2>
         </div>
@@ -35,7 +56,7 @@ const Header = () => {
               WORKS
             </NavLink>
           </li>
-           <li>
+          <li>
             <NavLink to="/skills" activeClassName="is-selected">
               SKILLS
             </NavLink>
@@ -48,7 +69,6 @@ const Header = () => {
         </ul>
       </div>
     </Fragment>
-  )
-
-}
-export default Header
+  );
+};
+export default Header;

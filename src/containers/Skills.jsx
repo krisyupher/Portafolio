@@ -1,29 +1,17 @@
-import React, { Fragment, useState, useEffect } from "react"
-import Skill from "../components/Skill"
-import "../styles/containers/Skills.css"
-const Skills = ({ match}) => {
-  const [course, setCourse] = useState([]);
-  const getUserSummary = () => {
-    fetch(`https://platzi-user-api.jecsham.com/api/v1/getUserSummary/@krisyupher`)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => {
-      setCourse(data.userData.courses)
-    })
-    .catch(() => {
-      console.log("Grave error")
-    })
-  }
-  useEffect(() => {
-		getUserSummary()
-	}, [match])
+import React, { Fragment } from "react";
+import { useSelector } from "react-redux";
+
+import Skill from "../components/Skill";
+import "../styles/containers/Skills.css";
+const Skills = () => {
+  const skills = useSelector((state) => state.skills);
+
   return (
     <Fragment>
       <div className="skills">
         <h2>SKILLS</h2>
         <div className="skills-container">
-          {course.map((item) => {
+          {skills.map((item) => {
             return (
               <Skill
                 title={item.title}
@@ -33,13 +21,11 @@ const Skills = ({ match}) => {
                 place="platzi"
                 key={item.id}
               />
-            )
+            );
           })}
         </div>
-        {console.log(course)}
-        
       </div>
     </Fragment>
-  )
-}
-export default Skills
+  );
+};
+export default Skills;
