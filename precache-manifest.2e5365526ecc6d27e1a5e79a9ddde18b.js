@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ab29ea6cca037d72019b873dbc5b85b3",
+    "revision": "bc16a759c0f27d541814e5e836c50cd0",
     "url": "/Portafolio/index.html"
   },
   {
-    "revision": "5c360525efa035b0f60b",
-    "url": "/Portafolio/static/css/main.6b1c121d.chunk.css"
+    "revision": "98233be52c6780fa3335",
+    "url": "/Portafolio/static/css/main.f42d87ea.chunk.css"
   },
   {
-    "revision": "ff3b8c53ef395929ca9b",
-    "url": "/Portafolio/static/js/2.925f3fbc.chunk.js"
+    "revision": "ae7ed2d6cf54966323e6",
+    "url": "/Portafolio/static/js/2.ac531893.chunk.js"
   },
   {
     "revision": "fd3385c7a61d01724c8e56495d18616e",
-    "url": "/Portafolio/static/js/2.925f3fbc.chunk.js.LICENSE.txt"
+    "url": "/Portafolio/static/js/2.ac531893.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5c360525efa035b0f60b",
-    "url": "/Portafolio/static/js/main.679f4d69.chunk.js"
+    "revision": "98233be52c6780fa3335",
+    "url": "/Portafolio/static/js/main.d72ab579.chunk.js"
   },
   {
     "revision": "a5166c5545381b6e0a20",
@@ -48,6 +48,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portafolio/static/media/enConstruccion.daf8c5a3.jpg"
   },
   {
+    "revision": "48b3bbe71f5a060a5bb7ed59a1eeb55b",
+    "url": "/Portafolio/static/media/expressTest.48b3bbe7.png"
+  },
+  {
     "revision": "4a8c23476a7c20c5bee2a752a6f96e9e",
     "url": "/Portafolio/static/media/instagram.4a8c2347.png"
   },
@@ -60,7 +64,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Portafolio/static/media/sobreMiIMG.346faada.png"
   },
   {
+    "revision": "d2e7280857dcb13765ea7be2b80ad331",
+    "url": "/Portafolio/static/media/titaMedia.d2e72808.png"
+  },
+  {
     "revision": "ffcac578df20f16904edfb84d906246b",
     "url": "/Portafolio/static/media/tres-en-raya-reglas.ffcac578.jpg"
+  },
+  {
+    "revision": "efeeeefa47e4529331eadba65aad2085",
+    "url": "/Portafolio/static/media/troop.efeeeefa.png"
   }
 ]);

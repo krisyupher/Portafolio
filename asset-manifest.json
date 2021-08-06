@@ -1,32 +1,35 @@
 {
   "files": {
-    "main.css": "/Portafolio/static/css/main.6b1c121d.chunk.css",
-    "main.js": "/Portafolio/static/js/main.679f4d69.chunk.js",
-    "main.js.map": "/Portafolio/static/js/main.679f4d69.chunk.js.map",
+    "main.css": "/Portafolio/static/css/main.f42d87ea.chunk.css",
+    "main.js": "/Portafolio/static/js/main.d72ab579.chunk.js",
+    "main.js.map": "/Portafolio/static/js/main.d72ab579.chunk.js.map",
     "runtime-main.js": "/Portafolio/static/js/runtime-main.c0423103.js",
     "runtime-main.js.map": "/Portafolio/static/js/runtime-main.c0423103.js.map",
-    "static/js/2.925f3fbc.chunk.js": "/Portafolio/static/js/2.925f3fbc.chunk.js",
-    "static/js/2.925f3fbc.chunk.js.map": "/Portafolio/static/js/2.925f3fbc.chunk.js.map",
+    "static/js/2.ac531893.chunk.js": "/Portafolio/static/js/2.ac531893.chunk.js",
+    "static/js/2.ac531893.chunk.js.map": "/Portafolio/static/js/2.ac531893.chunk.js.map",
     "index.html": "/Portafolio/index.html",
-    "precache-manifest.64cf1eac05eab3db38906e6479b23ae8.js": "/Portafolio/precache-manifest.64cf1eac05eab3db38906e6479b23ae8.js",
+    "precache-manifest.2e5365526ecc6d27e1a5e79a9ddde18b.js": "/Portafolio/precache-manifest.2e5365526ecc6d27e1a5e79a9ddde18b.js",
     "service-worker.js": "/Portafolio/service-worker.js",
-    "static/css/main.6b1c121d.chunk.css.map": "/Portafolio/static/css/main.6b1c121d.chunk.css.map",
-    "static/js/2.925f3fbc.chunk.js.LICENSE.txt": "/Portafolio/static/js/2.925f3fbc.chunk.js.LICENSE.txt",
+    "static/css/main.f42d87ea.chunk.css.map": "/Portafolio/static/css/main.f42d87ea.chunk.css.map",
+    "static/js/2.ac531893.chunk.js.LICENSE.txt": "/Portafolio/static/js/2.ac531893.chunk.js.LICENSE.txt",
     "static/media/BookMe.png": "/Portafolio/static/media/BookMe.6695807b.png",
     "static/media/Countrys.png": "/Portafolio/static/media/Countrys.679bc0a2.png",
     "static/media/Movie-Searcher-TMDB.png": "/Portafolio/static/media/Movie-Searcher-TMDB.52cc3cf1.png",
     "static/media/QuantumConnexion.png": "/Portafolio/static/media/QuantumConnexion.9273deb6.png",
     "static/media/TuAp.png": "/Portafolio/static/media/TuAp.a14b510b.png",
     "static/media/enConstruccion.jpg": "/Portafolio/static/media/enConstruccion.daf8c5a3.jpg",
+    "static/media/expressTest.png": "/Portafolio/static/media/expressTest.48b3bbe7.png",
     "static/media/instagram.png": "/Portafolio/static/media/instagram.4a8c2347.png",
     "static/media/Hero.css": "/Portafolio/static/media/light.f317b745.jpg",
     "static/media/sobreMiIMG.png": "/Portafolio/static/media/sobreMiIMG.346faada.png",
-    "static/media/tres-en-raya-reglas.jpg": "/Portafolio/static/media/tres-en-raya-reglas.ffcac578.jpg"
+    "static/media/titaMedia.png": "/Portafolio/static/media/titaMedia.d2e72808.png",
+    "static/media/tres-en-raya-reglas.jpg": "/Portafolio/static/media/tres-en-raya-reglas.ffcac578.jpg",
+    "static/media/troop.png": "/Portafolio/static/media/troop.efeeeefa.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c0423103.js",
-    "static/js/2.925f3fbc.chunk.js",
-    "static/css/main.6b1c121d.chunk.css",
-    "static/js/main.679f4d69.chunk.js"
+    "static/js/2.ac531893.chunk.js",
+    "static/css/main.f42d87ea.chunk.css",
+    "static/js/main.d72ab579.chunk.js"
   ]
 }
