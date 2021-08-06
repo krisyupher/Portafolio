@@ -15,7 +15,7 @@ const WorkPoster = (props) => {
       <img src={poster} alt={poster} />
       <div className="Work_ContainerData">
         <div className="titleContainer">
-          <div href={Link}>
+          <a href={Link} target="_blank">
             {Link.startsWith("https://github") ? (
               <FontAwesomeIcon icon={faGithub} className="FontAwesomeIcon" />
             ) : (
@@ -25,12 +25,12 @@ const WorkPoster = (props) => {
                 alt="logoQuantumConnexion"
               />
             )}
-          </div>
-          <div>
+          </a>
+          <a href={Link} target="_blank">
             <h3>{title}</h3>
             <span>{date}</span>
             <hr />
-          </div>
+          </a>
         </div>
         <p>{description}</p>
       </div>
