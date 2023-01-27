@@ -12,6 +12,38 @@ export class AppComponent {
   title = 'Portafolio';
   works: Work[] = [
     {
+      title: 'Corte Suprema de Justicia',
+      poster: '../assets/img/CorteSuprema.png',
+      description: 'Current job, collaborator with Angular technology.',
+      linkView: 'https://cortesuprema.gov.co/corte/',
+      date: 'ENE 2023',
+      Link: 'https://www.linkedin.com/company/corte-suprema-de-justicia/',
+    },
+    {
+      title: 'Supremo Buscador',
+      poster: '../assets/img/SupremoBuscador.png',
+      description: 'Current job, collaborator with Angular technology.',
+      linkView: 'http://consultaprovidencias.cortesuprema.gov.co/busqueda',
+      date: 'SEP 2022',
+      Link: 'https://www.linkedin.com/company/corte-suprema-de-justicia/',
+    },
+    {
+      title: 'ESAV',
+      poster: '../assets/img/Esav.png',
+      description: 'Current job, collaborator with Angular technology.',
+      linkView: 'https://ecosistemadigital.cortesuprema.gov.co/#/',
+      date: 'AGO 2022',
+      Link: 'https://www.linkedin.com/company/corte-suprema-de-justicia/',
+    },
+    {
+      title: 'Davivienda',
+      poster: '../assets/img/Davivienda.png',
+      description: 'Current job, collaborator with Angular technology.',
+      linkView: 'https://www.davivienda.com/wps/portal/personas/nuevo',
+      date: 'MAY 2022',
+      Link: 'https://www.linkedin.com/company/seti-colombia/',
+    },
+    {
       title: 'troop.com.co',
       poster: '../assets/img/troop.png',
       description: 'Current job, collaborator with Angular technology.',

@@ -1,5 +1,8 @@
 .worksContainer {
   width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 380px));
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 10px;
 }
