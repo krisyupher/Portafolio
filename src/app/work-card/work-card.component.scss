@@ -1,9 +1,12 @@
 :host {
-  border: 1px solid red;
+  border: 1px solid gray;
   border-radius: 10px;
   height: 500px;
   .WorkContainer {
     border-radius: inherit;
+    height: inherit;
+    width: 100%;
+    border: inherit;
     img {
       width: 100%;
       height: 100%;

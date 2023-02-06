@@ -8,4 +8,10 @@ import { Work } from '../work.model';
 })
 export class WorkCardComponent {
   @Input() data: Work;
+  constructor() {}
+  OpenModal = (id: string): void => {
+    let element: HTMLElement = document.getElementById('myModal' + id)!;
+    element.classList.toggle('openModalStyle');
+    element.classList.toggle('displayNone');
+  };
 }

@@ -8,11 +8,11 @@ import { WorkCardComponent } from './work-card/work-card.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  
   title = 'Portafolio';
   works: Work[] = [
     {
       title: 'Corte Suprema de Justicia',
+      id: 'cortesupremadejusticia',
       poster: '../assets/img/CorteSuprema.png',
       description: 'Current job, collaborator with Angular technology.',
       linkView: 'https://cortesuprema.gov.co/corte/',
@@ -21,6 +21,7 @@ export class AppComponent {
     },
     {
       title: 'Supremo Buscador',
+      id: 'supremobuscador',
       poster: '../assets/img/SupremoBuscador.png',
       description: 'Current job, collaborator with Angular technology.',
       linkView: 'http://consultaprovidencias.cortesuprema.gov.co/busqueda',
@@ -29,6 +30,7 @@ export class AppComponent {
     },
     {
       title: 'ESAV',
+      id: 'esav',
       poster: '../assets/img/Esav.png',
       description: 'Current job, collaborator with Angular technology.',
       linkView: 'https://ecosistemadigital.cortesuprema.gov.co/#/',
@@ -37,6 +39,7 @@ export class AppComponent {
     },
     {
       title: 'Davivienda',
+      id: 'davivienda',
       poster: '../assets/img/Davivienda.png',
       description: 'Current job, collaborator with Angular technology.',
       linkView: 'https://www.davivienda.com/wps/portal/personas/nuevo',
@@ -45,6 +48,7 @@ export class AppComponent {
     },
     {
       title: 'troop.com.co',
+      id: 'tropp',
       poster: '../assets/img/troop.png',
       description: 'Current job, collaborator with Angular technology.',
       linkView: 'https://www.troop.com.co/#/',
@@ -53,6 +57,7 @@ export class AppComponent {
     },
     {
       title: 'tita-media-challenge',
+      id: 'titamedia',
       poster: '../assets/img/titaMedia.png',
       description:
         'Enough of React and Angular. This project is with css, js and html. Only that. We make requests to a service, grids and styles like pinterest.',
@@ -62,6 +67,7 @@ export class AppComponent {
     },
     {
       title: 'Node-Espress Test',
+      id: 'nodeexpress',
       poster: '../assets/img/expressTest.png',
       description:
         'Starting in the back world, test project implementing architecture and get, put, post and delete requests. finally published on heroku.',
@@ -71,6 +77,7 @@ export class AppComponent {
     },
     {
       title: 'TuAp.com',
+      id: 'tuap',
       poster: '../assets/img/TuAp.png',
       description:
         'web and mobile project - Angular and Ionic - eCommerce for stores - Running right now',
@@ -80,6 +87,7 @@ export class AppComponent {
     },
     {
       title: 'Movie Searcher TMDB',
+      id: 'moviesearcher',
       poster: '../assets/img/Movie-Searcher-TMDB.png',
       description:
         'IMDB is a repository of information about movies and series that also provides consultation services for fans of the subject.',
@@ -89,6 +97,7 @@ export class AppComponent {
     },
     {
       title: 'tic-tac-toe',
+      id: 'tictac',
       poster: '../assets/img/tres-en-raya-reglas.jpg',
       description:
         'React.js, and css. First attempt at PWA (Progressive Web App) download it from your android.',
@@ -98,6 +107,7 @@ export class AppComponent {
     },
     {
       title: 'Where in the world?',
+      id: 'theworld',
       poster: '../assets/img/Countrys.png',
       description:
         'Proyecto reaclizado con React, React-router, carrucel funcional con Whirligig y consumiendo APIs con async await',
@@ -107,12 +117,33 @@ export class AppComponent {
     },
     {
       title: 'BookMe',
+      id: 'bookme',
       poster: '../assets/img/BookMe.png',
       description:
         'Proyecto reaclizado con React, React-router, carrucel funcional con Whirligig y consumiendo APIs con async await',
       linkView: 'https://krisyupher.github.io/BookMe-platzi/',
       date: '2019',
       Link: 'https://github.com/krisyupher/BookMe-platzi',
+    },
+    {
+      title: 'Pendulo-de-Galileo',
+      id: 'PendulodeGalileo',
+      poster: '../assets/img/Pendulum Waves.png',
+      description:
+        'Proyecto reaclizado con React, React-router, carrucel funcional con Whirligig y consumiendo APIs con async await',
+      linkView: 'https://krisyupher.github.io/Pendulo-de-Galileo/',
+      date: '2019',
+      Link: 'https://github.com/krisyupher/Pendulo-de-Galileo',
+    },
+    {
+      title: 'Reloj cucu',
+      id: 'reloj',
+      poster: '../assets/img/reloj.png',
+      description:
+        'Proyecto reaclizado con React, React-router, carrucel funcional con Whirligig y consumiendo APIs con async await',
+      linkView: 'https://krisyupher.github.io/Reloj-Animacion-Css/',
+      date: '2019',
+      Link: 'https://github.com/krisyupher/Reloj-Animacion-Css',
     },
   ];
 }

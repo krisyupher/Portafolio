@@ -1,7 +1,10 @@
 .worksContainer {
-  width: 100vw;
+  padding: 1rem;
+  background-image: url("../assets/img/background2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 380px));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 340px));
   justify-content: center;
   column-gap: 10px;
   row-gap: 10px;
