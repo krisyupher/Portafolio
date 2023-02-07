@@ -1,7 +1,20 @@
-<button
-  type="button"
-  class="WorkContainer"
-  (click)="OpenModal(data.id.toString())"
->
-  <img [src]="data.poster" [alt]="data.poster" />
-</button>
+<div class="example-2 cardBase">
+  <div
+    class="wrapper"
+    style="background: url('{{ data.poster }}')
+  center / cover no-repeat;"
+  >
+    <div class="data">
+      <div class="content">
+        <span class="author">{{ data.date }}</span>
+        <h1 class="title">
+          <a href="#">{{ data.title }}</a>
+        </h1>
+        <p class="text">{{ data.description }}</p>
+        <a href="#" class="button" (click)="OpenModal(data.id.toString())">
+          Read more
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

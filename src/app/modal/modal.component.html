@@ -1,19 +1,19 @@
 <!-- Modal -->
-<div
-  class="card text-center modalCustom displayNone"
-  id="myModal{{ data.id }}"
-  (blur)="closeModal(data.id.toString())"
->
-  <div class="card-header">Featured</div>
-  <div class="card-body">
-    <a [href]="data.linkView" target="_blank" class="WorkContainer">
-      <img [src]="data.poster" [alt]="data.poster" />
-    </a>
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">
-      With supporting text below as a natural lead-in to additional content.
-    </p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-  <div class="card-footer text-muted">2 days ago</div>
+<div class="modalComponentContainer displayNone" id="myModal{{ data.id }}">
+  <button class="modalCustom" (blur)="closeModal(data.id.toString())">
+    <img [src]="data.poster" [alt]="data.poster" />
+    <div class="contentContainer">
+      <h3 class="display-4">{{ data.title }}</h3>
+      <span>{{ data.date }}</span>
+      <blockquote class="blockquote">
+        <p class="mb-0">{{ data.description }}</p>
+      </blockquote>
+      <div class="buttonContainer">
+        <a type="button" class="btn btn-success" href="{{ data.linkView }}">
+          Visitar
+        </a>
+        <a type="button" class="btn btn-light" href="{{ data.Link }}">Codigo</a>
+      </div>
+    </div>
+  </button>
 </div>

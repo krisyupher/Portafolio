@@ -14,7 +14,8 @@ export class AppComponent {
       title: 'Corte Suprema de Justicia',
       id: 'cortesupremadejusticia',
       poster: '../assets/img/CorteSuprema.png',
-      description: 'Current job, collaborator with Angular technology.',
+      description:
+        'Current job, collaborator with Angular technology. Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.',
       linkView: 'https://cortesuprema.gov.co/corte/',
       date: 'ENE 2023',
       Link: 'https://www.linkedin.com/company/corte-suprema-de-justicia/',

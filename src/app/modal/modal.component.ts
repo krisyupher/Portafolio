@@ -9,7 +9,6 @@ import { Work } from '../work.model';
 export class ModalComponent {
   @Input() data: Work;
   closeModal = (id: string): void => {
-    console.log("asd")
     let element: HTMLElement = document.getElementById('myModal' + id)!;
     element.classList.remove('openModalStyle');
     element.classList.add('displayNone');

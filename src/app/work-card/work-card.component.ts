@@ -11,7 +11,7 @@ export class WorkCardComponent {
   constructor() {}
   OpenModal = (id: string): void => {
     let element: HTMLElement = document.getElementById('myModal' + id)!;
-    element.classList.toggle('openModalStyle');
-    element.classList.toggle('displayNone');
+    element.classList.add('openModalStyle');
+    element.classList.remove('displayNone');
   };
 }
