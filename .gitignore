@@ -200,6 +200,15 @@ firestore-debug.log*
 ui-debug.log*
 
 # ============================================================================
+# MCP SERVERS (Model Context Protocol)
+# ============================================================================
+# MCP server configurations are project-specific workflow configurations
+# These should be committed to share MCP server setups with your team
+# Sensitive tokens/credentials should be set via environment variables
+.mcp/settings.local.json
+.mcp/**/*.local.*
+
+# ============================================================================
 # CLAUDE CODE AGENT (Local AI Development Assistant)
 # ============================================================================
 # Claude Code agent configurations are project-specific workflow helpers
@@ -207,10 +216,13 @@ ui-debug.log*
 # Only ignore local settings that contain personal preferences
 .claude/settings.local.json
 .claude/**/*.local.*
-/.claude/
-/.vscode/
-.vscode
-CLAUDE.md
+
+# ============================================================================
+# PERSONAL RESUME/CV FILES
+# ============================================================================
+# Resume and CV files containing personal information
+# These should NOT be committed to a public portfolio repository
+/resumers/
 
 # ============================================================================
 # MISCELLANEOUS

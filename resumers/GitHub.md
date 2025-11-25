@@ -31,7 +31,7 @@ Full-stack developer passionate about creating impactful web applications that s
 ---
 
 ### 💼 Current Focus
-- 🔭 **Working on**: [Corte Suprema de Justicia](https://cortesuprema.gov.co/corte/) - Colombia's Supreme Court of Justice
+- 🔭 **Working on**: <a href="https://cortesuprema.gov.co/corte/" target="_blank">Corte Suprema de Justicia</a> - Colombia's Supreme Court of Justice
 - 🌐 Building robust, scalable web applications for government and enterprise clients
 
 ### 🤝 Connect With Me
@@ -93,34 +93,40 @@ I'm always interested in connecting with fellow developers, potential collaborat
 ### 💼 Featured Projects
 
 #### Enterprise & Government Solutions
-- **[🗽 Corte Suprema de Justicia](https://cortesuprema.gov.co/corte/)** - Colombia's Supreme Court of Justice digital platform
-- **[🔍 Supremo Buscador](http://consultaprovidencias.cortesuprema.gov.co/busqueda)** - High-performance legal document search engine
-- **[📜 ESAV](https://ecosistemadigital.cortesuprema.gov.co/#/)** - Digital ecosystem for judicial services
-- **[🏦 Davivienda](https://www.davivienda.com/wps/portal/personas/nuevo)** - Colombia's leading financial institution portal
+- **<a href="https://cortesuprema.gov.co/corte/" target="_blank">🗽 Corte Suprema de Justicia</a>** - Colombia's Supreme Court of Justice digital platform
+- **<a href="http://consultaprovidencias.cortesuprema.gov.co/busqueda" target="_blank">🔍 Supremo Buscador</a>** - High-performance legal document search engine
+- **<a href="https://ecosistemadigital.cortesuprema.gov.co/#/" target="_blank">📜 ESAV</a>** - Digital ecosystem for judicial services
+- **<a href="https://www.davivienda.com/wps/portal/personas/nuevo" target="_blank">🏦 Davivienda</a>** - Colombia's leading financial institution portal
 
 #### Fintech & Business Applications
-- **[💵 troop.com.co](https://www.troop.com.co/#/)** - Financial services platform
-- **[🍱 TuAp.com](https://TuAp.com)** - Food & service delivery platform
+- **<a href="https://www.troop.com.co/#/" target="_blank">💵 troop.com.co</a>** - Financial services platform
+- **<a href="https://TuAp.com" target="_blank">🍱 TuAp.com</a>** - Food & service delivery platform
 
 #### Interactive Projects & Challenges
-- **[🎥 Movie Searcher TMDB](https://krisyupher.github.io/Movie-Searcher-TMDB/)** - React app with TMDB API integration
-- **[🗺 Where in the world?](https://krisyupher.github.io/countriesflag/)** - REST countries data visualization
-- **[🕹 Tic-Tac-Toe](https://krisyupher.github.io/tres-en-linea/)** - Interactive game
-- **[💅 TitaMedia Challenge](https://krisyupher.github.io/TitaMedia-Challenge/)** - Design implementation challenge
-- **[⚖ Péndulo de Galileo](https://krisyupher.github.io/Pendulo-de-Galileo/)** - Physics simulation
-- **[⏲ Reloj Cucú](https://krisyupher.github.io/Reloj-Animacion-Css/)** - CSS animation showcase
+- **<a href="https://krisyupher.github.io/Movie-Searcher-TMDB/" target="_blank">🎥 Movie Searcher TMDB</a>** - React app with TMDB API integration
+- **<a href="https://krisyupher.github.io/countriesflag/" target="_blank">🗺 Where in the world?</a>** - REST countries data visualization
+- **<a href="https://krisyupher.github.io/tres-en-linea/" target="_blank">🕹 Tic-Tac-Toe</a>** - Interactive game
+- **<a href="https://krisyupher.github.io/TitaMedia-Challenge/" target="_blank">💅 TitaMedia Challenge</a>** - Design implementation challenge
+- **<a href="https://krisyupher.github.io/Pendulo-de-Galileo/" target="_blank">⚖ Péndulo de Galileo</a>** - Physics simulation
+- **<a href="https://krisyupher.github.io/Reloj-Animacion-Css/" target="_blank">⏲ Reloj Cucú</a>** - CSS animation showcase
 
 ---
 
 ### 📊 GitHub Statistics
 
 <div align="center">
-  <img height="180em" src="https://github-readme-stats.vercel.app/api?username=krisyupher&show_icons=true&theme=github_dark&include_all_commits=true&count_private=true" alt="GitHub stats"/>
-  <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs?username=krisyupher&layout=compact&theme=github_dark" alt="Top languages"/>
+  <a href="https://github.com/krisyupher" target="_blank">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api?username=krisyupher&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub stats"/>
+  </a>
+  <a href="https://github.com/krisyupher" target="_blank">
+    <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs?username=krisyupher&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages"/>
+  </a>
 </div>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=krisyupher&theme=dark" alt="GitHub Streak"/>
+  <a href="https://github.com/krisyupher" target="_blank">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=krisyupher&theme=tokyonight&hide_border=true" alt="GitHub Streak"/>
+  </a>
 </div>
 
 ---
