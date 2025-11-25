@@ -1,24 +1,97 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# Compiled output
+# ============================================================================
+# COMPILED OUTPUT
+# ============================================================================
+# Angular build artifacts
 /dist
+/dist-server
 /tmp
 /out-tsc
 /bazel-out
 
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
+# Build artifacts for different configurations
+*.js.map
+*.d.ts.map
 
-# IDEs and editors
+# ============================================================================
+# NODE.JS / NPM / YARN
+# ============================================================================
+# Dependencies
+/node_modules
+/bower_components
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Lock files (keep package-lock.json but ignore others if using multiple package managers)
+# Uncomment if you want to ignore lock files:
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# ============================================================================
+# ANGULAR SPECIFIC
+# ============================================================================
+# Angular cache
+/.angular/cache
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+
+# Angular compilation cache
+*.ngfactory.ts
+*.ngsummary.json
+*.metadata.json
+
+# ============================================================================
+# TESTING & COVERAGE
+# ============================================================================
+# Test results and coverage reports
+/coverage
+*.lcov
+.nyc_output
+
+# Test logs
+testem.log
+/e2e/reports
+/e2e/screenshots
+
+# Karma test runner cache
+.karma/
+
+# Protractor/E2E
+/e2e/*.js
+/e2e/*.map
+
+# ============================================================================
+# IDEs AND EDITORS
+# ============================================================================
+# JetBrains IDEs (IntelliJ, WebStorm, etc.)
 .idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
 .project
 .classpath
-.c9/
-*.launch
 .settings/
-*.sublime-workspace
+*.launch
 
 # Visual Studio Code
 .vscode/*
@@ -26,17 +99,168 @@ yarn-error.log
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
+!.vscode/*.code-snippets
+.history/
+*.code-workspace
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
+
+# Sublime Text
+*.sublime-workspace
+*.sublime-project
+
+# Atom
+.atom/
+
+# Cloud9
+.c9/
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================================================
+# OPERATING SYSTEM FILES
+# ============================================================================
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+*.stackdump
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================================================
+# ENVIRONMENT & SENSITIVE FILES
+# ============================================================================
+# Environment variables (IMPORTANT: Never commit sensitive data)
+.env
+.env.local
+.env.*.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Environment configuration files with secrets
+environment.prod.ts
+environment.staging.ts
+# Note: Keep environment.ts for development defaults
+
+# Credentials and secrets
+*.pem
+*.key
+*.cert
+*.crt
+*.p12
+*.pfx
+secrets.json
+credentials.json
+
+# Firebase
+.firebase/
+.firebaserc
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+
+# ============================================================================
+# CLAUDE CODE AGENT (Local AI Development Assistant)
+# ============================================================================
+# Claude Code agent configurations are project-specific workflow helpers
+# These should be committed to share AI agent workflows with your team
+# Only ignore local settings that contain personal preferences
+.claude/settings.local.json
+.claude/**/*.local.*
+/.claude/
+/.vscode/
+.vscode
+CLAUDE.md
+
+# ============================================================================
+# MISCELLANEOUS
+# ============================================================================
+# TypeScript definitions
 /typings
 
-# System files
-.DS_Store
-Thumbs.db
+# Stylelint cache
+.stylelintcache
+
+# Storybook
+storybook-static/
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# Documentation build outputs
+/docs/_build
+/docs/.doctrees
+
+# Logs
+*.log
+
+# Debug files
+*.trace
+
+# Profiling files
+*.prof
+chrome-profiler-events*.json
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+
+# Miscellaneous system files
+.sass-cache
+.grunt
+.lock-wscript
+lib-cov
+coverage
+.nyc_output
