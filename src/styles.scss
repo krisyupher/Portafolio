@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Tailwind CSS imports */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
 // Variables
 $regal-blue: #034378;
 $san-juan: #2d4e68;
