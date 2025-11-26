@@ -18,7 +18,7 @@ export function createMockWork(overrides?: Partial<Work>): Work {
     linkView: 'https://example.com',
     date: 'JAN 2024',
     Link: 'https://github.com/example/test-repo',
-    ...overrides
+    ...overrides,
   };
 }
 
@@ -36,7 +36,7 @@ export function createMockWorks(count: number = 3): Work[] {
     createMockWork({
       id: `work-${index + 1}`,
       title: `Work ${index + 1}`,
-      date: `${['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'][index % 6]} 202${Math.floor(index / 6)}`
+      date: `${['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN'][index % 6]} 202${Math.floor(index / 6)}`,
     })
   );
 }

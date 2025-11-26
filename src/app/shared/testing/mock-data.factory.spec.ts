@@ -25,10 +25,10 @@ describe('Mock Data Factory', () => {
         'description',
         'linkView',
         'date',
-        'Link'
+        'Link',
       ];
 
-      requiredProps.forEach(prop => {
+      requiredProps.forEach((prop) => {
         expect(work[prop]).toBeDefined();
         expect(work[prop]).not.toBe('');
       });
@@ -40,7 +40,7 @@ describe('Mock Data Factory', () => {
 
       const work = createMockWork({
         title: customTitle,
-        id: customId
+        id: customId,
       });
 
       expect(work.title).toBe(customTitle);
@@ -51,7 +51,7 @@ describe('Mock Data Factory', () => {
 
     it('should allow partial overrides', () => {
       const work = createMockWork({
-        description: 'Custom description only'
+        description: 'Custom description only',
       });
 
       expect(work.description).toBe('Custom description only');
@@ -67,7 +67,7 @@ describe('Mock Data Factory', () => {
         description: 'Custom description',
         linkView: 'https://custom.com',
         date: 'DEC 2023',
-        Link: 'https://custom.link'
+        Link: 'https://custom.link',
       };
 
       const work = createMockWork(customWork);
@@ -94,7 +94,7 @@ describe('Mock Data Factory', () => {
 
     it('should create works with unique IDs', () => {
       const works = createMockWorks(5);
-      const ids = works.map(w => w.id);
+      const ids = works.map((w) => w.id);
       const uniqueIds = new Set(ids);
 
       expect(uniqueIds.size).toBe(5);
@@ -103,21 +103,15 @@ describe('Mock Data Factory', () => {
 
     it('should create works with unique titles', () => {
       const works = createMockWorks(5);
-      const titles = works.map(w => w.title);
+      const titles = works.map((w) => w.title);
 
-      expect(titles).toEqual([
-        'Work 1',
-        'Work 2',
-        'Work 3',
-        'Work 4',
-        'Work 5'
-      ]);
+      expect(titles).toEqual(['Work 1', 'Work 2', 'Work 3', 'Work 4', 'Work 5']);
     });
 
     it('should create works with all required properties', () => {
       const works = createMockWorks(3);
 
-      works.forEach(work => {
+      works.forEach((work) => {
         expect(work.id).toBeTruthy();
         expect(work.title).toBeTruthy();
         expect(work.poster).toBeTruthy();
@@ -146,7 +140,7 @@ describe('Mock Data Factory', () => {
     it('should create valid Work objects', () => {
       const works = createMockWorks(2);
 
-      works.forEach(work => {
+      works.forEach((work) => {
         expect(typeof work.id).toBe('string');
         expect(typeof work.title).toBe('string');
         expect(typeof work.poster).toBe('string');

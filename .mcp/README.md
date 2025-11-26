@@ -70,6 +70,7 @@ The GitHub MCP server (`github.json`) enables Claude Code to interact with GitHu
 The configuration uses the `GITHUB_TOKEN` environment variable. You have two options:
 
 **Option A: System Environment Variable (Persistent)**
+
 ```bash
 # Windows PowerShell (Run as Administrator)
 [Environment]::SetEnvironmentVariable("GITHUB_TOKEN", "your_token_here", "User")
@@ -79,6 +80,7 @@ The configuration uses the `GITHUB_TOKEN` environment variable. You have two opt
 
 **Option B: Local Environment File (Project-Specific)**
 Create a `.env.local` file in the project root:
+
 ```bash
 GITHUB_TOKEN=your_token_here
 ```
@@ -96,6 +98,7 @@ GITHUB_TOKEN=your_token_here
 #### 3. **Verify Installation**
 
 Once the token is configured, Claude Code will automatically load the GitHub MCP server when you:
+
 - Ask about GitHub repositories
 - Request PR or issue operations
 - Need to search GitHub code
@@ -134,16 +137,19 @@ With the GitHub MCP server active, you can:
 ### Troubleshooting
 
 **"GitHub MCP not available" or "Token not found"**
+
 - Verify `GITHUB_TOKEN` is set in your environment
 - Restart Claude Code after setting environment variables
 - Check token hasn't expired
 
 **"Permission denied" errors**
+
 - Verify token has required scopes
 - Check you're accessing repositories the token has access to
 - For organization repositories, ensure `read:org` scope is enabled
 
 **Network/Connection issues**
+
 - Verify you have internet connectivity
 - Check if GitHub is experiencing outages
 - Ensure no proxy/firewall blocks GitHub API

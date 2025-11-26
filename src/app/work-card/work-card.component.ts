@@ -5,12 +5,13 @@ import { Work } from '../work.model';
   selector: 'app-work-card',
   templateUrl: './work-card.component.html',
   styleUrls: ['./work-card.component.scss'],
+  standalone: false,
 })
 export class WorkCardComponent {
   @Input() data: Work;
   constructor() {}
   OpenModal = (id: string): void => {
-    let element: HTMLElement = document.getElementById('myModal' + id)!;
+    const element: HTMLElement = document.getElementById('myModal' + id)!;
     element.classList.add('openModalStyle');
     element.classList.remove('displayNone');
   };

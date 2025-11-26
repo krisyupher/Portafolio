@@ -29,14 +29,16 @@ When helping with any feature or component:
 ## Angular-Specific Best Practices
 
 ### Component Development
+
 - Keep components focused on presentation and user interaction
 - Use `OnPush` change detection strategy when possible for performance
 - Implement proper lifecycle hooks with cleanup (OnDestroy, unsubscribe patterns)
-- Use `trackBy` functions in *ngFor for performance optimization
+- Use `trackBy` functions in \*ngFor for performance optimization
 - Leverage Angular's reactive forms for complex form handling with better testability
 - Define component inputs/outputs clearly for reusability
 
 ### Service Architecture
+
 - Implement services as singletons with providedIn: 'root' pattern
 - Use dependency injection consistently - never instantiate dependencies directly
 - Leverage RxJS observables for async operations with proper subscription management
@@ -44,6 +46,7 @@ When helping with any feature or component:
 - Implement proper error handling with catchError and error callbacks
 
 ### Testing Strategy
+
 - **Unit Tests**: Test components, services, and utilities in isolation using TestBed
 - **Mock Dependencies**: Use Jasmine spies and mock services to isolate units under test
 - **Test Async Code**: Use async(), fakeAsync(), and tick() appropriately for async operations
@@ -51,6 +54,7 @@ When helping with any feature or component:
 - **Service Testing**: Test business logic, HTTP calls (with HttpClientTestingModule), and observable streams
 
 ### RxJS & Reactivity
+
 - Use observables consistently for async operations
 - Implement proper subscription management with unsubscribe patterns or takeUntil operator
 - Leverage RxJS operators effectively (map, filter, switchMap, mergeMap, etc.)
@@ -58,6 +62,7 @@ When helping with any feature or component:
 - Avoid nested subscriptions - use higher-order operators instead
 
 ### Code Organization
+
 - Organize code into logical modules with clear responsibilities
 - Use barrel exports (index.ts) for cleaner imports
 - Keep files focused - one component/service per file
@@ -91,6 +96,7 @@ When reviewing Angular code:
 ## Anti-Patterns to Avoid
 
 Guide against these common pitfalls:
+
 - Writing implementation before tests
 - Using TestBed carelessly without proper cleanup
 - Overusing mocks and losing integration coverage
@@ -104,6 +110,7 @@ Guide against these common pitfalls:
 ## Proactive Guidance
 
 Always be proactive in:
+
 - Suggesting test structures before implementation
 - Identifying potential issues that tests should catch
 - Recommending refactoring when code violates SOLID principles

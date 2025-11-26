@@ -14,7 +14,7 @@ import { Work } from '../models/work.model';
  * State is exposed as Observables for components to subscribe to.
  */
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PortfolioService {
   private readonly WORKS_DATA_PATH = '/assets/data/works.json';
@@ -45,26 +45,29 @@ export class PortfolioService {
     this.loadingSubject.next(true);
     this.errorSubject.next(null);
 
-    this.http.get<Work[]>(this.WORKS_DATA_PATH).pipe(
-      catchError((error: HttpErrorResponse) => {
-        const errorMessage = `Failed to load portfolio works. ${error.status === 404 ? 'Data file not found.' : 'Please try again later.'}`;
-        this.errorSubject.next(errorMessage);
-        this.loadingSubject.next(false);
-        return of([]); // Return empty array on error
-      })
-    ).subscribe({
-      next: (works: Work[]) => {
-        // Handle null or undefined response
-        const validatedWorks = Array.isArray(works) ? works : [];
-        this.worksSubject.next(validatedWorks);
-        this.loadingSubject.next(false);
-      },
-      error: (error) => {
-        // Fallback error handler (catchError should handle most cases)
-        this.errorSubject.next('Failed to load portfolio works. Unexpected error occurred.');
-        this.loadingSubject.next(false);
-      }
-    });
+    this.http
+      .get<Work[]>(this.WORKS_DATA_PATH)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          const errorMessage = `Failed to load portfolio works. ${error.status === 404 ? 'Data file not found.' : 'Please try again later.'}`;
+          this.errorSubject.next(errorMessage);
+          this.loadingSubject.next(false);
+          return of([]); // Return empty array on error
+        })
+      )
+      .subscribe({
+        next: (works: Work[]) => {
+          // Handle null or undefined response
+          const validatedWorks = Array.isArray(works) ? works : [];
+          this.worksSubject.next(validatedWorks);
+          this.loadingSubject.next(false);
+        },
+        error: () => {
+          // Fallback error handler (catchError should handle most cases)
+          this.errorSubject.next('Failed to load portfolio works. Unexpected error occurred.');
+          this.loadingSubject.next(false);
+        },
+      });
   }
 
   /**
@@ -77,9 +80,7 @@ export class PortfolioService {
    * the matching work as an Observable. Case-sensitive ID matching.
    */
   getWorkById(id: string): Observable<Work | undefined> {
-    return this.works$.pipe(
-      map(works => works.find(work => work.id === id))
-    );
+    return this.works$.pipe(map((works) => works.find((work) => work.id === id)));
   }
 
   /**

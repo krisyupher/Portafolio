@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is an Angular 18 portfolio application that displays a collection of professional projects and work experiences. The portfolio features interactive project cards with modal dialogs for detailed information.
 
 **Tech Stack:**
+
 - Angular 18.2.14
 - TypeScript 5.4.5
 - Tailwind CSS (replacing Bootstrap)
@@ -18,40 +19,47 @@ This is an Angular 18 portfolio application that displays a collection of profes
 ## Common Development Commands
 
 **Development server:**
+
 ```bash
 npm start
 # Serves on http://localhost:4200/ with hot reload
 ```
 
 **Build for production:**
+
 ```bash
 npm run build
 # Output stored in dist/portafolio/
 ```
 
 **Watch mode (incremental builds):**
+
 ```bash
 npm run watch
 # Useful for development without serving
 ```
 
 **Run unit tests:**
+
 ```bash
 npm test
 # Runs Karma test runner with Jasmine
 ```
 
 **Run a single test file:**
+
 ```bash
 npm test -- --include='**/filename.spec.ts' --no-watch
 ```
 
 **Run tests with coverage:**
+
 ```bash
 npm test -- --no-watch --code-coverage
 ```
 
 **Generate new components:**
+
 ```bash
 ng generate component component-name
 # This will automatically create .ts, .html, and .scss files with proper structure
@@ -62,6 +70,7 @@ ng generate component component-name
 ### Service Layer (Phase 2 - Complete)
 
 **PortfolioService** ([src/app/core/services/portfolio.service.ts](src/app/core/services/portfolio.service.ts)):
+
 - Reactive state management with BehaviorSubject pattern
 - Three public observables:
   - `works$`: Observable<Work[]> - Portfolio items
@@ -77,6 +86,7 @@ ng generate component component-name
 - Comprehensive error handling and edge case coverage
 
 **Testing Infrastructure** ([src/app/shared/testing/](src/app/shared/testing/)):
+
 - `mock-data.factory.ts`: Helper functions for test data creation
   - `createMockWork(overrides?)`: Creates single mock Work object
   - `createMockWorks(count)`: Creates array of mock Work objects
@@ -85,19 +95,21 @@ ng generate component component-name
 ### Data Model
 
 **Work Interface** ([src/app/core/models/work.model.ts](src/app/core/models/work.model.ts)):
+
 ```typescript
 interface Work {
-  id: string;            // Unique identifier
-  title: string;         // Display title
-  poster: string;        // Path to project image
-  description: string;   // Project description
-  linkView: string;      // External link to live project
-  date: string;          // Date in format "MMM YYYY"
-  Link: string;          // LinkedIn or GitHub link
+  id: string; // Unique identifier
+  title: string; // Display title
+  poster: string; // Path to project image
+  description: string; // Project description
+  linkView: string; // External link to live project
+  date: string; // Date in format "MMM YYYY"
+  Link: string; // LinkedIn or GitHub link
 }
 ```
 
 **Portfolio Data** ([src/assets/data/works.json](src/assets/data/works.json)):
+
 - 14 portfolio projects in JSON format
 - Loaded dynamically by PortfolioService
 - Replaces previous hardcoded data in AppComponent
@@ -143,27 +155,31 @@ The app uses Angular's standard module system:
 ### DOM Manipulation
 
 Currently, the modal open/close functionality uses direct DOM manipulation:
+
 ```typescript
 element.classList.add('openModalStyle');
 element.classList.remove('displayNone');
 ```
 
-Consider refactoring this to use Angular's built-in features (Component state, *ngIf, or ViewChild) in future updates for better maintainability and testability.
+Consider refactoring this to use Angular's built-in features (Component state, \*ngIf, or ViewChild) in future updates for better maintainability and testability.
 
 ### Portfolio Data
 
 Portfolio data is now managed in two places:
 
 **Modern approach (Phase 2 - Ready for use):**
+
 - Portfolio data stored in [src/assets/data/works.json](src/assets/data/works.json)
 - Loaded dynamically by PortfolioService
 - To add/modify projects, edit the JSON file
 
 **Legacy approach (Phase 3 will migrate):**
+
 - AppComponent still has hardcoded `works[]` array
 - Will be replaced with PortfolioService subscription in Phase 3
 
 To add or modify projects (JSON approach):
+
 1. Edit [src/assets/data/works.json](src/assets/data/works.json)
 2. Ensure each object matches the `Work` interface
 3. Add corresponding image to `src/assets/img/` directory
@@ -180,6 +196,7 @@ This means type safety is important - avoid bypassing the type system in new cod
 ## Build Configuration
 
 Production builds have bundle size budgets set in `angular.json`:
+
 - Initial: 500KB warning / 1MB error
 - Component styles: 2KB warning / 4KB error
 
@@ -196,12 +213,14 @@ An Angular MCP server is configured in `.mcp/angular.json` that provides direct 
 **Zero Setup Required!** Angular MCP works immediately.
 
 **Capabilities:**
+
 - Real-time Angular documentation access
 - API reference and code examples
 - Best practices and design patterns
 - Framework concepts and architecture guidance
 
 **Usage:** Ask Claude Code about Angular:
+
 - "What's the best way to implement reactive forms?"
 - "Show me Angular API documentation for HttpClient"
 - "How do I implement dependency injection in services?"
@@ -212,6 +231,7 @@ An Angular MCP server is configured in `.mcp/angular.json` that provides direct 
 A GitHub MCP server is configured in `.mcp/github.json` that enables Claude Code to interact with GitHub directly.
 
 **Setup:**
+
 1. Generate a GitHub Personal Access Token at https://github.com/settings/tokens
 2. Set the `GITHUB_TOKEN` environment variable:
    ```bash
@@ -221,6 +241,7 @@ A GitHub MCP server is configured in `.mcp/github.json` that enables Claude Code
 3. Restart Claude Code after setting the environment variable
 
 **Capabilities:**
+
 - View and manage pull requests and issues
 - Search code across your repository
 - Access commit history and branch information
@@ -228,6 +249,7 @@ A GitHub MCP server is configured in `.mcp/github.json` that enables Claude Code
 - Retrieve user and organization information
 
 **Usage:** With `GITHUB_TOKEN` set, Claude Code can directly interact with GitHub when you ask questions like:
+
 - "Create a pull request for my changes"
 - "List all open issues"
 - "Search for TODO comments in my code"
@@ -264,6 +286,7 @@ This project follows conventional commits standards as configured in `.claude/ag
 **Common types**: feat, fix, docs, style, refactor, perf, test, chore
 
 Example:
+
 ```
 feat(work-card): add animation to project cards
 
@@ -288,9 +311,11 @@ Closes #42
 This project is undergoing a comprehensive modernization following TDD principles. Progress is tracked across multiple phases.
 
 ### Phase 1: Infrastructure Setup (COMPLETE)
+
 **Status:** ✅ Complete
 
 **Completed:**
+
 - Upgraded Angular 15 → 16 → 17 → 18
 - Upgraded TypeScript 4.9 → 5.4
 - Installed and configured Tailwind CSS
@@ -299,15 +324,18 @@ This project is undergoing a comprehensive modernization following TDD principle
 - Updated all dependencies to latest compatible versions
 
 **Commits:**
+
 - `14c4133` - Angular 16 upgrade
 - `2b78c99` - Angular 17 and TypeScript 5.4 upgrade
 - `0e9082e` - Angular 18 upgrade
 - `2eef9b9` - Tailwind CSS installation and Bootstrap removal
 
 ### Phase 2: Service Layer with TDD (COMPLETE)
+
 **Status:** ✅ Complete - 93% test coverage achieved
 
 **Completed:**
+
 - Created Work model interface in `src/app/core/models/`
 - Implemented PortfolioService with BehaviorSubject state management
 - Created mock data factory for testing
@@ -317,18 +345,22 @@ This project is undergoing a comprehensive modernization following TDD principle
 - Modern Angular 18 patterns (provideHttpClient)
 
 **Test Quality:**
+
 - Red-Green-Refactor methodology strictly followed
 - Tests cover: initialization, HTTP success, HTTP errors, edge cases, memory safety
 - Proper use of HttpTestingController
 - Observable stream testing with async/done patterns
 
 **Commits:**
+
 - `763cc73` - Service layer implementation with 93% test coverage
 
 ### Phase 3: Component Modernization (PENDING)
+
 **Status:** 🔄 Not Started
 
 **Goals:**
+
 - Convert to standalone components
 - Implement container/presentational (Scrum) architecture
 - Replace DOM manipulation with Angular state management
@@ -337,14 +369,17 @@ This project is undergoing a comprehensive modernization following TDD principle
 - Add component tests (target 90%+ coverage)
 
 **Components to modernize:**
+
 - AppComponent → Portfolio Page Container
 - WorkCardComponent → Work Card Presentational
 - ModalComponent → Work Modal Presentational
 
 ### Phase 4: Advanced Features (PENDING)
+
 **Status:** 🔄 Not Started
 
 **Goals:**
+
 - Implement proper routing with lazy loading
 - Add animations using Angular animations API
 - Implement filtering and search functionality
@@ -354,6 +389,7 @@ This project is undergoing a comprehensive modernization following TDD principle
 ## Test Coverage Summary
 
 **Current Coverage (Phase 2):**
+
 - Mock Data Factory: 100% (13 tests)
 - PortfolioService: 93.1% line coverage (34 tests)
 - Total: 47 tests passing
@@ -362,6 +398,7 @@ This project is undergoing a comprehensive modernization following TDD principle
 Run `npm test -- --no-watch --code-coverage` to generate detailed coverage reports in `coverage/` directory.
 
 **Quality Gates:**
+
 - Minimum acceptable: 80% coverage
 - Target: 90%+ coverage
 - Service layer: 93.1% ✅ Exceeds target

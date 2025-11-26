@@ -11,11 +11,7 @@ describe('PortfolioService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        PortfolioService,
-        provideHttpClient(),
-        provideHttpClientTesting()
-      ]
+      providers: [PortfolioService, provideHttpClient(), provideHttpClientTesting()],
     });
     service = TestBed.inject(PortfolioService);
     httpMock = TestBed.inject(HttpTestingController);
@@ -31,21 +27,21 @@ describe('PortfolioService', () => {
     });
 
     it('should initialize with empty works array', (done) => {
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         expect(works).toEqual([]);
         done();
       });
     });
 
     it('should initialize with loading = false', (done) => {
-      service.loading$.subscribe(loading => {
+      service.loading$.subscribe((loading) => {
         expect(loading).toBe(false);
         done();
       });
     });
 
     it('should initialize with error = null', (done) => {
-      service.error$.subscribe(error => {
+      service.error$.subscribe((error) => {
         expect(error).toBeNull();
         done();
       });
@@ -77,7 +73,7 @@ describe('PortfolioService', () => {
       expect(req.request.method).toBe('GET');
       req.flush(mockWorks);
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         expect(works).toEqual(mockWorks);
         expect(works.length).toBe(3);
         done();
@@ -86,9 +82,9 @@ describe('PortfolioService', () => {
 
     it('should set loading to true when starting to load works', (done) => {
       const mockWorks: Work[] = createMockWorks(2);
-      let loadingStates: boolean[] = [];
+      const loadingStates: boolean[] = [];
 
-      service.loading$.subscribe(loading => {
+      service.loading$.subscribe((loading) => {
         loadingStates.push(loading);
       });
 
@@ -113,7 +109,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush(mockWorks);
 
-      service.loading$.subscribe(loading => {
+      service.loading$.subscribe((loading) => {
         expect(loading).toBe(false);
         done();
       });
@@ -127,7 +123,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush(mockWorks);
 
-      service.error$.subscribe(error => {
+      service.error$.subscribe((error) => {
         expect(error).toBeNull();
         done();
       });
@@ -139,7 +135,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush([]);
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         expect(works).toEqual([]);
         expect(works.length).toBe(0);
         done();
@@ -154,7 +150,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush('File not found', { status: 404, statusText: 'Not Found' });
 
-      service.error$.subscribe(error => {
+      service.error$.subscribe((error) => {
         expect(error).toBeTruthy();
         expect(error).toContain('Failed to load');
         done();
@@ -167,7 +163,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush('Error', { status: 500, statusText: 'Server Error' });
 
-      service.loading$.subscribe(loading => {
+      service.loading$.subscribe((loading) => {
         expect(loading).toBe(false);
         done();
       });
@@ -179,7 +175,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush('Error', { status: 500, statusText: 'Server Error' });
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         expect(works).toEqual([]);
         done();
       });
@@ -191,7 +187,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.error(new ProgressEvent('Network error'));
 
-      service.error$.subscribe(error => {
+      service.error$.subscribe((error) => {
         expect(error).toBeTruthy();
         done();
       });
@@ -208,7 +204,7 @@ describe('PortfolioService', () => {
     });
 
     it('should return work by id as Observable', (done) => {
-      service.getWorkById('work-1').subscribe(work => {
+      service.getWorkById('work-1').subscribe((work) => {
         expect(work).toBeDefined();
         expect(work?.id).toBe('work-1');
         expect(work?.title).toBe('Work 1');
@@ -217,7 +213,7 @@ describe('PortfolioService', () => {
     });
 
     it('should return undefined for non-existent id', (done) => {
-      service.getWorkById('non-existent-id').subscribe(work => {
+      service.getWorkById('non-existent-id').subscribe((work) => {
         expect(work).toBeUndefined();
         done();
       });
@@ -227,21 +223,21 @@ describe('PortfolioService', () => {
       // Create new service instance with no data loaded
       const emptyService = TestBed.inject(PortfolioService);
 
-      emptyService.getWorkById('any-id').subscribe(work => {
+      emptyService.getWorkById('any-id').subscribe((work) => {
         expect(work).toBeUndefined();
         done();
       });
     });
 
     it('should be case-sensitive when matching IDs', (done) => {
-      service.getWorkById('WORK-1').subscribe(work => {
+      service.getWorkById('WORK-1').subscribe((work) => {
         expect(work).toBeUndefined();
         done();
       });
     });
 
     it('should return correct work from multiple works', (done) => {
-      service.getWorkById('work-3').subscribe(work => {
+      service.getWorkById('work-3').subscribe((work) => {
         expect(work).toBeDefined();
         expect(work?.id).toBe('work-3');
         expect(work?.title).toBe('Work 3');
@@ -256,11 +252,11 @@ describe('PortfolioService', () => {
       let subscription1Works: Work[] = [];
       let subscription2Works: Work[] = [];
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         subscription1Works = works;
       });
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         subscription2Works = works;
       });
 
@@ -282,7 +278,7 @@ describe('PortfolioService', () => {
       let emissionCount = 0;
       let lastEmittedWorks: Work[] = [];
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         emissionCount++;
         lastEmittedWorks = works;
       });
@@ -392,7 +388,7 @@ describe('PortfolioService', () => {
       const req = httpMock.expectOne('/assets/data/works.json');
       req.flush(null);
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         // Service should handle null and provide empty array or error
         expect(works).toBeDefined();
         done();
@@ -406,7 +402,7 @@ describe('PortfolioService', () => {
       // Send a string instead of array - service should handle gracefully
       req.flush('invalid json', { status: 200, statusText: 'OK' });
 
-      service.works$.subscribe(works => {
+      service.works$.subscribe((works) => {
         // Service converts non-array responses to empty array
         expect(Array.isArray(works)).toBe(true);
         expect(works.length).toBe(0);
@@ -423,7 +419,7 @@ describe('PortfolioService', () => {
       const requests = httpMock.match('/assets/data/works.json');
       expect(requests.length).toBe(2);
 
-      requests.forEach(req => req.flush(mockWorks));
+      requests.forEach((req) => req.flush(mockWorks));
     });
   });
 });

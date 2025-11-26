@@ -1,6 +1,6 @@
 export interface Work {
   title: string;
-  id: String;
+  id: string;
   poster: string;
   description: string;
   linkView: string;

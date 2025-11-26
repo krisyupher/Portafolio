@@ -5,11 +5,13 @@
 **Model Context Protocol (MCP)** allows Claude Code to integrate with external tools and services. This project has two MCP servers configured:
 
 ### 1. **Angular MCP** - Framework Documentation & Guidance
+
 - Real-time Angular documentation access
 - API reference and examples
 - Best practices and patterns
 
 ### 2. **GitHub MCP** - Repository & Code Management
+
 With the GitHub MCP server configured, Claude Code can:
 
 - Interact with your GitHub repositories directly
@@ -25,6 +27,7 @@ With the GitHub MCP server configured, Claude Code can:
 The Angular MCP is ready to use immediately! No configuration needed.
 
 **Test it:** Ask Claude Code in your IDE:
+
 ```
 "What are the best practices for Angular component design?"
 ```
@@ -49,6 +52,7 @@ The Angular MCP is ready to use immediately! No configuration needed.
 #### Step 2: Set Environment Variable
 
 **Windows PowerShell (Run as Administrator):**
+
 ```powershell
 [Environment]::SetEnvironmentVariable("GITHUB_TOKEN", "ghp_xxxxxxxxxxxxxxxxxxxx", "User")
 ```
@@ -56,6 +60,7 @@ The Angular MCP is ready to use immediately! No configuration needed.
 Replace `ghp_xxxxxxxxxxxxxxxxxxxx` with your actual token.
 
 **Verify it worked:**
+
 ```powershell
 $env:GITHUB_TOKEN
 # Should display your token
@@ -78,6 +83,7 @@ If Claude Code lists your repositories, the GitHub MCP is working!
 ## Usage Examples
 
 ### Pull Requests
+
 ```
 "Create a pull request to add TypeScript strict mode configuration"
 "List all open pull requests"
@@ -85,6 +91,7 @@ If Claude Code lists your repositories, the GitHub MCP is working!
 ```
 
 ### Issues
+
 ```
 "Create an issue about improving modal components"
 "List all issues labeled 'bug'"
@@ -92,12 +99,14 @@ If Claude Code lists your repositories, the GitHub MCP is working!
 ```
 
 ### Code Search
+
 ```
 "Search for TODO comments in my code"
 "Find all files using the Work interface"
 ```
 
 ### Repository Info
+
 ```
 "Show me the last 10 commits"
 "What branches do I have?"
@@ -107,12 +116,14 @@ If Claude Code lists your repositories, the GitHub MCP is working!
 ## 🔒 Security Best Practices
 
 ### Do's ✅
+
 - Use environment variables for tokens (never commit them)
 - Rotate tokens regularly (every 90 days)
 - Use minimal required scopes
 - Keep tokens in secure system environment
 
 ### Don'ts ❌
+
 - Never commit tokens to Git
 - Don't share your token with others
 - Don't use tokens in shell scripts or config files
@@ -120,12 +131,12 @@ If Claude Code lists your repositories, the GitHub MCP is working!
 
 ## Troubleshooting
 
-| Problem | Solution |
-|---------|----------|
-| "GitHub MCP not available" | Restart Claude Code after setting `GITHUB_TOKEN` |
-| "Permission denied" | Check token scopes at https://github.com/settings/tokens |
-| "Token not found" | Verify environment variable: `$env:GITHUB_TOKEN` in PowerShell |
-| "Connection refused" | Check internet connection and GitHub status |
+| Problem                    | Solution                                                       |
+| -------------------------- | -------------------------------------------------------------- |
+| "GitHub MCP not available" | Restart Claude Code after setting `GITHUB_TOKEN`               |
+| "Permission denied"        | Check token scopes at https://github.com/settings/tokens       |
+| "Token not found"          | Verify environment variable: `$env:GITHUB_TOKEN` in PowerShell |
+| "Connection refused"       | Check internet connection and GitHub status                    |
 
 ## Configuration Files
 

@@ -2,10 +2,7 @@
   "mcpServers": {
     "angular": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@angular/mcp"
-      ]
+      "args": ["-y", "@angular/mcp"]
     }
   }
 }
