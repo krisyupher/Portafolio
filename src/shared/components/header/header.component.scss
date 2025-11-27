@@ -1,0 +1,61 @@
+/**
+ * Header Component Styles
+ * Sticky navigation with professional styling inspired by GitHub
+ * Colors: regal-blue (#034378), bermuda (#77d7b9)
+ */
+
+:host {
+  .app-header {
+    // Template styles - will be implemented in Phase 3 (GREEN)
+    // Placeholder structure for architecture phase
+  }
+
+  .navbar {
+    // Navigation bar container
+  }
+
+  .navbar-brand {
+    // Branding section
+  }
+
+  .brand-title {
+    // Brand name heading
+  }
+
+  .brand-subtitle {
+    // Developer title/subtitle
+  }
+
+  .nav-menu {
+    // Navigation items list
+  }
+
+  .nav-item {
+    // Individual navigation item
+  }
+
+  .nav-link {
+    // Navigation link styling
+  }
+
+  .social-links {
+    // Social media links container
+  }
+
+  .social-link {
+    // Individual social link styling
+  }
+
+  // Accessibility
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+}
