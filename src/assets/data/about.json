@@ -1,0 +1,147 @@
+{
+  "aboutInfo": {
+    "name": "Cristian Rivera",
+    "title": "Full-Stack Web Developer",
+    "bio": "Passionate about building scalable, maintainable applications with clean code principles and modern technologies. Specialized in Angular, TypeScript, and Node.js with a focus on test-driven development and professional software architecture.",
+    "profileImage": "assets/img/profile.png",
+    "focus": "🎯 Focusing on Angular, scalable architectures, and test-driven development"
+  },
+  "skillCategories": [
+    {
+      "name": "Frontend",
+      "skills": [
+        {
+          "id": "angular",
+          "name": "Angular",
+          "category": "Frontend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "Frontend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "rxjs",
+          "name": "RxJS",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "tailwind",
+          "name": "Tailwind CSS",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "react",
+          "name": "React.js",
+          "category": "Frontend",
+          "proficiency": "Intermediate"
+        },
+        {
+          "id": "ionic",
+          "name": "Ionic",
+          "category": "Frontend",
+          "proficiency": "Intermediate"
+        }
+      ]
+    },
+    {
+      "name": "Backend",
+      "skills": [
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "Backend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "express",
+          "name": "Express.js",
+          "category": "Backend",
+          "proficiency": "Advanced"
+        }
+      ]
+    },
+    {
+      "name": "Database",
+      "skills": [
+        {
+          "id": "mongodb",
+          "name": "MongoDB",
+          "category": "Database",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "sql",
+          "name": "SQL",
+          "category": "Database",
+          "proficiency": "Intermediate"
+        }
+      ]
+    },
+    {
+      "name": "DevOps & Tools",
+      "skills": [
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "DevOps & Tools",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "category": "DevOps & Tools",
+          "proficiency": "Intermediate"
+        },
+        {
+          "id": "github-actions",
+          "name": "GitHub Actions",
+          "category": "DevOps & Tools",
+          "proficiency": "Intermediate"
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "corte-suprema",
+      "title": "Angular Developer",
+      "company": "Corte Suprema de Justicia",
+      "description": "Developed and maintained multiple Angular applications for the Colombian Supreme Court. Implemented scalable features with TypeScript, RxJS, and Tailwind CSS. Collaborated with backend teams using REST APIs and modern web technologies.",
+      "startDate": "ENE 2023",
+      "technologies": ["Angular", "TypeScript", "RxJS", "Tailwind CSS", "REST APIs"]
+    },
+    {
+      "id": "davivienda",
+      "title": "Web Developer",
+      "company": "Davivienda",
+      "description": "Built responsive web applications for a major financial institution. Worked on user interfaces and integration with banking systems using modern front-end frameworks.",
+      "startDate": "MAY 2022",
+      "endDate": "DEC 2022",
+      "technologies": ["Angular", "TypeScript", "Bootstrap", "REST APIs"]
+    },
+    {
+      "id": "troop",
+      "title": "Full-Stack Developer",
+      "company": "Troop",
+      "description": "Contributed to the development of web applications with focus on clean code and scalable architecture. Implemented features using Angular and Node.js stack.",
+      "startDate": "AGO 2021",
+      "endDate": "APR 2022",
+      "technologies": ["Angular", "Node.js", "Express.js", "MongoDB", "TypeScript"]
+    }
+  ],
+  "education": [
+    {
+      "id": "education-1",
+      "degree": "Technical Degree",
+      "institution": "Technical Institute",
+      "field": "Software Development",
+      "graduationYear": 2020,
+      "description": "Completed formal education in software development with focus on web technologies and software engineering principles."
+    }
+  ]
+}
