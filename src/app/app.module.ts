@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WorkCardComponent } from '../shared/components/work-card/work-card.component';
-import { ModalComponent } from '../shared/components/modal/modal.component';
 
 // Header and Footer (GLOBAL)
 import { HeaderComponent } from '../shared/components/header/header.component';
@@ -29,8 +27,6 @@ import { AboutEducationPresentational } from '../features/about-management/compo
 @NgModule({
   declarations: [
     AppComponent,
-    WorkCardComponent,
-    ModalComponent,
     // GLOBAL Components
     HeaderComponent,
     FooterComponent,

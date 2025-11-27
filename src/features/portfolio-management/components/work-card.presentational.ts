@@ -17,10 +17,10 @@ import { Work } from '../models';
 @Component({
   selector: 'app-work-card',
   template: `
-    <div class="work-card" *ngIf="work">
+    <div class="work-card" *ngIf="work as w">
       <!-- Card Image -->
       <div class="card-image">
-        <img [src]="work.poster" [alt]="work.title" />
+        <img [src]="w.poster" [alt]="w.title" />
         <button class="open-button" (click)="onOpenModal()" type="button">
           View Project
         </button>
@@ -28,9 +28,9 @@ import { Work } from '../models';
 
       <!-- Card Content -->
       <div class="card-content">
-        <h3 class="card-title">{{ work.title }}</h3>
-        <p class="card-date">{{ work.date }}</p>
-        <p class="card-description">{{ work.description }}</p>
+        <h3 class="card-title">{{ w.title }}</h3>
+        <p class="card-date">{{ w.date }}</p>
+        <p class="card-description">{{ w.description }}</p>
       </div>
     </div>
   `,

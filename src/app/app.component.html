@@ -3,7 +3,7 @@
   [navItems]="navItems"
   [socialLinks]="socialLinks"
   [isScrolled]="isScrolled"
-  (navItemClicked)="onNavItemClick($event)"
+  (navItemClicked)="onNavItemClick($any($event))"
 ></app-header>
 
 <!-- Home/Portfolio Section -->
@@ -23,5 +23,5 @@
   [contactEmail]="contactEmail"
   [technologies]="technologies"
   [copyrightYear]="copyrightYear"
-  (linkClicked)="onFooterLinkClick($event)"
+  (linkClicked)="onFooterLinkClick($any($event))"
 ></app-footer>
