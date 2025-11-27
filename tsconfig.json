@@ -4,6 +4,11 @@
   "compilerOptions": {
     "strictPropertyInitialization": false,
     "baseUrl": "./",
+    "paths": {
+      "@features/*": ["src/app/features/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@core/*": ["src/app/core/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

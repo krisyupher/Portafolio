@@ -1,9 +1,9 @@
 <!-- Header Component -->
 <app-header
-  [navItems]="navItems"
-  [socialLinks]="socialLinks"
-  [isScrolled]="isScrolled"
-  (navItemClicked)="onNavItemClick($any($event))"
+  [navItems]="navItems()"
+  [socialLinks]="socialLinks()"
+  [isScrolled]="isScrolled()"
+  (navItemClicked)="onNavItemClick($event)"
 ></app-header>
 
 <!-- Home/Portfolio Section -->
@@ -18,10 +18,10 @@
 
 <!-- Footer Component -->
 <app-footer
-  [socialLinks]="socialLinks"
-  [quickLinks]="quickLinks"
-  [contactEmail]="contactEmail"
-  [technologies]="technologies"
-  [copyrightYear]="copyrightYear"
-  (linkClicked)="onFooterLinkClick($any($event))"
+  [socialLinks]="socialLinks()"
+  [quickLinks]="quickLinks()"
+  [contactEmail]="contactEmail()"
+  [technologies]="technologies()"
+  [copyrightYear]="copyrightYear()"
+  (linkClicked)="onFooterLinkClick($event)"
 ></app-footer>

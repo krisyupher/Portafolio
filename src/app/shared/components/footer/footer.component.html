@@ -1,0 +1,67 @@
+<!-- Footer Component Template (Presentational) -->
+<footer class="app-footer">
+  <div class="footer-content">
+    <!-- About Section -->
+    <section class="footer-section about-section">
+      <h3 class="section-title">About</h3>
+      <p class="section-text">
+        Full-Stack Web Developer specializing in Angular, TypeScript, and modern web technologies.
+        Passionate about building scalable, maintainable applications with clean code principles.
+      </p>
+    </section>
+
+    <!-- Quick Links Section -->
+    <section class="footer-section links-section">
+      <h3 class="section-title">Quick Links</h3>
+      <ul class="links-list">
+        @for (link of quickLinks(); track link.id) {
+          <li class="link-item">
+            <a (click)="onLinkClick(link.id)" class="link">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="footer-section tech-section">
+      <h3 class="section-title">Technologies</h3>
+      <div class="tech-tags">
+        @for (tech of technologies(); track tech) {
+          <span class="tech-tag">{{ tech }}</span>
+        }
+      </div>
+    </section>
+
+    <!-- Social Links Section -->
+    <section class="footer-section social-section">
+      <h3 class="section-title">Connect</h3>
+      <div class="social-links">
+        @for (link of socialLinks(); track link.id) {
+          <a
+            [href]="link.url"
+            [title]="link.label"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="social-link"
+          >
+            <i [class]="'fab fa-' + link.icon"></i>
+            <span class="link-label">{{ link.label }}</span>
+          </a>
+        }
+      </div>
+
+      <!-- Contact Email -->
+      <a [href]="'mailto:' + contactEmail()" class="contact-email">
+        <i class="fas fa-envelope"></i>
+        {{ contactEmail() }}
+      </a>
+    </section>
+  </div>
+
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p class="copyright">
+      &copy; {{ copyrightYear() }} Cristian Rivera. All rights reserved.
+    </p>
+  </div>
+</footer>
