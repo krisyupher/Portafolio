@@ -6,44 +6,141 @@
 
 :host {
   .app-header {
-    // Template styles - will be implemented in Phase 3 (GREEN)
-    // Placeholder structure for architecture phase
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    transition: all 0.3s ease;
+
+    &.scrolled {
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      background-color: #fafbfc;
+    }
   }
 
   .navbar {
-    // Navigation bar container
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
   }
 
   .navbar-brand {
-    // Branding section
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    white-space: nowrap;
   }
 
   .brand-title {
-    // Brand name heading
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #034378;
+    margin: 0;
+    letter-spacing: -0.5px;
   }
 
   .brand-subtitle {
-    // Developer title/subtitle
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+    font-weight: 400;
   }
 
   .nav-menu {
-    // Navigation items list
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+
+    @media (max-width: 768px) {
+      order: 3;
+      width: 100%;
+      flex-basis: 100%;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 1rem 0 0;
+      border-top: 1px solid #e5e7eb;
+    }
   }
 
   .nav-item {
-    // Individual navigation item
+    position: relative;
+
+    &:hover .nav-link {
+      color: #77d7b9;
+    }
   }
 
   .nav-link {
-    // Navigation link styling
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-weight: 500;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #77d7b9;
+    }
+
+    &:active {
+      color: #034378;
+    }
   }
 
   .social-links {
-    // Social media links container
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    @media (max-width: 768px) {
+      order: 2;
+      margin-left: auto;
+      gap: 1rem;
+    }
   }
 
   .social-link {
-    // Individual social link styling
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    color: #034378;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    font-size: 1.25rem;
+
+    &:hover {
+      color: #fff;
+      background-color: #77d7b9;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   // Accessibility

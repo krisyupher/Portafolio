@@ -17,8 +17,24 @@ import { Work } from '../models';
 @Component({
   selector: 'app-work-card',
   template: `
-    <!-- Work card template - will be implemented in Phase 3 -->
+    <div class="work-card" *ngIf="work">
+      <!-- Card Image -->
+      <div class="card-image">
+        <img [src]="work.poster" [alt]="work.title" />
+        <button class="open-button" (click)="onOpenModal()" type="button">
+          View Project
+        </button>
+      </div>
+
+      <!-- Card Content -->
+      <div class="card-content">
+        <h3 class="card-title">{{ work.title }}</h3>
+        <p class="card-date">{{ work.date }}</p>
+        <p class="card-description">{{ work.description }}</p>
+      </div>
+    </div>
   `,
+  styleUrls: ['./work-card.presentational.scss'],
   standalone: false,
 })
 export class WorkCardPresentational {

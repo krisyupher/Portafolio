@@ -21,7 +21,12 @@ export class PortfolioService {
   readonly loading$: Observable<boolean> = this.loadingSubject.asObservable();
   readonly error$: Observable<string | null> = this.errorSubject.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) {}
+
+  /**
+   * Initialize service - should be called once when needed
+   */
+  initialize(): void {
     this.loadWorks();
   }
 

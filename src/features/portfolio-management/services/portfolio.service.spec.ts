@@ -79,6 +79,9 @@ describe('PortfolioService (RED)', () => {
       service.loading$.subscribe((loading) => {
         if (loading) {
           expect(loading).toBe(true);
+          // Flush the HTTP request to avoid verify() error
+          const req = httpMock.expectOne('assets/data/works.json');
+          req.flush([]);
           done();
         }
       });

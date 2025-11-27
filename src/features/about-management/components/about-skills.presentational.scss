@@ -1,0 +1,120 @@
+/**
+ * About Skills Presentational Component Styles
+ * Skills display organized by category
+ */
+
+.about-skills {
+  padding: 3rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #034378;
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.skill-category {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+  }
+}
+
+.category-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #77d7b9;
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background-color: #f9fafb;
+  border-left: 3px solid #77d7b9;
+  border-radius: 0.25rem;
+  font-size: 0.9375rem;
+  color: #333;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: #f0f1f3;
+    border-left-color: #034378;
+  }
+}
+
+.proficiency {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+
+  &.level-expert {
+    background-color: #d4f5e8;
+    color: #034378;
+  }
+
+  &.level-advanced {
+    background-color: #c7eae0;
+    color: #034378;
+  }
+
+  &.level-intermediate {
+    background-color: #e8f4f1;
+    color: #345a6f;
+  }
+
+  &.level-beginner {
+    background-color: #f0f8f5;
+    color: #666;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .about-skills {
+    padding: 2rem 0;
+  }
+
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

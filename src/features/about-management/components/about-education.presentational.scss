@@ -1,0 +1,88 @@
+/**
+ * About Education Presentational Component Styles
+ * Education/degree display
+ */
+
+.about-education {
+  padding: 3rem 0;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #034378;
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.education-card {
+  background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #77d7b9;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.degree-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #034378;
+  margin: 0 0 0.5rem;
+}
+
+.institution-name {
+  font-size: 1rem;
+  color: #77d7b9;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+}
+
+.field-name {
+  font-size: 0.9375rem;
+  color: #666;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.graduation-year {
+  font-size: 0.8125rem;
+  color: #999;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #999;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .about-education {
+    padding: 2rem 0;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

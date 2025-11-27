@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Work } from '../work.model';
+import { Work } from '../../../app/work.model';
 
 @Component({
   selector: 'app-work-card',

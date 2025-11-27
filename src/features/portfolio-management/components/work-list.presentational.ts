@@ -17,8 +17,21 @@ import { Work } from '../models';
 @Component({
   selector: 'app-work-list',
   template: `
-    <!-- Work list template - will be implemented in Phase 3 -->
+    <div class="work-list">
+      <div *ngIf="works && works.length > 0" class="works-grid">
+        <app-work-card
+          *ngFor="let work of works"
+          [work]="work"
+          (openModal)="onSelectWork($event)"
+        ></app-work-card>
+      </div>
+
+      <div *ngIf="works && works.length === 0" class="empty-state">
+        <p>No projects available at this moment.</p>
+      </div>
+    </div>
   `,
+  styleUrls: ['./work-list.presentational.scss'],
   standalone: false,
 })
 export class WorkListPresentational {

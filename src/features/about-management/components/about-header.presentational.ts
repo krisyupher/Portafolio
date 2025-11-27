@@ -15,8 +15,24 @@ import { AboutInfo } from '../models';
 @Component({
   selector: 'app-about-header',
   template: `
-    <!-- About header template - will be implemented in Phase 3 -->
+    <div class="about-header" *ngIf="aboutInfo">
+      <div class="header-content">
+        <!-- Profile Image -->
+        <img [src]="aboutInfo.profileImage" [alt]="aboutInfo.name" class="profile-image" />
+
+        <!-- Text Content -->
+        <div class="header-text">
+          <h1 class="about-name">{{ aboutInfo.name }}</h1>
+          <p class="about-title">{{ aboutInfo.title }}</p>
+          <p class="about-bio">{{ aboutInfo.bio }}</p>
+          <p class="about-focus">
+            <strong>Focus:</strong> {{ aboutInfo.focus }}
+          </p>
+        </div>
+      </div>
+    </div>
   `,
+  styleUrls: ['./about-header.presentational.scss'],
   standalone: false,
 })
 export class AboutHeaderPresentational {

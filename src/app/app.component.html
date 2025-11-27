@@ -1,6 +1,27 @@
-<div class="worksContainer">
-  <app-work-card *ngFor="let work of works" [data]="work"></app-work-card>
-</div>
-<div class="worksContainer">
-  <app-modal *ngFor="let work of works" [data]="work"></app-modal>
-</div>
+<!-- Header Component -->
+<app-header
+  [navItems]="navItems"
+  [socialLinks]="socialLinks"
+  [isScrolled]="isScrolled"
+  (navItemClicked)="onNavItemClick($event)"
+></app-header>
+
+<!-- Home/Portfolio Section -->
+<section id="home" class="home-section">
+  <app-portfolio-management></app-portfolio-management>
+</section>
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <app-about-management></app-about-management>
+</section>
+
+<!-- Footer Component -->
+<app-footer
+  [socialLinks]="socialLinks"
+  [quickLinks]="quickLinks"
+  [contactEmail]="contactEmail"
+  [technologies]="technologies"
+  [copyrightYear]="copyrightYear"
+  (linkClicked)="onFooterLinkClick($event)"
+></app-footer>

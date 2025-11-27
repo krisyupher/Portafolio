@@ -18,8 +18,35 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-about-management',
   template: `
-    <!-- About management template - will be implemented in Phase 3 -->
+    <div class="about-container">
+      <!-- Loading State -->
+      <div *ngIf="loading$ | async" class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading about information...</p>
+      </div>
+
+      <!-- Error State -->
+      <div *ngIf="error$ | async as error" class="error-state">
+        <p class="error-message">{{ error }}</p>
+      </div>
+
+      <!-- About Content -->
+      <div *ngIf="!(loading$ | async) && !(error$ | async)" class="about-content">
+        <!-- Header Section -->
+        <app-about-header [aboutInfo]="aboutInfo$ | async"></app-about-header>
+
+        <!-- Skills Section -->
+        <app-about-skills [skillCategories]="(skillCategories$ | async) || []"></app-about-skills>
+
+        <!-- Experience Section -->
+        <app-about-experience [experience]="(experience$ | async) || []"></app-about-experience>
+
+        <!-- Education Section -->
+        <app-about-education [education]="(education$ | async) || []"></app-about-education>
+      </div>
+    </div>
   `,
+  styleUrls: ['./about-management.container.scss'],
   standalone: false,
 })
 export class AboutManagementContainer implements OnInit {
@@ -40,7 +67,7 @@ export class AboutManagementContainer implements OnInit {
   }
 
   ngOnInit(): void {
-    // Load about data on component initialization
-    this.aboutService.loadAboutData();
+    // Initialize service and load about data
+    this.aboutService.initialize();
   }
 }
