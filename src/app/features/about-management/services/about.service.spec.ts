@@ -62,7 +62,7 @@ describe('AboutService (RED)', () => {
   describe('loadAboutData()', () => {
     const mockAboutData = {
       aboutInfo: {
-        name: 'Cristian Rivera',
+        name: 'Cristian Florez',
         title: 'Full-Stack Web Developer',
         bio: 'Test bio',
         profileImage: 'test.png',
@@ -128,7 +128,7 @@ describe('AboutService (RED)', () => {
 
       service.aboutInfo$.subscribe((info) => {
         if (info) {
-          expect(info.name).toBe('Cristian Rivera');
+          expect(info.name).toBe('Cristian Florez');
           expect(info.title).toBe('Full-Stack Web Developer');
           done();
         }

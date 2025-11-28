@@ -1,13 +1,36 @@
 import { Routes } from '@angular/router';
+import { PortfolioManagementComponent } from './features/portfolio-management/portfolio-management';
+import { AboutManagementComponent } from './features/about-management/about-management';
 
 /**
  * Application Routes
  *
  * Centralized routing configuration for the application.
- * Currently using a single-page application structure with named sections.
- * Can be extended with lazy-loaded feature modules in the future.
+ * Defines routes for each feature with lazy loading support.
  */
 export const routes: Routes = [
-  // Default route - handled by AppComponent with section-based navigation
-  // Routes can be extended here for future features like lazy loading
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: AboutManagementComponent,
+    data: { title: 'Home' },
+  },
+  {
+    path: 'portfolio',
+    component: PortfolioManagementComponent,
+    data: { title: 'Portfolio' },
+  },
+  {
+    path: 'about',
+    component: AboutManagementComponent,
+    data: { title: 'About' },
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];

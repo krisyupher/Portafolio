@@ -16,8 +16,11 @@ import { SkillCategory } from '../models';
             <div class="skill-category">
               <h3 class="category-name">{{ category.name }}</h3>
               <div class="skills-list">
-                @for (skill of category.skills; track skill) {
-                  <span class="skill-badge">{{ skill }}</span>
+                @for (skill of category.skills; track skill.id) {
+                  <span class="skill-badge">
+                    {{ skill.name }}
+                    <span class="proficiency">{{ skill.proficiency }}</span>
+                  </span>
                 }
               </div>
             </div>

@@ -32,7 +32,7 @@ import { NavItem, SocialLink } from '../../models';
 export class HeaderComponent {
   readonly navItems = input<NavItem[]>([]);
   readonly socialLinks = input<SocialLink[]>([]);
-  readonly brandName = input('Cristian Rivera');
+  readonly brandName = input('Cristian Florez');
   readonly isScrolled = input(false);
 
   readonly navItemClicked = output<NavItem>();

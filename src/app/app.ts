@@ -4,13 +4,12 @@ import {
   HostListener,
   signal,
   computed,
+  inject,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
-import { PortfolioManagementComponent } from './features/portfolio-management/portfolio-management';
-import { AboutManagementComponent } from './features/about-management/about-management';
 
 interface NavItem {
   id: string;
@@ -30,17 +29,17 @@ interface SocialLink {
   standalone: true,
   imports: [
     CommonModule,
-    HttpClientModule,
+    RouterModule,
     HeaderComponent,
     FooterComponent,
-    PortfolioManagementComponent,
-    AboutManagementComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  private readonly router = inject(Router);
+
   // State signals
   private readonly _isScrolled = signal(false);
   private readonly _currentSection = signal('home');
@@ -95,10 +94,7 @@ export class AppComponent {
   onNavItemClick(item: NavItem): void {
     if (item.section) {
       this._currentSection.set(item.section);
-      const section = document.getElementById(item.section);
-      if (section) {
-        section.scrollIntoView({ behavior: 'smooth' });
-      }
+      this.router.navigate([item.section]);
     }
   }
 

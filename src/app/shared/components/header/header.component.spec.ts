@@ -27,7 +27,7 @@ describe('HeaderComponent (RED)', () => {
     });
 
     it('should have default brandName', () => {
-      expect(component.brandName).toBe('Cristian Rivera');
+      expect(component.brandName).toBe('Cristian Florez');
     });
 
     it('should initialize with empty nav items', () => {

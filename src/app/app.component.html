@@ -6,15 +6,10 @@
   (navItemClicked)="onNavItemClick($event)"
 ></app-header>
 
-<!-- Home/Portfolio Section -->
-<section id="home" class="home-section">
-  <app-portfolio-management></app-portfolio-management>
-</section>
-
-<!-- About Section -->
-<section id="about" class="about-section">
-  <app-about-management></app-about-management>
-</section>
+<!-- Router Outlet for Page Content -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>
 
 <!-- Footer Component -->
 <app-footer
