@@ -6,6 +6,15 @@
 .about-container {
   min-height: 100vh;
   background-color: #f9fafb;
+  padding: 2rem 0;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1rem 0;
+  }
 }
 
 .loading-state {
@@ -42,12 +51,17 @@
   border: 1px solid #fcc;
   border-radius: 0.5rem;
   padding: 1.5rem;
-  margin: 2rem;
+  margin: 2rem 1rem;
 
   .error-message {
     color: #c33;
     margin: 0;
     font-weight: 500;
+  }
+
+  @media (max-width: 480px) {
+    margin: 1rem 0.5rem;
+    padding: 1rem;
   }
 }
 
@@ -57,6 +71,10 @@
   padding: 0 2rem;
 
   @media (max-width: 768px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 480px) {
     padding: 0 1rem;
   }
 }

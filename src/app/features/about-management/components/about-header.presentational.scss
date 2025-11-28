@@ -6,8 +6,18 @@
 .about-header {
   background: linear-gradient(135deg, #f9fafb 0%, #f0f1f3 100%);
   padding: 3rem 0;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   border-bottom: 2px solid #e5e7eb;
+
+  @media (max-width: 768px) {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 0;
+    margin-bottom: 1.5rem;
+  }
 }
 
 .header-content {
@@ -19,6 +29,10 @@
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  @media (max-width: 480px) {
+    gap: 1.5rem;
   }
 }
 

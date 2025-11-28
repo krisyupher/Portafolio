@@ -3,7 +3,7 @@
     "name": "Cristian Florez",
     "title": "Full-Stack Software Developer",
     "bio": "Results-driven Full-Stack Software Developer with 4+ years of experience delivering high-impact web applications for government and enterprise clients. Proven track record in building scalable solutions that dramatically improve system performance and user experience. Expert in modern JavaScript/TypeScript ecosystems with deep experience in Angular, React, Node.js and cloud deployment. Achieved search time reduction from minutes to milliseconds and processing time reduction from 4 months to 10 days through innovative technical solutions.",
-    "profileImage": "assets/img/profile.png",
+    "profileImage": "https://avatars.githubusercontent.com/u/48220112?s=400&u=46447c107f92bdf15dc1c63ed42189546147d16e&v=4",
     "focus": "🎯 Building scalable architectures, optimizing performance, and delivering enterprise-grade solutions"
   },
   "skillCategories": [
