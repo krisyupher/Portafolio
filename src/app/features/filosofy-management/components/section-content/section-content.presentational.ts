@@ -6,7 +6,7 @@
 
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Subsection } from '../models';
+import { Subsection } from '../../models';
 
 @Component({
   selector: 'app-section-content',

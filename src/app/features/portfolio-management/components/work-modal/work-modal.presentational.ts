@@ -5,7 +5,7 @@ import {
   output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Work } from '../models';
+import { Work } from '../../models';
 
 @Component({
   selector: 'app-work-modal',

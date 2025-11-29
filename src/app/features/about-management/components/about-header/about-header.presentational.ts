@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AboutInfo } from '../models';
+import { AboutInfo } from '../../models';
 
 @Component({
   selector: 'app-about-header',

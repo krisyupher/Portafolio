@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Education } from '../models';
+import { Education } from '../../models';
 
 @Component({
   selector: 'app-about-education',

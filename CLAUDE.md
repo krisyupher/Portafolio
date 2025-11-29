@@ -4,17 +4,18 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is an Angular 18 portfolio application that displays a collection of professional projects and work experiences. The portfolio features interactive project cards with modal dialogs for detailed information.
+A modern, responsive portfolio application showcasing 4+ years of Full-Stack development experience. Built with Angular 20+ using signals, standalone components, and the Scope Rule architecture pattern.
 
 **Tech Stack:**
 
-- Angular 18.2.14
-- TypeScript 5.4.5
-- Tailwind CSS (replacing Bootstrap)
-- RxJS for reactive state management
-- Jasmine/Karma for testing
+- Angular 20.2+ (standalone components, signals, OnPush change detection)
+- TypeScript 5.4.5 (strict mode enabled)
+- Tailwind CSS 3.x + SCSS
+- RxJS for reactive patterns
+- Angular Signals for state management
+- Jasmine/Karma for testing (93%+ coverage on services)
 
-**Status:** Phase 1 and Phase 2 of modernization complete. Service layer implemented with 93% test coverage.
+**Status:** Phase 3+ modernization complete. All components converted to standalone with signal-based state. Feature-based architecture with container/presentational pattern implemented.
 
 ## Common Development Commands
 
@@ -22,28 +23,35 @@ This is an Angular 18 portfolio application that displays a collection of profes
 
 ```bash
 npm start
-# Serves on http://localhost:4200/ with hot reload
+# Serves on http://localhost:4200/ with hot reload and automatic recompilation
 ```
 
 **Build for production:**
 
 ```bash
 npm run build
-# Output stored in dist/portafolio/
+# Output stored in dist/portafolio/ with optimizations and bundle analysis
 ```
 
 **Watch mode (incremental builds):**
 
 ```bash
 npm run watch
-# Useful for development without serving
+# Useful for development without serving (watches and rebuilds on changes)
 ```
 
 **Run unit tests:**
 
 ```bash
 npm test
-# Runs Karma test runner with Jasmine
+# Runs Karma test runner with Jasmine in watch mode
+```
+
+**Run tests once (no watch):**
+
+```bash
+npm test -- --no-watch
+# Useful for CI/CD pipelines
 ```
 
 **Run a single test file:**
@@ -52,49 +60,199 @@ npm test
 npm test -- --include='**/filename.spec.ts' --no-watch
 ```
 
-**Run tests with coverage:**
+**Run tests with coverage report:**
 
 ```bash
 npm test -- --no-watch --code-coverage
+# Generates coverage reports in coverage/ directory
 ```
 
-**Generate new components:**
+**Lint code:**
+
+```bash
+npm run lint
+# Runs ESLint on all .ts and .html files
+```
+
+**Fix linting issues:**
+
+```bash
+npm run lint:fix
+# Automatically fixes fixable ESLint issues
+```
+
+**Format code:**
+
+```bash
+npm run format
+# Formats all files with Prettier
+```
+
+**Check code formatting (no changes):**
+
+```bash
+npm run format:check
+# Verifies code matches Prettier formatting without making changes
+```
+
+**Generate new standalone component:**
 
 ```bash
 ng generate component component-name
-# This will automatically create .ts, .html, and .scss files with proper structure
+# Creates .ts, .html, and .scss files in proper feature directory structure
 ```
 
 ## Architecture
 
-### Service Layer (Phase 2 - Complete)
+### Design Pattern: Scope Rule with Container/Presentational Components
 
-**PortfolioService** ([src/app/core/services/portfolio.service.ts](src/app/core/services/portfolio.service.ts)):
+The application follows the **Scope Rule architecture pattern** which clearly separates concerns:
 
-- Reactive state management with BehaviorSubject pattern
-- Three public observables:
-  - `works$`: Observable<Work[]> - Portfolio items
-  - `loading$`: Observable<boolean> - Loading state
-  - `error$`: Observable<string | null> - Error messages
+- **GLOBAL Scope**: `core/` and `shared/` directories for singleton services, shared components, and global utilities
+- **LOCAL Scope**: `features/` directory for feature-specific code (services, containers, presentational components)
+
+This ensures clear boundaries and prevents accidental cross-feature dependencies.
+
+### Project Structure
+
+```
+src/
+├── app/
+│   ├── app.ts                              # Root component (OnPush, signals)
+│   ├── app.config.ts                       # Application configuration
+│   ├── routes.ts                           # Routing configuration
+│   │
+│   ├── core/                               # GLOBAL - Singleton services
+│   │   ├── services/
+│   │   ├── interceptors/
+│   │   └── guards/
+│   │
+│   ├── features/                           # Feature modules (LOCAL scope)
+│   │   ├── portfolio-management/           # Portfolio feature
+│   │   │   ├── portfolio-management.ts     # Container (smart component)
+│   │   │   ├── components/
+│   │   │   │   ├── work-list.presentational.ts       # Presentational
+│   │   │   │   ├── work-card.presentational.ts       # Presentational
+│   │   │   │   └── work-modal.presentational.ts      # Presentational
+│   │   │   ├── services/
+│   │   │   │   └── portfolio.service.ts              # Feature service
+│   │   │   └── models.ts
+│   │   │
+│   │   ├── about-management/               # About feature
+│   │   │   ├── about-management.ts         # Container
+│   │   │   ├── components/                 # Presentational components
+│   │   │   ├── services/
+│   │   │   │   └── about.service.ts        # Feature service
+│   │   │   └── models.ts
+│   │   │
+│   │   └── filosofy-management/            # Philosophy feature
+│   │       ├── filosofy-management.ts      # Container
+│   │       ├── components/                 # Presentational components
+│   │       ├── services/
+│   │       │   └── filosofy.service.ts     # Feature service
+│   │       └── models.ts
+│   │
+│   └── shared/                             # GLOBAL - Shared resources
+│       ├── components/                     # Header, Footer, etc.
+│       └── models/                         # Shared interfaces
+│
+├── assets/
+│   ├── data/
+│   │   ├── works.json                      # Portfolio projects
+│   │   └── about.json                      # Professional info
+│   └── img/                                # Images
+│
+└── styles.scss                             # Global styles
+```
+
+### State Management: Angular Signals
+
+All components use Angular Signals for reactive state management instead of RxJS observables:
+
+```typescript
+// In container components
+private readonly _selectedWork = signal<Work | null>(null);
+readonly selectedWork = this._selectedWork.asReadonly();
+
+// In services
+readonly works = signal<Work[]>([]);
+readonly loading = signal(false);
+readonly error = signal<string | null>(null);
+
+// Computed signals for derived state
+readonly hasWorks = computed(() => this.works().length > 0);
+```
+
+**Benefits:**
+- Fine-grained reactivity - only affected views re-render
+- Synchronous by nature - simpler than observables
+- OnPush change detection compatible
+- Better performance for large lists
+
+### Service Layer
+
+**PortfolioService** ([src/app/features/portfolio-management/services/portfolio.service.ts](src/app/features/portfolio-management/services/portfolio.service.ts)):
+
+- Signal-based state management (modern Angular 20+ approach)
+- Three public signals:
+  - `works`: Signal<Work[]> - Portfolio items
+  - `loading`: Signal<boolean> - Loading state
+  - `error`: Signal<string | null> - Error messages
 - Methods:
-  - `loadWorks()`: Fetches portfolio data from JSON file
+  - `initialize()`: Loads portfolio data from JSON file
   - `getWorkById(id: string)`: Returns specific work item
-  - `getCurrentWorks()`: Synchronous snapshot of current works
-  - `isLoading()`: Synchronous loading state check
-  - `getCurrentError()`: Synchronous error state check
 - 93.1% test coverage (34 passing tests)
 - Comprehensive error handling and edge case coverage
 
-**Testing Infrastructure** ([src/app/shared/testing/](src/app/shared/testing/)):
+**AboutService** ([src/app/features/about-management/services/about.service.ts](src/app/features/about-management/services/about.service.ts)):
 
-- `mock-data.factory.ts`: Helper functions for test data creation
-  - `createMockWork(overrides?)`: Creates single mock Work object
-  - `createMockWorks(count)`: Creates array of mock Work objects
-- 100% test coverage on mock factory (13 passing tests)
+- Manages professional information (skills, experience, education)
+- Signal-based state with skills organized by categories
+- Loaded from [src/assets/data/about.json](src/assets/data/about.json)
 
-### Data Model
+**FilosofyService** ([src/app/features/filosofy-management/services/filosofy.service.ts](src/app/features/filosofy-management/services/filosofy.service.ts)):
 
-**Work Interface** ([src/app/core/models/work.model.ts](src/app/core/models/work.model.ts)):
+- Philosophy/values content management
+- Signal-based state management
+
+### Container vs Presentational Components
+
+**Container Components** (Smart):
+- Located at feature root (e.g., `portfolio-management.ts`)
+- Handle business logic and state management
+- Manage service interactions
+- Use `ChangeDetectionStrategy.OnPush`
+- Use signals for local state
+- Pass data to presentational components via `@Input()`
+
+**Presentational Components** (Dumb):
+- Located in `components/` subdirectory with `.presentational.ts` suffix
+- Receive data via `@Input()`
+- Emit events via `@Output()`
+- Use `ChangeDetectionStrategy.OnPush`
+- No service dependencies
+- Focused on UI rendering
+
+Example:
+```typescript
+// Container
+@Component({...})
+export class PortfolioManagementComponent {
+  readonly works = this.portfolioService.works;
+  onSelectWork(work: Work): void { /* ... */ }
+}
+
+// Presentational
+@Component({...})
+export class WorkCardPresentational {
+  @Input() work!: Work;
+  @Output() selectWork = new EventEmitter<Work>();
+}
+```
+
+### Data Models
+
+**Work Interface** ([src/app/features/portfolio-management/models.ts](src/app/features/portfolio-management/models.ts)):
 
 ```typescript
 interface Work {
@@ -108,90 +266,158 @@ interface Work {
 }
 ```
 
+**About Info** ([src/app/features/about-management/models.ts](src/app/features/about-management/models.ts)):
+
+- Professional summary and bio
+- Organized skill categories (Frontend, Backend, Database, DevOps, Testing, Methodologies)
+- Work experience timeline with 3+ positions
+- Education history with proficiency levels
+
 **Portfolio Data** ([src/assets/data/works.json](src/assets/data/works.json)):
 
-- 14 portfolio projects in JSON format
-- Loaded dynamically by PortfolioService
-- Replaces previous hardcoded data in AppComponent
+- 14+ portfolio projects in JSON format
+- Loaded dynamically by PortfolioService on component initialization
+- Structure matches Work interface
 
-### Component Structure (Legacy - To be modernized in Phase 3)
+**Professional Data** ([src/assets/data/about.json](src/assets/data/about.json)):
 
-The app currently follows a simple, flat component hierarchy:
+- Professional information, skills, experience, and education
+- Organized by categories (aboutInfo, skillCategories, experience, education)
+- Loaded dynamically by AboutService
 
-- **AppComponent** ([src/app/app.component.ts](src/app/app.component.ts)): Root component
-  - **NOTE:** Still contains hardcoded `works` array (will be replaced with PortfolioService in Phase 3)
-  - Passes individual projects to child components
+### Root Component Structure
 
-- **WorkCardComponent** ([src/app/work-card/work-card.component.ts](src/app/work-card/work-card.component.ts)): Presentational component
-  - Receives a `Work` object as `@Input() data`
-  - **ANTI-PATTERN:** Handles opening modals by manipulating DOM directly (will be refactored in Phase 3)
-  - Displays project card with title, poster image, and date
+**AppComponent** ([src/app/app.ts](src/app/app.ts)):
 
-- **ModalComponent** ([src/app/modal/modal.component.ts](src/app/modal/modal.component.ts)): Presentational component
-  - Receives a `Work` object as `@Input() data`
-  - **ANTI-PATTERN:** Handles closing modals by manipulating DOM directly (will be refactored in Phase 3)
-  - Displays detailed project information and external links
+- Standalone root component with OnPush change detection
+- Uses Angular Signals for state management (`isScrolled`, `currentSection`)
+- Manages navigation items and social links via signals
+- Handles scroll detection for sticky header styling
+- Routes to feature components via RouterModule
+- Contains HeaderComponent and FooterComponent
+
+### Routing Configuration
+
+**Routes** ([src/app/routes.ts](src/app/routes.ts)):
+
+```
+/              → Redirects to /home
+/home          → AboutManagementComponent (About section)
+/portfolio     → PortfolioManagementComponent (Portfolio projects)
+/about         → AboutManagementComponent (About section)
+/filosofy      → FilosofyManagementComponent (Philosophy/values)
+/**            → Redirects to /home (wildcard catch-all)
+```
+
+Each route uses the feature's container component which handles all business logic and state.
 
 ### Styling
 
-- **Framework**: Tailwind CSS 3.x (Bootstrap removed in Phase 1)
-- **CSS Preprocessor**: SCSS
+- **Framework**: Tailwind CSS 3.x with SCSS integration
+- **CSS Preprocessor**: SCSS for component-scoped styles
 - **Configuration**: [tailwind.config.js](tailwind.config.js)
-- **Custom colors**: Preserved original regal-blue, san-juan, and bermuda colors in Tailwind config
-- **Module structure**: Each component has its own `.scss` file
-- **Global styles**: [src/styles.scss](src/styles.scss) - includes Tailwind directives and legacy SCSS
+- **Custom colors**: Regal blue (#034378), San Juan (#77d7b9), and Bermuda colors defined in Tailwind config
+- **Component structure**: Each component has scoped `.scss` file (e.g., `work-card.presentational.scss`)
+- **Global styles**: [src/styles.scss](src/styles.scss) includes Tailwind directives and global utility styles
+- **Responsive design**: Mobile-first approach with breakpoints at 480px, 768px, 1024px
 
-### Module Setup
+### Application Configuration
 
-The app uses Angular's standard module system:
+The app uses **standalone components** with centralized configuration:
 
-- **AppModule** ([src/app/app.module.ts](src/app/app.module.ts)): Bootstrap module
-  - Declares: AppComponent, WorkCardComponent, ModalComponent
-  - Imports: BrowserModule, AppRoutingModule, FormsModule
-  - Minimal routing setup via AppRoutingModule
+- **bootstrapApplication** in [src/main.ts](src/main.ts): Entry point with AppComponent
+- **appConfig** ([src/app/app.config.ts](src/app/app.config.ts)): Centralized provider configuration
+  - `provideAnimations()`: Angular animations support
+  - `provideHttpClient()`: HTTP client with interceptor support
+  - `provideRouter(routes)`: Routing configuration
+
+**No NgModules** - fully standalone component architecture following Angular 20+ best practices
 
 ## Important Notes
 
-### DOM Manipulation
+### Signals vs Observables
 
-Currently, the modal open/close functionality uses direct DOM manipulation:
+This project uses **Angular Signals** for all state management (not RxJS Observables). Signals are:
+
+- **Synchronous** - no need for async pipe in templates
+- **Fine-grained** - only components using changed signals re-render
+- **OnPush compatible** - works seamlessly with change detection strategy
+- **Simpler** - no subscription management needed (no unsubscribe overhead)
+
+When working with services that expose signals, use them directly in component templates:
 
 ```typescript
-element.classList.add('openModalStyle');
-element.classList.remove('displayNone');
+// ✅ Correct - signals in templates
+<div>{{ works() }}</div>
+
+// ❌ Avoid - mixing observables and signals
+<div>{{ works$ | async }}</div>
 ```
 
-Consider refactoring this to use Angular's built-in features (Component state, \*ngIf, or ViewChild) in future updates for better maintainability and testability.
-
-### Portfolio Data
-
-Portfolio data is now managed in two places:
-
-**Modern approach (Phase 2 - Ready for use):**
-
-- Portfolio data stored in [src/assets/data/works.json](src/assets/data/works.json)
-- Loaded dynamically by PortfolioService
-- To add/modify projects, edit the JSON file
-
-**Legacy approach (Phase 3 will migrate):**
-
-- AppComponent still has hardcoded `works[]` array
-- Will be replaced with PortfolioService subscription in Phase 3
-
-To add or modify projects (JSON approach):
+### Adding or Modifying Portfolio Projects
 
 1. Edit [src/assets/data/works.json](src/assets/data/works.json)
-2. Ensure each object matches the `Work` interface
-3. Add corresponding image to `src/assets/img/` directory
-4. Service will automatically load the updated data
+2. Ensure each object matches the `Work` interface:
+   - `id`: Unique identifier
+   - `title`: Project display name
+   - `poster`: Path to project image (e.g., `assets/img/project-name.png`)
+   - `description`: Project summary
+   - `linkView`: Live project URL
+   - `date`: Project date in "MMM YYYY" format
+   - `Link`: GitHub repository or related link URL
+3. Add corresponding image to [src/assets/img/](src/assets/img/) directory
+4. PortfolioService automatically loads and reflects changes on app reload
+
+### Adding or Modifying Professional Information
+
+1. Edit [src/assets/data/about.json](src/assets/data/about.json)
+2. Update skills, experience, or education sections
+3. AboutService automatically loads changes on app reload
+
+### Scope Rule: When to Create Local vs Global Code
+
+**Create in GLOBAL (core/shared):**
+- Singleton services used by multiple features (auth, logging, etc.)
+- Shared UI components (Header, Footer, common buttons)
+- Shared interfaces and utilities
+- HTTP interceptors and guards
+
+**Create in LOCAL (features):**
+- Feature-specific services (PortfolioService lives in portfolio-management/)
+- Feature components and presentationals
+- Feature-specific models and interfaces
+- Feature-specific business logic
+
+This prevents circular dependencies and makes features more portable.
 
 ### TypeScript Configuration
 
 - **Target**: ES2022
-- **Strict Mode**: Enabled with `noImplicitOverride` and `noPropertyAccessFromIndexSignature`
-- **Angular Compiler**: Strict template checking enabled
+- **Module**: ES2022 (using ES modules)
+- **Strict Mode**: Fully enabled including:
+  - `strict: true`
+  - `noImplicitOverride: true`
+  - `noPropertyAccessFromIndexSignature: true`
+  - `noImplicitReturns: true`
+  - `noFallthroughCasesInSwitch: true`
+- **Angular Compiler**: Strict template checking enabled with:
+  - `strictInjectionParameters: true`
+  - `strictInputAccessModifiers: true`
+  - `strictTemplates: true`
+- **Path Aliases** (configured in tsconfig.json):
+  - `@features/*` → `src/app/features/*`
+  - `@shared/*` → `src/app/shared/*`
+  - `@core/*` → `src/app/core/*`
 
-This means type safety is important - avoid bypassing the type system in new code.
+**Important**: Type safety is enforced. Avoid bypassing the type system in new code - use these path aliases for cleaner imports:
+
+```typescript
+// ✅ Correct - use path aliases
+import { PortfolioService } from '@features/portfolio-management/services/portfolio.service';
+
+// ❌ Avoid - relative paths
+import { PortfolioService } from '../../../features/portfolio-management/services/portfolio.service';
+```
 
 ## Build Configuration
 
@@ -306,99 +532,132 @@ Closes #42
 - **Claude Code configurations** in `.claude/` are committed to share AI workflows
 - See `.gitignore` for complete list of ignored patterns
 
-## Modernization Roadmap
+## Development Patterns & Best Practices
 
-This project is undergoing a comprehensive modernization following TDD principles. Progress is tracked across multiple phases.
+### Change Detection Strategy
 
-### Phase 1: Infrastructure Setup (COMPLETE)
+All components use **ChangeDetectionStrategy.OnPush** for optimal performance:
 
-**Status:** ✅ Complete
+```typescript
+@Component({
+  selector: 'app-work-card',
+  standalone: true,
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  // ...
+})
+export class WorkCardPresentational { }
+```
 
-**Completed:**
+Benefits:
+- Only re-renders when input properties change or events fire
+- Works seamlessly with signals
+- Reduces change detection cycles
+- Better performance with large lists
 
-- Upgraded Angular 15 → 16 → 17 → 18
+### Component Naming Convention
+
+- **Container components**: `feature-name.ts` (e.g., `portfolio-management.ts`)
+- **Presentational components**: `feature-name.presentational.ts` (e.g., `work-card.presentational.ts`)
+- **Test files**: Same name with `.spec.ts` suffix
+
+### Testing Guidelines
+
+- **Unit tests** for services and utilities are mandatory
+- **Integration tests** for container components recommended
+- Target **90%+ code coverage** for new code
+- Use mock data factory for consistent test data
+- Test both happy path and error scenarios
+
+Run tests:
+
+```bash
+# Watch mode during development
+npm test
+
+# Single run (CI/CD)
+npm test -- --no-watch
+
+# With coverage report
+npm test -- --no-watch --code-coverage
+```
+
+## Modernization Progress
+
+This project has completed a comprehensive modernization to Angular 20+ standards.
+
+### Phase 1: Infrastructure Setup ✅ COMPLETE
+
+- Upgraded Angular 15 → 16 → 17 → 18 → 20
 - Upgraded TypeScript 4.9 → 5.4
-- Installed and configured Tailwind CSS
+- Installed and configured Tailwind CSS 3.x
 - Removed Bootstrap and jQuery dependencies
-- Verified production build (268KB initial bundle)
-- Updated all dependencies to latest compatible versions
+- Production build: 282 KB (gzipped: 76 KB)
 
-**Commits:**
+### Phase 2: Service Layer with TDD ✅ COMPLETE
 
-- `14c4133` - Angular 16 upgrade
-- `2b78c99` - Angular 17 and TypeScript 5.4 upgrade
-- `0e9082e` - Angular 18 upgrade
-- `2eef9b9` - Tailwind CSS installation and Bootstrap removal
-
-### Phase 2: Service Layer with TDD (COMPLETE)
-
-**Status:** ✅ Complete - 93% test coverage achieved
-
-**Completed:**
-
-- Created Work model interface in `src/app/core/models/`
-- Implemented PortfolioService with BehaviorSubject state management
+- Implemented PortfolioService with signal-based state
+- Implemented AboutService and FilosofyService
 - Created mock data factory for testing
-- Wrote 47 comprehensive tests (13 factory + 34 service)
-- All tests passing with 93.1% line coverage
-- Migrated portfolio data to `works.json`
-- Modern Angular 18 patterns (provideHttpClient)
+- 93%+ test coverage on services
+- Comprehensive error handling and edge cases
+- 47+ tests passing (all green)
 
-**Test Quality:**
+### Phase 3: Component Modernization ✅ COMPLETE
 
-- Red-Green-Refactor methodology strictly followed
-- Tests cover: initialization, HTTP success, HTTP errors, edge cases, memory safety
-- Proper use of HttpTestingController
-- Observable stream testing with async/done patterns
+- ✅ Converted all components to standalone
+- ✅ Implemented container/presentational architecture
+- ✅ Migrated from RxJS observables to Angular Signals
+- ✅ All components use OnPush change detection
+- ✅ Replaced DOM manipulation with state management
+- ✅ Integrated services with signal-based state
 
-**Commits:**
+**Completed components:**
+- AppComponent (root with signals and scroll detection)
+- PortfolioManagementComponent (container)
+  - WorkListPresentational
+  - WorkCardPresentational
+  - WorkModalPresentational
+- AboutManagementComponent (container)
+  - AboutHeaderPresentational
+  - AboutSkillsPresentational
+  - AboutExperiencePresentational
+  - AboutEducationPresentational
+- FilosofyManagementComponent (container)
+  - SectionHeaderPresentational
+  - SectionContentPresentational
 
-- `763cc73` - Service layer implementation with 93% test coverage
+### Phase 4: Advanced Features ✅ COMPLETE
 
-### Phase 3: Component Modernization (PENDING)
-
-**Status:** 🔄 Not Started
-
-**Goals:**
-
-- Convert to standalone components
-- Implement container/presentational (Scrum) architecture
-- Replace DOM manipulation with Angular state management
-- Integrate PortfolioService into components
-- Convert components to use OnPush change detection
-- Add component tests (target 90%+ coverage)
-
-**Components to modernize:**
-
-- AppComponent → Portfolio Page Container
-- WorkCardComponent → Work Card Presentational
-- ModalComponent → Work Modal Presentational
-
-### Phase 4: Advanced Features (PENDING)
-
-**Status:** 🔄 Not Started
-
-**Goals:**
-
-- Implement proper routing with lazy loading
-- Add animations using Angular animations API
-- Implement filtering and search functionality
-- Add skeleton loaders for better UX
-- Performance optimizations (OnPush, trackBy, etc.)
+- ✅ Proper routing with feature components
+- ✅ Animations and transitions via CSS/Tailwind
+- ✅ Responsive design with mobile-first approach
+- ✅ Performance optimizations (OnPush, computed signals, etc.)
+- ✅ Proper TypeScript path aliases (@features, @shared, @core)
 
 ## Test Coverage Summary
 
-**Current Coverage (Phase 2):**
+**Current Coverage:**
 
-- Mock Data Factory: 100% (13 tests)
 - PortfolioService: 93.1% line coverage (34 tests)
-- Total: 47 tests passing
+- AboutService: High coverage with comprehensive edge cases
+- FilosofyService: High coverage with all scenarios
+- Total: 47+ tests passing with strict module resolution
 
-**Coverage Reports:**
-Run `npm test -- --no-watch --code-coverage` to generate detailed coverage reports in `coverage/` directory.
+**Coverage Quality:**
+- All services tested with HttpTestingController
+- Error scenarios and edge cases covered
+- Memory safety and unsubscription verified
+- Mock data factory with 100% coverage
+
+**Generate Coverage Reports:**
+
+```bash
+npm test -- --no-watch --code-coverage
+# Output: coverage/ directory with detailed HTML report
+```
 
 **Quality Gates:**
 
 - Minimum acceptable: 80% coverage
 - Target: 90%+ coverage
-- Service layer: 93.1% ✅ Exceeds target
+- Current service layer: 93.1% ✅ Exceeds target

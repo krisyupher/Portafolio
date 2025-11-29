@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Experience } from '../models';
+import { Experience } from '../../models';
 
 @Component({
   selector: 'app-about-experience',

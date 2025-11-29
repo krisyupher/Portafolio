@@ -1,0 +1,85 @@
+// Work Card Presentational Component Styles
+// SCOPE: LOCAL - Portfolio Management Feature
+
+.work-card {
+  @apply relative flex flex-col h-full bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300;
+  @apply hover:shadow-lg hover:-translate-y-1;
+
+  &:hover .open-button {
+    @apply opacity-100 translate-y-0;
+  }
+
+  &:hover img {
+    @apply scale-105;
+  }
+}
+
+.card-image {
+  @apply relative w-full overflow-hidden bg-gray-100;
+  padding-bottom: 66.67%;
+
+  img {
+    @apply absolute inset-0 w-full h-full object-cover transition-transform duration-300;
+  }
+}
+
+.open-button {
+  @apply absolute top-1/2 left-1/2 z-10 px-6 py-3 bg-bermuda text-white font-semibold;
+  @apply rounded-md border-none cursor-pointer transition-all duration-300 opacity-0 text-base;
+  transform: translate(-50%, -50%) translateY(20px);
+
+  &:hover {
+    background-color: #5cc4a6;
+  }
+
+  &:active {
+    @apply scale-95;
+    transform: translate(-50%, -50%) translateY(20px);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(119, 215, 185, 0.5);
+  }
+}
+
+.card-content {
+  @apply flex flex-col flex-1 gap-2 p-6;
+}
+
+.card-title {
+  @apply text-lg font-bold text-regal-blue m-0 line-clamp-2;
+}
+
+.card-date {
+  @apply text-xs text-gray-500 m-0 uppercase tracking-wider;
+  font-size: 0.8125rem;
+}
+
+.card-description {
+  @apply text-sm text-gray-600 m-0 leading-relaxed flex-1 line-clamp-3;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 640px) {
+  .card-content {
+    @apply p-4 gap-1;
+  }
+  .card-title {
+    @apply text-base;
+  }
+  .card-description {
+    @apply text-xs;
+  }
+  .open-button {
+    @apply px-4 py-2 text-sm;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card,
+  .card-image img,
+  .open-button {
+    @apply transition-none;
+  }
+}

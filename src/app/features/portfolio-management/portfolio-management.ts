@@ -21,8 +21,8 @@ import {
 import { CommonModule } from '@angular/common';
 import { PortfolioService } from './services/portfolio.service';
 import { Work } from './models';
-import { WorkListPresentational } from './components/work-list.presentational';
-import { WorkModalPresentational } from './components/work-modal.presentational';
+import { WorkListPresentational } from './components/work-list/work-list.presentational';
+import { WorkModalPresentational } from './components/work-modal/work-modal.presentational';
 
 @Component({
   selector: 'app-portfolio-management',

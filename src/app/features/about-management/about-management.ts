@@ -19,10 +19,10 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AboutService } from './services/about.service';
-import { AboutHeaderPresentational } from './components/about-header.presentational';
-import { AboutSkillsPresentational } from './components/about-skills.presentational';
-import { AboutExperiencePresentational } from './components/about-experience.presentational';
-import { AboutEducationPresentational } from './components/about-education.presentational';
+import { AboutHeaderPresentational } from './components/about-header/about-header.presentational';
+import { AboutSkillsPresentational } from './components/about-skills/about-skills.presentational';
+import { AboutExperiencePresentational } from './components/about-experience/about-experience.presentational';
+import { AboutEducationPresentational } from './components/about-education/about-education.presentational';
 
 @Component({
   selector: 'app-about-management',

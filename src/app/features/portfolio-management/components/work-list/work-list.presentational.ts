@@ -20,8 +20,8 @@ import {
   output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Work } from '../models';
-import { WorkCardPresentational } from './work-card.presentational';
+import { Work } from '../../models';
+import { WorkCardPresentational } from '../work-card/work-card.presentational';
 
 @Component({
   selector: 'app-work-list',

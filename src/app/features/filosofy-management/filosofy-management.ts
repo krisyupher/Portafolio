@@ -8,8 +8,8 @@
 import { Component, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilosofyService } from './services/filosofy.service';
-import { SectionHeaderComponent } from './components/section-header.presentational';
-import { SectionContentComponent } from './components/section-content.presentational';
+import { SectionHeaderComponent } from './components/section-header/section-header.presentational';
+import { SectionContentComponent } from './components/section-content/section-content.presentational';
 import { Section } from './models';
 
 @Component({

@@ -1,0 +1,28 @@
+@if (work()) {
+  <article class="work-card" [attr.data-work-id]="work()!.id">
+    <!-- Image Section with Overlay Button -->
+    <div class="card-image">
+      <img
+        [src]="work()!.poster"
+        [alt]="work()!.title"
+        loading="lazy"
+        decoding="async"
+      />
+      <button
+        class="open-button"
+        (click)="onOpenModal()"
+        type="button"
+        [attr.aria-label]="'View ' + work()!.title + ' project details'"
+      >
+        View Project
+      </button>
+    </div>
+
+    <!-- Content Section -->
+    <div class="card-content">
+      <h3 class="card-title">{{ work()!.title }}</h3>
+      <p class="card-date">{{ work()!.date }}</p>
+      <p class="card-description">{{ work()!.description }}</p>
+    </div>
+  </article>
+}
