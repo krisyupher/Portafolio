@@ -1,0 +1,107 @@
+.filosofy-container {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+}
+
+.filosofy-header {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  text-align: center;
+
+  h1 {
+    color: var(--color-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    color: var(--text-color-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+.filosofy-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.sidebar {
+  position: sticky;
+  top: 2rem;
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    position: static;
+    max-height: none;
+  }
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  @media (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}
+
+.nav-button {
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  background: transparent;
+  border: none;
+  border-left: 3px solid transparent;
+  color: var(--text-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--color-secondary);
+    background-color: rgba(119, 215, 185, 0.1);
+    border-left-color: var(--color-secondary);
+  }
+
+  &[aria-current='page'] {
+    color: var(--color-secondary);
+    background-color: rgba(119, 215, 185, 0.15);
+    border-left-color: var(--color-secondary);
+    font-weight: 600;
+  }
+}
+
+.content {
+  padding: 2rem;
+  background: var(--bg-color-secondary);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+}

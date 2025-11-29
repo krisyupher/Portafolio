@@ -53,6 +53,7 @@ export class AppComponent {
     { id: 'home', label: 'Home', section: 'home' },
     { id: 'about', label: 'About', section: 'about' },
     { id: 'portfolio', label: 'Portfolio', section: 'portfolio' },
+    { id: 'filosofy', label: 'Filosofy', section: 'filosofy' },
   ]);
 
   readonly socialLinks = signal<SocialLink[]>([
@@ -74,6 +75,7 @@ export class AppComponent {
     { id: 'home', label: 'Home', section: 'home' },
     { id: 'about', label: 'About', section: 'about' },
     { id: 'portfolio', label: 'Portfolio', section: 'portfolio' },
+    { id: 'filosofy', label: 'Filosofy', section: 'filosofy' },
   ]);
 
   readonly technologies = signal(['Angular', 'TypeScript', 'RxJS', 'Tailwind CSS', 'Node.js']);

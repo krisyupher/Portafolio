@@ -1,0 +1,40 @@
+<div class="filosofy-container">
+  <div class="filosofy-header">
+    <h1 class="text-4xl font-bold mb-2">My Development Philosophy</h1>
+    <p class="text-lg text-gray-600 mb-6">
+      How I approach Angular projects with focus on clean architecture, testing,
+      and best practices
+    </p>
+  </div>
+
+  <div class="filosofy-content">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <ul class="nav-list">
+        <li
+          *ngFor="let section of sections()"
+          [class.active]="activeSectionId() === section.id"
+        >
+          <button
+            class="nav-button"
+            (click)="selectSection(section.id)"
+            [attr.aria-current]="activeSectionId() === section.id ? 'page' : null"
+          >
+            {{ section.title }}
+          </button>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content">
+      <ng-container *ngIf="getActiveSection() as section">
+        <app-section-header [title]="section.title"></app-section-header>
+        <app-section-content
+          *ngIf="section.subsections"
+          [subsections]="section.subsections"
+        ></app-section-content>
+      </ng-container>
+    </main>
+  </div>
+</div>

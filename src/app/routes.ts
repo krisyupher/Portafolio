@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { PortfolioManagementComponent } from './features/portfolio-management/portfolio-management';
 import { AboutManagementComponent } from './features/about-management/about-management';
+import { FilosofyManagementComponent } from './features/filosofy-management/filosofy-management';
 
 /**
  * Application Routes
@@ -28,6 +29,11 @@ export const routes: Routes = [
     path: 'about',
     component: AboutManagementComponent,
     data: { title: 'About' },
+  },
+  {
+    path: 'filosofy',
+    component: FilosofyManagementComponent,
+    data: { title: 'Filosofy' },
   },
   {
     path: '**',
