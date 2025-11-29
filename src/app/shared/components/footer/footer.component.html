@@ -16,7 +16,7 @@
       <ul class="links-list">
         @for (link of quickLinks(); track link.id) {
           <li class="link-item">
-            <a (click)="onLinkClick(link.id)" class="link">{{ link.label }}</a>
+            <button (click)="onLinkClick(link.id)" class="link" type="button">{{ link.label }}</button>
           </li>
         }
       </ul>

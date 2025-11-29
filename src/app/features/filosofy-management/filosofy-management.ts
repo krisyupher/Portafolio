@@ -5,7 +5,7 @@
  * Manages state and delegates presentation to child components.
  */
 
-import { Component, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilosofyService } from './services/filosofy.service';
 import { SectionHeaderComponent } from './components/section-header.presentational';
@@ -25,15 +25,12 @@ import { Section } from './models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [FilosofyService],
 })
-export class FilosofyManagementComponent implements OnInit {
+export class FilosofyManagementComponent {
+  private readonly filosofyService = inject(FilosofyService);
+
   readonly sections = this.filosofyService.sections;
   readonly activeSectionId = signal<string>('architecture');
 
-  constructor(private filosofyService: FilosofyService) { }
-
-  ngOnInit(): void {
-    // Service initializes with data
-  }
 
   selectSection(sectionId: string): void {
     this.activeSectionId.set(sectionId);

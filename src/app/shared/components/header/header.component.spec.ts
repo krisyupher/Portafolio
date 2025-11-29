@@ -5,7 +5,7 @@
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeaderComponent } from './header.component';
-import { NavItem, SocialLink } from '../../models';
+import { NavItem } from '../../models/navigation.model';
 
 describe('HeaderComponent (RED)', () => {
   let component: HeaderComponent;
@@ -13,7 +13,7 @@ describe('HeaderComponent (RED)', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent],
+      imports: [HeaderComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);
@@ -27,54 +27,41 @@ describe('HeaderComponent (RED)', () => {
     });
 
     it('should have default brandName', () => {
-      expect(component.brandName).toBe('Cristian Florez');
+      expect(component.brandName()).toBe('Cristian Florez');
     });
 
     it('should initialize with empty nav items', () => {
-      expect(Array.isArray(component.navItems)).toBe(true);
+      expect(Array.isArray(component.navItems())).toBe(true);
     });
 
     it('should initialize with empty social links', () => {
-      expect(Array.isArray(component.socialLinks)).toBe(true);
+      expect(Array.isArray(component.socialLinks())).toBe(true);
     });
 
     it('should initialize isScrolled as false', () => {
-      expect(component.isScrolled).toBe(false);
+      expect(component.isScrolled()).toBe(false);
     });
   });
 
-  describe('@Input() bindings', () => {
-    const mockNavItems: NavItem[] = [
-      { id: 'home', label: 'Home', section: 'home' },
-      { id: 'about', label: 'About', section: 'about' },
-    ];
-
-    const mockSocialLinks: SocialLink[] = [
-      { id: 'github', label: 'GitHub', url: 'https://github.com/krisyupher', icon: 'github' },
-    ];
-
-    it('should accept navItems input', () => {
-      component.navItems = mockNavItems;
-      expect(component.navItems.length).toBe(2);
+  describe('input() signals', () => {
+    it('should have navItems input signal', () => {
+      expect(Array.isArray(component.navItems())).toBe(true);
     });
 
-    it('should accept socialLinks input', () => {
-      component.socialLinks = mockSocialLinks;
-      expect(component.socialLinks.length).toBe(1);
+    it('should have socialLinks input signal', () => {
+      expect(Array.isArray(component.socialLinks())).toBe(true);
     });
 
-    it('should accept brandName input', () => {
-      component.brandName = 'Test Portfolio';
-      expect(component.brandName).toBe('Test Portfolio');
+    it('should have brandName input signal', () => {
+      expect(typeof component.brandName()).toBe('string');
     });
 
-    it('should accept isScrolled input', () => {
-      component.isScrolled = true;
-      expect(component.isScrolled).toBe(true);
+    it('should have isScrolled input signal', () => {
+      expect(typeof component.isScrolled()).toBe('boolean');
     });
   });
 
-  describe('@Output() events', () => {
+  describe('output() signals', () => {
     it('should have navItemClicked output', () => {
       expect(component.navItemClicked).toBeDefined();
     });

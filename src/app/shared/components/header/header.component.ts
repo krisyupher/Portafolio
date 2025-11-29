@@ -19,7 +19,7 @@ import {
   output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavItem, SocialLink } from '../../models';
+import { NavItem, SocialLink } from '../../models/navigation.model';
 
 @Component({
   selector: 'app-header',

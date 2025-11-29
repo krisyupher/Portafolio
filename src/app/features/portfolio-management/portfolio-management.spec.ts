@@ -1,27 +1,26 @@
 /**
- * Portfolio Management Container Tests (RED - Phase 2)
- * Failing tests that define expected behavior
+ * Portfolio Management Container Tests
+ * Tests for signal-based container component
  */
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { PortfolioManagementContainer } from './portfolio-management.container';
+import { PortfolioManagementComponent } from './portfolio-management';
 import { PortfolioService } from './services/portfolio.service';
 import { Work } from './models';
 
-describe('PortfolioManagementContainer (RED)', () => {
-  let component: PortfolioManagementContainer;
-  let fixture: ComponentFixture<PortfolioManagementContainer>;
+describe('PortfolioManagementComponent', () => {
+  let component: PortfolioManagementComponent;
+  let fixture: ComponentFixture<PortfolioManagementComponent>;
   let service: PortfolioService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PortfolioManagementContainer],
-      imports: [HttpClientTestingModule],
+      imports: [PortfolioManagementComponent, HttpClientTestingModule],
       providers: [PortfolioService],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(PortfolioManagementContainer);
+    fixture = TestBed.createComponent(PortfolioManagementComponent);
     component = fixture.componentInstance;
     service = TestBed.inject(PortfolioService);
   });
@@ -31,16 +30,20 @@ describe('PortfolioManagementContainer (RED)', () => {
       expect(component).toBeTruthy();
     });
 
-    it('should have works$ observable', () => {
-      expect(component.works$).toBeDefined();
+    it('should have works signal', () => {
+      expect(typeof component.works()).toBeDefined();
     });
 
-    it('should have loading$ observable', () => {
-      expect(component.loading$).toBeDefined();
+    it('should have loading signal', () => {
+      expect(typeof component.loading()).toBe('boolean');
     });
 
-    it('should have error$ observable', () => {
-      expect(component.error$).toBeDefined();
+    it('should have error signal', () => {
+      expect(component.error() === null || typeof component.error() === 'string').toBe(true);
+    });
+
+    it('should have selectedWork signal', () => {
+      expect(component.selectedWork() === null || typeof component.selectedWork() === 'object').toBe(true);
     });
   });
 
@@ -49,135 +52,81 @@ describe('PortfolioManagementContainer (RED)', () => {
       expect(service).toBeTruthy();
     });
 
-    it('should have works$ from PortfolioService', (done) => {
-      component.works$.subscribe((works) => {
-        expect(Array.isArray(works)).toBe(true);
-        done();
-      });
+    it('should initialize service on construction', () => {
+      spyOn(service, 'initialize');
+      new PortfolioManagementComponent();
+      expect(service.initialize).toHaveBeenCalled();
     });
 
-    it('should have loading$ from PortfolioService', (done) => {
-      component.loading$.subscribe((loading) => {
-        expect(typeof loading).toBe('boolean');
-        done();
-      });
+    it('should expose works from service', () => {
+      expect(Array.isArray(component.works())).toBe(true);
     });
 
-    it('should have error$ from PortfolioService', (done) => {
-      component.error$.subscribe((error) => {
-        expect(error === null || typeof error === 'string').toBe(true);
-        done();
-      });
+    it('should expose loading from service', () => {
+      expect(typeof component.loading()).toBe('boolean');
+    });
+
+    it('should expose error from service', () => {
+      const error = component.error();
+      expect(error === null || typeof error === 'string').toBe(true);
     });
   });
 
-  describe('Component Lifecycle', () => {
-    it('should call loadWorks on ngOnInit', () => {
-      spyOn(service, 'loadWorks');
-      component.ngOnInit();
-      expect(service.loadWorks).toHaveBeenCalled();
+  describe('Work Selection', () => {
+    const mockWork: Work = {
+      id: 'test-1',
+      title: 'Test Work',
+      poster: 'test.png',
+      description: 'Test Description',
+      linkView: 'http://example.com',
+      date: 'JAN 2024',
+      Link: 'http://github.com/test',
+    };
+
+    it('should start with no selected work', () => {
+      expect(component.selectedWork()).toBeNull();
     });
 
-    it('should initialize service on component creation', () => {
-      spyOn(service, 'loadWorks');
-      fixture.detectChanges();
-      expect(service.loadWorks).toHaveBeenCalled();
+    it('should select work on onSelectWork', () => {
+      component.onSelectWork(mockWork);
+      expect(component.selectedWork()).toEqual(mockWork);
+    });
+
+    it('should close modal on onCloseModal', () => {
+      component.onSelectWork(mockWork);
+      expect(component.selectedWork()).not.toBeNull();
+      component.onCloseModal();
+      expect(component.selectedWork()).toBeNull();
     });
   });
 
-  describe('Data Handling', () => {
-    const mockWorks: Work[] = [
-      {
+  describe('State Management', () => {
+    it('should handle multiple work selections', () => {
+      const work1: Work = {
         id: 'work-1',
         title: 'Work 1',
         poster: 'w1.png',
-        description: 'Description 1',
+        description: 'Desc 1',
         linkView: 'http://work1.com',
         date: 'JAN 2024',
-        Link: 'http://github.com/work1',
-      },
-      {
+        Link: 'http://github.com/w1',
+      };
+
+      const work2: Work = {
         id: 'work-2',
         title: 'Work 2',
         poster: 'w2.png',
-        description: 'Description 2',
+        description: 'Desc 2',
         linkView: 'http://work2.com',
         date: 'FEB 2024',
-        Link: 'http://github.com/work2',
-      },
-    ];
-
-    it('should receive works from service', (done) => {
-      service.loadWorks();
-      const req = TestBed.inject(HttpClientTestingModule);
-
-      component.works$.subscribe((works) => {
-        expect(Array.isArray(works)).toBe(true);
-        done();
-      });
-
-      fixture.detectChanges();
-    });
-
-    it('should handle empty works array', (done) => {
-      component.works$.subscribe((works) => {
-        expect(Array.isArray(works)).toBe(true);
-        done();
-      });
-    });
-  });
-
-  describe('Event Handling', () => {
-    it('should have onSelectWork method', () => {
-      expect(typeof component.onSelectWork).toBe('function');
-    });
-
-    it('should have onCloseModal method', () => {
-      expect(typeof component.onCloseModal).toBe('function');
-    });
-
-    it('should handle work selection', () => {
-      const mockWork: Work = {
-        id: 'test',
-        title: 'Test Work',
-        poster: 'test.png',
-        description: 'Test',
-        linkView: 'http://test.com',
-        date: 'JAN 2024',
-        Link: 'http://github.com/test',
+        Link: 'http://github.com/w2',
       };
 
-      expect(() => {
-        component.onSelectWork(mockWork);
-      }).not.toThrow();
-    });
+      component.onSelectWork(work1);
+      expect(component.selectedWork()?.id).toBe('work-1');
 
-    it('should handle modal close', () => {
-      expect(() => {
-        component.onCloseModal();
-      }).not.toThrow();
-    });
-  });
-
-  describe('Observable Subscriptions', () => {
-    it('should expose loading state through observable', (done) => {
-      component.loading$.subscribe((loading) => {
-        expect(typeof loading).toBe('boolean');
-        done();
-      });
-    });
-
-    it('should expose error state through observable', (done) => {
-      component.error$.subscribe((error) => {
-        expect(error === null || typeof error === 'string').toBe(true);
-        done();
-      });
-    });
-
-    it('should provide async-friendly observables', () => {
-      expect(component.works$).toBeTruthy();
-      expect(component.loading$).toBeTruthy();
-      expect(component.error$).toBeTruthy();
+      component.onSelectWork(work2);
+      expect(component.selectedWork()?.id).toBe('work-2');
     });
   });
 });

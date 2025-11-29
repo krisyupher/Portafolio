@@ -11,30 +11,31 @@
     <!-- Sidebar Navigation -->
     <nav class="sidebar">
       <ul class="nav-list">
-        <li
-          *ngFor="let section of sections()"
-          [class.active]="activeSectionId() === section.id"
-        >
-          <button
-            class="nav-button"
-            (click)="selectSection(section.id)"
-            [attr.aria-current]="activeSectionId() === section.id ? 'page' : null"
-          >
-            {{ section.title }}
-          </button>
-        </li>
+        @for (section of sections(); track section.id) {
+          <li [class.active]="activeSectionId() === section.id">
+            <button
+              class="nav-button"
+              (click)="selectSection(section.id)"
+              [attr.aria-current]="activeSectionId() === section.id ? 'page' : null"
+              type="button"
+            >
+              {{ section.title }}
+            </button>
+          </li>
+        }
       </ul>
     </nav>
 
     <!-- Main Content -->
     <main class="content">
-      <ng-container *ngIf="getActiveSection() as section">
+      @if (getActiveSection(); as section) {
         <app-section-header [title]="section.title"></app-section-header>
-        <app-section-content
-          *ngIf="section.subsections"
-          [subsections]="section.subsections"
-        ></app-section-content>
-      </ng-container>
+        @if (section.subsections) {
+          <app-section-content
+            [subsections]="section.subsections"
+          ></app-section-content>
+        }
+      }
     </main>
   </div>
 </div>

@@ -14,19 +14,21 @@ import { Work } from '../models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./work-card.presentational.scss'],
   template: `
-    <div *ngIf="work()" class="work-card">
-      <div class="card-image">
-        <img [src]="work()!.poster" [alt]="work()!.title" />
-        <button class="open-button" (click)="onOpenModal()" type="button">
-          View Project
-        </button>
+    @if (work()) {
+      <div class="work-card">
+        <div class="card-image">
+          <img [src]="work()!.poster" [alt]="work()!.title" />
+          <button class="open-button" (click)="onOpenModal()" type="button">
+            View Project
+          </button>
+        </div>
+        <div class="card-content">
+          <h3 class="card-title">{{ work()!.title }}</h3>
+          <p class="card-date">{{ work()!.date }}</p>
+          <p class="card-description">{{ work()!.description }}</p>
+        </div>
       </div>
-      <div class="card-content">
-        <h3 class="card-title">{{ work()!.title }}</h3>
-        <p class="card-date">{{ work()!.date }}</p>
-        <p class="card-description">{{ work()!.description }}</p>
-      </div>
-    </div>
+    }
   `,
 })
 export class WorkCardPresentational {

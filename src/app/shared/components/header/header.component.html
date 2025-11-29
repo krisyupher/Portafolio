@@ -11,7 +11,7 @@
     <ul class="nav-menu">
       @for (item of navItems(); track item.id) {
         <li class="nav-item">
-          <a class="nav-link" (click)="onNavItemClick(item)">{{ item.label }}</a>
+          <button class="nav-link" (click)="onNavItemClick(item)" type="button">{{ item.label }}</button>
         </li>
       }
     </ul>

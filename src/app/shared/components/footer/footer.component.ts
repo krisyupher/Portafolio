@@ -20,7 +20,7 @@ import {
   output,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SocialLink, QuickLink } from '../../models';
+import { SocialLink, QuickLink } from '../../models/navigation.model';
 
 @Component({
   selector: 'app-footer',

@@ -14,31 +14,35 @@ import { Subsection } from '../models';
   imports: [CommonModule],
   template: `
     <div class="section-content">
-      <div *ngFor="let subsection of subsections" class="subsection">
-        <h3 class="text-2xl font-semibold mb-4 text-secondary">
-          {{ subsection.title }}
-        </h3>
+      @for (subsection of subsections; track subsection.title) {
+        <div class="subsection">
+          <h3 class="text-2xl font-semibold mb-4 text-secondary">
+            {{ subsection.title }}
+          </h3>
 
-        <p *ngIf="subsection.description" class="text-gray-600 mb-4">
-          {{ subsection.description }}
-        </p>
+          @if (subsection.description) {
+            <p class="text-gray-600 mb-4">
+              {{ subsection.description }}
+            </p>
+          }
 
-        <ul
-          *ngIf="subsection.items && subsection.items.length > 0"
-          class="list-space mb-6"
-        >
-          <li *ngFor="let item of subsection.items" class="list-item">
-            {{ item }}
-          </li>
-        </ul>
+          @if (subsection.items && subsection.items.length > 0) {
+            <ul class="list-space mb-6">
+              @for (item of subsection.items; track item) {
+                <li class="list-item">
+                  {{ item }}
+                </li>
+              }
+            </ul>
+          }
 
-        <div
-          *ngIf="subsection.example"
-          class="code-example bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto mb-6"
-        >
-          <pre><code>{{ subsection.example }}</code></pre>
+          @if (subsection.example) {
+            <div class="code-example bg-gray-900 text-gray-100 p-6 rounded-lg overflow-x-auto mb-6">
+              <pre><code>{{ subsection.example }}</code></pre>
+            </div>
+          }
         </div>
-      </div>
+      }
     </div>
   `,
   styleUrls: ['./section-content.presentational.scss'],
