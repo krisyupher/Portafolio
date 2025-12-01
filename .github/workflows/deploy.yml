@@ -61,7 +61,7 @@ jobs:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
     needs: build
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
 
     environment:
       name: github-pages
@@ -80,6 +80,17 @@ jobs:
           ls -la ./dist-temp || echo "dist-temp does not exist"
           echo "=== All files recursively ==="
           find ./dist-temp -type f 2>/dev/null | head -15 || true
+
+      - name: Flatten downloaded artifact
+        run: |
+          echo "Checking for nested directories..."
+          if [ -d "./dist-temp/dist" ]; then
+            echo "Found nested dist folder, flattening..."
+            mv ./dist-temp/dist/* ./dist-temp/ || true
+            rm -rf ./dist-temp/dist || true
+          fi
+          echo "=== Final artifact structure ==="
+          ls -la ./dist-temp
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
