@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: dist/portafolio
+          path: dist/portafolio/
           retention-days: 1
 
   deploy:
@@ -77,12 +77,9 @@ jobs:
       - name: Debug artifact structure
         run: |
           echo "=== Contents of dist-temp ==="
-          ls -la ./dist-temp || true
-          echo "=== Checking for nested structure ==="
-          if [ -d "./dist-temp/portafolio" ]; then
-            echo "Found nested portafolio folder!"
-            ls -la ./dist-temp/portafolio | head -10
-          fi
+          ls -la ./dist-temp || echo "dist-temp does not exist"
+          echo "=== All files recursively ==="
+          find ./dist-temp -type f 2>/dev/null | head -15 || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -90,7 +87,7 @@ jobs:
       - name: Upload to Pages
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist-temp/portafolio'
+          path: './dist-temp'
 
       - name: Deploy to GitHub Pages
         id: deployment
