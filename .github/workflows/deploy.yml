@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - master
+      - main
   pull_request:
     branches:
       - master
+      - main
 
 permissions:
   contents: read
@@ -52,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: dist
-          path: dist/portafolio
+          path: dist/portafolio/
           retention-days: 1
 
   deploy:
@@ -71,6 +73,9 @@ jobs:
         with:
           name: dist
           path: ./dist-temp
+
+      - name: Debug artifact structure
+        run: ls -la ./dist-temp || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
