@@ -66,8 +66,14 @@ export class AppComponent {
     {
       id: 'linkedin',
       label: 'LinkedIn',
-      url: 'https://linkedin.com/in/krisyupher',
+      url: 'https://www.linkedin.com/in/ccflorezrud/',
       icon: 'linkedin',
+    },
+    {
+      id: 'instagram',
+      label: 'Instagram',
+      url: 'https://www.instagram.com/krisyupher/',
+      icon: 'instagram',
     },
   ]);
 
@@ -79,7 +85,7 @@ export class AppComponent {
   ]);
 
   readonly technologies = signal(['Angular', 'TypeScript', 'RxJS', 'Tailwind CSS', 'Node.js']);
-  readonly contactEmail = signal('cristian@example.com');
+  readonly contactEmail = signal('ccflorezrud@gmail.com');
   readonly copyrightYear = computed(() => new Date().getFullYear());
 
   /**
