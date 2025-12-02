@@ -5,6 +5,7 @@
 # ============================================================================
 # Angular build artifacts
 /dist
+/docs
 /dist-server
 /tmp
 /out-tsc
