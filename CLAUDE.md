@@ -30,7 +30,7 @@ npm start
 
 ```bash
 npm run build
-# Output stored in dist/portafolio/ with optimizations and bundle analysis
+# Output stored in docs/ with optimizations and bundle analysis
 ```
 
 **Watch mode (incremental builds):**

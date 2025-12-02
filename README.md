@@ -121,7 +121,7 @@ npm start
 # Build for production
 npm run build
 
-# Output stored in dist/portafolio/
+# Output stored in docs/
 ```
 
 ### Testing
