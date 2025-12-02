@@ -5,7 +5,7 @@
 # ============================================================================
 # Angular build artifacts
 /dist
-/docs
+# /docs - Keep committed for GitHub Pages deployment
 /dist-server
 /tmp
 /out-tsc

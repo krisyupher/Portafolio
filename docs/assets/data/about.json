@@ -1,0 +1,270 @@
+{
+  "aboutInfo": {
+    "name": "Cristian Florez",
+    "title": "Full-Stack Software Developer",
+    "bio": "Results-driven Full-Stack Software Developer with 4+ years of experience delivering high-impact web applications for government and enterprise clients. Proven track record in building scalable solutions that dramatically improve system performance and user experience. Expert in modern JavaScript/TypeScript ecosystems with deep experience in Angular, React, Node.js and cloud deployment. Achieved search time reduction from minutes to milliseconds and processing time reduction from 4 months to 10 days through innovative technical solutions.",
+    "profileImage": "https://avatars.githubusercontent.com/u/48220112?s=400&u=46447c107f92bdf15dc1c63ed42189546147d16e&v=4",
+    "focus": "🎯 Building scalable architectures, optimizing performance, and delivering enterprise-grade solutions"
+  },
+  "skillCategories": [
+    {
+      "name": "Frontend Technologies",
+      "skills": [
+        {
+          "id": "angular",
+          "name": "Angular",
+          "category": "Frontend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "typescript",
+          "name": "TypeScript",
+          "category": "Frontend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "react",
+          "name": "React.js",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "html5",
+          "name": "HTML5",
+          "category": "Frontend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "css3",
+          "name": "CSS3",
+          "category": "Frontend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "sass",
+          "name": "Sass/SCSS",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "tailwind",
+          "name": "Tailwind CSS",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "bootstrap",
+          "name": "Bootstrap",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "rxjs",
+          "name": "RxJS",
+          "category": "Frontend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "ionic",
+          "name": "Ionic",
+          "category": "Frontend",
+          "proficiency": "Intermediate"
+        }
+      ]
+    },
+    {
+      "name": "Backend Technologies",
+      "skills": [
+        {
+          "id": "nodejs",
+          "name": "Node.js",
+          "category": "Backend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "express",
+          "name": "Express.js",
+          "category": "Backend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "dotnet",
+          "name": ".NET",
+          "category": "Backend",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "graphql",
+          "name": "GraphQL",
+          "category": "Backend",
+          "proficiency": "Intermediate"
+        },
+        {
+          "id": "rest-api",
+          "name": "REST API",
+          "category": "Backend",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "nginx",
+          "name": "Nginx",
+          "category": "Backend",
+          "proficiency": "Intermediate"
+        }
+      ]
+    },
+    {
+      "name": "Database & Cache",
+      "skills": [
+        {
+          "id": "postgresql",
+          "name": "PostgreSQL",
+          "category": "Database",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "mongodb",
+          "name": "MongoDB",
+          "category": "Database",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "redis",
+          "name": "Redis",
+          "category": "Database",
+          "proficiency": "Intermediate"
+        }
+      ]
+    },
+    {
+      "name": "DevOps & Cloud",
+      "skills": [
+        {
+          "id": "azure",
+          "name": "Azure",
+          "category": "DevOps",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "docker",
+          "name": "Docker",
+          "category": "DevOps",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "firebase",
+          "name": "Firebase",
+          "category": "DevOps",
+          "proficiency": "Intermediate"
+        },
+        {
+          "id": "git",
+          "name": "Git",
+          "category": "DevOps",
+          "proficiency": "Expert"
+        },
+        {
+          "id": "linux",
+          "name": "Linux",
+          "category": "DevOps",
+          "proficiency": "Advanced"
+        }
+      ]
+    },
+    {
+      "name": "Testing & Tools",
+      "skills": [
+        {
+          "id": "jest",
+          "name": "Jest",
+          "category": "Testing",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "postman",
+          "name": "Postman",
+          "category": "Tools",
+          "proficiency": "Advanced"
+        }
+      ]
+    },
+    {
+      "name": "Methodologies",
+      "skills": [
+        {
+          "id": "agile",
+          "name": "Agile/Scrum",
+          "category": "Methodology",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "cicd",
+          "name": "CI/CD",
+          "category": "Methodology",
+          "proficiency": "Advanced"
+        },
+        {
+          "id": "responsive-design",
+          "name": "Responsive Design",
+          "category": "Methodology",
+          "proficiency": "Expert"
+        }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "id": "corte-suprema",
+      "title": "Full-Stack Developer",
+      "company": "Corte Suprema de Justicia de Colombia",
+      "startDate": "2022",
+      "endDate": "2024",
+      "description": "Led modernization of Colombia's Supreme Court official website, architected and deployed custom CMS improving site performance by 40%. Designed end-to-end solution enabling public access to 500,000+ judicial decisions with advanced search - reducing query time from minutes to milliseconds. Contributed to ESAV system managing complete judicial processes, supporting 80% process digitalization reducing case processing from 4 months to 10 days. Collaborated with judicial magistrates and stakeholders ensuring compliance with government accessibility standards.",
+      "technologies": ["Angular", "TypeScript", "Node.js", ".NET", "PostgreSQL", "Docker", "Azure", "REST APIs"]
+    },
+    {
+      "id": "seti-sas",
+      "title": "Back-End Developer",
+      "company": "SETI S.A.S",
+      "startDate": "2021",
+      "endDate": "2022",
+      "description": "Developed secure backend infrastructure for Davivienda's real estate sales platform serving one of Colombia's largest banks. Designed robust and scalable architecture ensuring platform security and compliance with banking regulations. Integrated REST and SOAP services for secure communication between banking systems. Implemented client financial history validation and automated risk analysis logic maintaining data integrity and compliance with financial industry standards.",
+      "technologies": ["Node.js", "Express.js", "REST APIs", "SOAP", "Security", "Banking Systems"]
+    },
+    {
+      "id": "quantum-connexion",
+      "title": "Front-End Developer",
+      "company": "Quantum Connexion",
+      "startDate": "2019",
+      "endDate": "2021",
+      "description": "Designed and implemented responsive user interfaces creating intuitive user experiences for Troop platform. Integrated REST APIs for user authentication and dynamic data retrieval. Developed mobile-first responsive designs ensuring cross-browser and cross-device compatibility. Applied frontend optimization techniques reducing page load times by 35%. Collaborated with UX/UI designers and backend teams ensuring seamless component integration leveraging modern JavaScript frameworks and best practices.",
+      "technologies": ["Angular", "React", "JavaScript", "Responsive Design", "REST APIs", "Performance Optimization"]
+    }
+  ],
+  "education": [
+    {
+      "id": "education-systems",
+      "degree": "Bachelor of Science in Computer Systems Engineering",
+      "institution": "Universidad Distrital - Colombia",
+      "field": "Computer Systems Engineering",
+      "graduationYear": 2023,
+      "description": "Comprehensive university education in computer systems engineering, covering software architecture, database design, and enterprise application development principles."
+    },
+    {
+      "id": "education-diploma",
+      "degree": "Diploma in Information Systems Technology",
+      "institution": "Universidad Distrital - Colombia",
+      "field": "Information Systems Technology",
+      "graduationYear": 2018,
+      "description": "Specialized technical diploma focusing on modern information systems, technology implementation, and IT infrastructure fundamentals."
+    },
+    {
+      "id": "education-english",
+      "degree": "English Language Certification - C1 Level",
+      "institution": "ESU Toronto - Canada",
+      "field": "Advanced English",
+      "graduationYear": 2025,
+      "description": "Professional working proficiency in English with advanced communication skills, enabling effective collaboration in international technical teams."
+    }
+  ]
+}
