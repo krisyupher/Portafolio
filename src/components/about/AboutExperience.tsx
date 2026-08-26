@@ -9,17 +9,26 @@ export const AboutExperience: React.FC<AboutExperienceProps> = ({ experience }) 
   if (!experience || experience.length === 0) return null;
 
   return (
-    <section className="py-12 border-b border-gray-200" aria-labelledby="experience-heading">
-      <h2
-        id="experience-heading"
-        className="text-2xl sm:text-3xl font-bold text-center text-regal-blue mb-12"
-      >
-        Professional Experience
-      </h2>
+    <section className="py-12 border-b border-slate-200/80" aria-labelledby="experience-heading">
+      <div className="text-center max-w-3xl mx-auto mb-12 space-y-2">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-regal-blue/10 text-regal-blue text-xs font-bold uppercase tracking-wider">
+          <i className="fas fa-timeline text-bermuda"></i>
+          <span>Career Trajectory</span>
+        </div>
+        <h2
+          id="experience-heading"
+          className="text-3xl sm:text-4xl font-heading font-extrabold text-regal-blue tracking-tight"
+        >
+          Professional Experience
+        </h2>
+        <p className="text-slate-600 text-sm sm:text-base">
+          Proven track record in driving performance, scaling digital platforms, and delivering secure solutions for enterprise and government clients.
+        </p>
+      </div>
 
       <div className="relative max-w-4xl mx-auto">
-        {/* Central timeline vertical line */}
-        <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-bermuda transform md:-translate-x-1/2"></div>
+        {/* Central timeline line */}
+        <div className="absolute left-6 md:left-1/2 top-4 bottom-4 w-1 bg-gradient-to-b from-bermuda via-regal-blue to-accent-cyan transform md:-translate-x-1/2 rounded-full"></div>
 
         <div className="space-y-12">
           {experience.map((exp, index) => {
@@ -32,37 +41,43 @@ export const AboutExperience: React.FC<AboutExperienceProps> = ({ experience }) 
                   isEven ? 'md:flex-row-reverse' : ''
                 }`}
               >
-                {/* Timeline Marker Dot */}
-                <div className="absolute left-4 md:left-1/2 top-6 w-4 h-4 rounded-full bg-bermuda border-4 border-white shadow ring-2 ring-bermuda transform -translate-x-1/2 z-10"></div>
+                {/* Timeline Glowing Marker */}
+                <div className="absolute left-6 md:left-1/2 top-6 w-5 h-5 rounded-full bg-white border-4 border-bermuda shadow-glow-teal transform -translate-x-1/2 z-10"></div>
 
                 {/* Content Card */}
                 <div
-                  className={`ml-10 md:ml-0 md:w-1/2 ${
-                    isEven ? 'md:pl-10 text-left' : 'md:pr-10 md:text-right'
+                  className={`ml-14 md:ml-0 md:w-1/2 ${
+                    isEven ? 'md:pl-10 text-left' : 'md:pr-10 md:text-right text-left'
                   }`}
                 >
-                  <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
-                    <div className="mb-2">
-                      <h3 className="text-xl font-bold text-regal-blue">{exp.title}</h3>
-                      <p className="text-base font-semibold text-bermuda">{exp.company}</p>
-                      <span className="inline-block text-xs font-semibold text-gray-500 uppercase tracking-wider mt-1">
-                        {exp.startDate} - {exp.endDate || 'Present'}
-                      </span>
+                  <div className="glass-card rounded-2xl p-6 sm:p-7 border border-slate-200/80 hover:shadow-xl transition-all duration-300 group">
+                    {/* Header */}
+                    <div className="mb-3 space-y-1">
+                      <div className="flex items-center gap-2 flex-wrap justify-start md:justify-start">
+                        <span className="px-2.5 py-0.5 rounded-full bg-bermuda/15 text-regal-blue text-[11px] font-extrabold uppercase tracking-wider">
+                          {exp.startDate} - {exp.endDate || 'Present'}
+                        </span>
+                      </div>
+                      <h3 className="text-xl font-heading font-extrabold text-regal-blue group-hover:text-bermuda transition-colors">
+                        {exp.title}
+                      </h3>
+                      <p className="text-sm font-bold text-slate-700 flex items-center gap-1.5 justify-start md:justify-start">
+                        <i className="fas fa-building text-bermuda text-xs"></i>
+                        <span>{exp.company}</span>
+                      </p>
                     </div>
 
-                    <p className="text-sm text-gray-600 leading-relaxed mb-4 text-left">
+                    {/* Description */}
+                    <p className="text-sm text-slate-600 leading-relaxed mb-4 text-left">
                       {exp.description}
                     </p>
 
-                    <div
-                      className={`flex flex-wrap gap-1.5 ${
-                        isEven ? 'justify-start' : 'md:justify-end justify-start'
-                      }`}
-                    >
+                    {/* Tech Badges */}
+                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100 justify-start">
                       {exp.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="inline-block bg-bermuda/15 border border-bermuda/30 text-regal-blue text-xs font-medium px-2.5 py-0.5 rounded-full"
+                          className="inline-block bg-slate-100/90 text-slate-700 text-xs font-semibold px-2.5 py-0.5 rounded-md border border-slate-200/60 transition-colors hover:bg-bermuda/10 hover:text-regal-blue hover:border-bermuda/30"
                         >
                           {tech}
                         </span>

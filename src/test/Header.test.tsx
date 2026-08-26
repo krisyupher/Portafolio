@@ -12,11 +12,11 @@ describe('Header Component', () => {
     );
 
     expect(screen.getByText('Cristian Florez')).toBeInTheDocument();
-    expect(screen.getByText('Full-Stack Software Developer')).toBeInTheDocument();
+    expect(screen.getByText('Full-Stack Software Engineer')).toBeInTheDocument();
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
     expect(screen.getByText('Portfolio')).toBeInTheDocument();
-    expect(screen.getByText('Filosofy')).toBeInTheDocument();
+    expect(screen.getByText('Philosophy & Standards')).toBeInTheDocument();
   });
 
   it('toggles mobile menu on button click', () => {

@@ -12,12 +12,23 @@ export interface SocialLink {
   icon: string;
 }
 
+export interface MetricHighlight {
+  value: string;
+  label: string;
+  sublabel?: string;
+  icon?: string;
+}
+
 export interface AboutInfo {
   name: string;
   title: string;
   bio: string;
   profileImage: string;
   focus: string;
+  availability?: string;
+  location?: string;
+  yearsOfExperience?: string;
+  metrics?: MetricHighlight[];
 }
 
 export interface Skill {
@@ -26,10 +37,12 @@ export interface Skill {
   category: string;
   proficiency: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
   icon?: string;
+  levelPercentage?: number;
 }
 
 export interface SkillCategory {
   name: string;
+  icon?: string;
   skills: Skill[];
 }
 
@@ -42,6 +55,9 @@ export interface Experience {
   endDate?: string;
   technologies: string[];
   companyUrl?: string;
+  location?: string;
+  achievements?: string[];
+  metrics?: string;
 }
 
 export interface Education {
@@ -51,6 +67,8 @@ export interface Education {
   field: string;
   graduationYear: number;
   description?: string;
+  badge?: string;
+  honors?: string;
 }
 
 export interface AboutData {
@@ -61,13 +79,17 @@ export interface AboutData {
 }
 
 export interface Work {
-  title: string;
   id: string;
+  title: string;
   poster: string;
   description: string;
-  linkView: string;
+  linkView?: string;
   date: string;
-  Link: string;
+  Link?: string;
+  category?: 'Enterprise' | 'FullStack' | 'Frontend' | 'AI & Tools' | string;
+  technologies?: string[];
+  highlights?: string[];
+  featured?: boolean;
 }
 
 export interface Subsection {
@@ -83,4 +105,10 @@ export interface Section {
   icon?: string;
   content?: string;
   subsections?: Subsection[];
+}
+
+export interface ToastMessage {
+  id: string;
+  text: string;
+  type?: 'success' | 'info' | 'error';
 }

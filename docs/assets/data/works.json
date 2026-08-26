@@ -1,6 +1,13 @@
 [
-  {
-    "id": "cortesupremadejusticia",
+  {    "id": "lumina-red",
+    "title": "Lumina Red Lab",
+    "poster": "../assets/img/LuminaRed.png",
+    "description": "Built during the 'Building Our Future in AI' Vibe Coding hackathon — 14 teams turned community data into AI-powered prototypes.",
+    "linkView": "https://lumina-red.lovable.app/",
+    "date": "MAR 2026",
+    "Link": "https://lumina-red.lovable.app/"
+  },
+  {    "id": "cortesupremadejusticia",
     "title": "Corte Suprema de Justicia",
     "poster": "../assets/img/CorteSuprema.png",
     "description": "Current job, collaborator with Angular technology. Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.",
@@ -124,5 +131,14 @@
     "linkView": "https://krisyupher.github.io/Reloj-Animacion-Css/",
     "date": "2019",
     "Link": "https://github.com/krisyupher/Reloj-Animacion-Css"
+  },
+  {
+    "id": "lumina-red",
+    "title": "Lumina Red Lab",
+    "poster": "../assets/img/enConstruccion.jpg",
+    "description": "A fun lab project built for experimentation and play. Includes interactive UI and animations.",
+    "linkView": "https://lumina-red.lovable.app/",
+    "date": "MAR 2026",
+    "Link": "https://lumina-red.lovable.app/"
   }
 ]

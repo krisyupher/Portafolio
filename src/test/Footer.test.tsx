@@ -11,8 +11,8 @@ describe('Footer Component', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Quick Links')).toBeInTheDocument();
-    expect(screen.getByText('Technologies')).toBeInTheDocument();
+    expect(screen.getByText('Navigation')).toBeInTheDocument();
+    expect(screen.getByText('Core Tech Stack')).toBeInTheDocument();
     expect(screen.getByText('Connect')).toBeInTheDocument();
     expect(screen.getByText('ccflorezrud@gmail.com')).toBeInTheDocument();
 

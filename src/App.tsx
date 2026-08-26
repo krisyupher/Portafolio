@@ -2,13 +2,14 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { Header } from './components/common/Header';
 import { Footer } from './components/common/Footer';
+import { ScrollToTop } from './components/common/ScrollToTop';
 import { AboutPage } from './pages/AboutPage';
 import { PortfolioPage } from './pages/PortfolioPage';
 import { FilosofyPage } from './pages/FilosofyPage';
 
 export const App: React.FC = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50 text-gray-800">
+    <div className="flex flex-col min-h-screen bg-[#f8fafc] text-slate-800">
       {/* Sticky Global Header */}
       <Header />
 
@@ -23,6 +24,9 @@ export const App: React.FC = () => {
           <Route path="*" element={<Navigate to="/home" replace />} />
         </Routes>
       </main>
+
+      {/* Floating Scroll to Top */}
+      <ScrollToTop />
 
       {/* Global Footer */}
       <Footer />

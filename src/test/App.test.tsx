@@ -11,11 +11,11 @@ describe('App Component', () => {
       </MemoryRouter>
     );
 
-    // Header brand
-    expect(screen.getByText('Cristian Florez')).toBeInTheDocument();
+    // Header brand & page elements
+    expect(screen.getAllByText('Cristian Florez').length).toBeGreaterThanOrEqual(1);
 
     // Main content (home/about page)
-    expect(screen.getByText('Technical Skills & Expertise')).toBeInTheDocument();
+    expect(screen.getByText('Technical Skills & Mastery')).toBeInTheDocument();
 
     // Footer
     expect(screen.getByText('Connect')).toBeInTheDocument();

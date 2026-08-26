@@ -25,8 +25,14 @@ describe('WorkModal Component', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
     expect(screen.getByText('Corte Suprema de Justicia')).toBeInTheDocument();
     expect(screen.getByText('Detailed judicial process digitalization.')).toBeInTheDocument();
-    expect(screen.getByText('Live Project Demo')).toHaveAttribute('href', 'https://cortesuprema.gov.co');
-    expect(screen.getByText('Source / Details')).toHaveAttribute('href', 'https://github.com/krisyupher');
+    expect(screen.getByRole('link', { name: /live project demo/i })).toHaveAttribute(
+      'href',
+      'https://cortesuprema.gov.co'
+    );
+    expect(screen.getByRole('link', { name: /source \/ details/i })).toHaveAttribute(
+      'href',
+      'https://github.com/krisyupher'
+    );
   });
 
   it('calls onClose when close button is clicked', () => {
