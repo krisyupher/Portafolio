@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #034378;
+  --color-secondary: #77d7b9;
+  --color-tertiary: #2d4e68;
+  --bg-color-main: #f9fafb;
+  --bg-color-card: #ffffff;
+  --text-color-primary: #1f2937;
+  --text-color-secondary: #4b5563;
+  --border-color: #e5e7eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text-color-primary);
+  background-color: var(--bg-color-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', 'Open Sans', sans-serif;
+  color: var(--color-primary);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* Spinner Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-custom {
+  animation: spin 0.75s linear infinite;
+}
+
+/* Accessibility Focus States */
+*:focus-visible {
+  outline: 2px solid #77d7b9;
+  outline-offset: 2px;
+}
