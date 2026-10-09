@@ -1,0 +1,17 @@
+# Vercel ignore file
+node_modules
+.git
+.gitignore
+README.md
+*.md
+Dockerfile*
+docker-compose*
+nginx.conf
+*.log
+.DS_Store
+.vscode
+.idea
+coverage
+*.local
+.vite
+dist
