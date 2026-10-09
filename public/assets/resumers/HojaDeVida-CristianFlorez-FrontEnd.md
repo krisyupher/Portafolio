@@ -41,6 +41,7 @@ Más de 4 años de experiencia como Desarrollador de Software, diseñando e impl
 ## EXPERIENCIA LABORAL
 
 ### Full-Stack Developer, Supreme Court of Justice, Bogotá, Colombia
+
 **2022 – 2024**
 
 #### Actualización del sitio web: [cortesuprema.gov.co](https://cortesuprema.gov.co)
@@ -68,6 +69,7 @@ Más de 4 años de experiencia como Desarrollador de Software, diseñando e impl
 ---
 
 ### Back-End Developer, SETI S.A.S, Bogotá, Colombia
+
 **2021 – 2022**
 
 #### Implementación y validación de aplicación: [davivienda.com](https://davivienda.com)
@@ -80,6 +82,7 @@ Más de 4 años de experiencia como Desarrollador de Software, diseñando e impl
 ---
 
 ### Front-End Developer, Quantum Connexion, Bogotá, Colombia
+
 **2019 – 2021**
 
 #### Diseño y creación del sitio web: [troop.com.co](https://troop.com.co)

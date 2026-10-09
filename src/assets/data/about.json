@@ -220,7 +220,16 @@
       "startDate": "2022",
       "endDate": "2024",
       "description": "Led modernization of Colombia's Supreme Court official website, architected and deployed custom CMS improving site performance by 40%. Designed end-to-end solution enabling public access to 500,000+ judicial decisions with advanced search - reducing query time from minutes to milliseconds. Contributed to ESAV system managing complete judicial processes, supporting 80% process digitalization reducing case processing from 4 months to 10 days. Collaborated with judicial magistrates and stakeholders ensuring compliance with government accessibility standards.",
-      "technologies": ["Angular", "TypeScript", "Node.js", ".NET", "PostgreSQL", "Docker", "Azure", "REST APIs"]
+      "technologies": [
+        "Angular",
+        "TypeScript",
+        "Node.js",
+        ".NET",
+        "PostgreSQL",
+        "Docker",
+        "Azure",
+        "REST APIs"
+      ]
     },
     {
       "id": "seti-sas",
@@ -238,7 +247,14 @@
       "startDate": "2019",
       "endDate": "2021",
       "description": "Designed and implemented responsive user interfaces creating intuitive user experiences for Troop platform. Integrated REST APIs for user authentication and dynamic data retrieval. Developed mobile-first responsive designs ensuring cross-browser and cross-device compatibility. Applied frontend optimization techniques reducing page load times by 35%. Collaborated with UX/UI designers and backend teams ensuring seamless component integration leveraging modern JavaScript frameworks and best practices.",
-      "technologies": ["Angular", "React", "JavaScript", "Responsive Design", "REST APIs", "Performance Optimization"]
+      "technologies": [
+        "Angular",
+        "React",
+        "JavaScript",
+        "Responsive Design",
+        "REST APIs",
+        "Performance Optimization"
+      ]
     }
   ],
   "education": [

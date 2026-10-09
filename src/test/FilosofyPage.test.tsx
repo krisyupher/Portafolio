@@ -7,17 +7,19 @@ describe('FilosofyPage Component', () => {
     render(<FilosofyPage />);
 
     expect(screen.getByText('Development Philosophy & Standards')).toBeInTheDocument();
-    expect(screen.getByRole('heading', { level: 2, name: /project architecture/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('heading', { level: 2, name: /project architecture/i })
+    ).toBeInTheDocument();
   });
 
   it('switches active section when sidebar topic is clicked', () => {
     render(<FilosofyPage />);
 
-    const tddButton = screen.getByRole('button', { name: /test-driven development/i });
+    const tddButton = screen.getByRole('tab', { name: /test-driven development \(tdd\)/i });
     fireEvent.click(tddButton);
 
     expect(
-      screen.getByRole('heading', { level: 2, name: /test-driven development/i })
+      screen.getByRole('heading', { level: 2, name: /test-driven development \(tdd\)/i })
     ).toBeInTheDocument();
     expect(screen.getByText('Red-Green-Refactor Cycle')).toBeInTheDocument();
   });

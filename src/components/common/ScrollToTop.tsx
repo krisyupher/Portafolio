@@ -17,10 +17,7 @@ export const ScrollToTop: React.FC = () => {
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (!isVisible) return null;
@@ -30,28 +27,42 @@ export const ScrollToTop: React.FC = () => {
       type="button"
       onClick={scrollToTop}
       aria-label="Scroll back to top"
-      className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full bg-white/90 text-regal-blue shadow-xl border border-gray-200 backdrop-blur-md flex items-center justify-center hover:bg-bermuda hover:text-white hover:border-bermuda hover:scale-110 transition-all duration-300 group"
+      className="fixed bottom-6 left-6 z-40 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group shadow-xl"
+      style={{
+        background: 'var(--color-paper)',
+        border: '1px solid var(--color-border)',
+        color: 'var(--color-brand)',
+        boxShadow: '0 8px 32px -8px rgba(10, 15, 26, 0.2)',
+      }}
     >
       {/* Circular progress SVG */}
-      <svg className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 36 36">
+      <svg
+        className="absolute inset-0 w-full h-full -rotate-90 pointer-events-none"
+        viewBox="0 0 36 36"
+      >
         <path
-          className="text-gray-100"
+          className="transition-all duration-150"
           strokeWidth="3"
           stroke="currentColor"
           fill="none"
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+          style={{ color: 'var(--color-border)' }}
         />
         <path
-          className="text-bermuda transition-all duration-150"
+          className="transition-all duration-150"
           strokeDasharray={`${scrollProgress}, 100`}
           strokeWidth="3"
           strokeLinecap="round"
           stroke="currentColor"
           fill="none"
           d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+          style={{ color: 'var(--color-accent)' }}
         />
       </svg>
-      <i className="fas fa-arrow-up text-sm transform group-hover:-translate-y-0.5 transition-transform"></i>
+      <i
+        className="fas fa-arrow-up text-sm transform group-hover:-translate-y-0.5 transition-transform"
+        style={{ color: 'var(--color-brand)' }}
+      ></i>
     </button>
   );
 };

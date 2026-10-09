@@ -9,7 +9,11 @@
     "Link": "https://www.linkedin.com/company/corte-suprema-de-justicia/",
     "category": "Enterprise",
     "technologies": ["Angular", "TypeScript", "Node.js", ".NET", "PostgreSQL", "Docker", "Azure"],
-    "highlights": ["40% page speed increase", "High availability for national jurisdiction", "WCAG 2.1 AA accessibility compliance"],
+    "highlights": [
+      "40% page speed increase",
+      "High availability for national jurisdiction",
+      "WCAG 2.1 AA accessibility compliance"
+    ],
     "featured": true
   },
   {
@@ -22,7 +26,11 @@
     "Link": "https://www.linkedin.com/company/corte-suprema-de-justicia/",
     "category": "Enterprise",
     "technologies": ["Angular", "TypeScript", ".NET", "PostgreSQL", "Elasticsearch", "REST API"],
-    "highlights": ["Reduced search time from minutes to milliseconds", "500,000+ indexed judicial decisions", "Advanced faceted filters & full-text search"],
+    "highlights": [
+      "Reduced search time from minutes to milliseconds",
+      "500,000+ indexed judicial decisions",
+      "Advanced faceted filters & full-text search"
+    ],
     "featured": true
   },
   {
@@ -35,7 +43,11 @@
     "Link": "https://www.linkedin.com/company/corte-suprema-de-justicia/",
     "category": "Enterprise",
     "technologies": ["Angular", "RxJS", "Node.js", "Docker", "Azure Cloud", "REST APIs"],
-    "highlights": ["Reduced case processing cycle from 4 months to 10 days", "80% total digitalization of judicial files", "Role-based security & audit logging"],
+    "highlights": [
+      "Reduced case processing cycle from 4 months to 10 days",
+      "80% total digitalization of judicial files",
+      "Role-based security & audit logging"
+    ],
     "featured": true
   },
   {
@@ -47,8 +59,19 @@
     "date": "MAR 2026",
     "Link": "https://lumina-red.lovable.app/",
     "category": "AI & Tools",
-    "technologies": ["React", "TypeScript", "Tailwind CSS", "AI Prompt Engineering", "Lovable", "Vite"],
-    "highlights": ["Built in 48-hour competitive sprint", "Generative UI flows", "Real-time interactive data synthesis"],
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "AI Prompt Engineering",
+      "Lovable",
+      "Vite"
+    ],
+    "highlights": [
+      "Built in 48-hour competitive sprint",
+      "Generative UI flows",
+      "Real-time interactive data synthesis"
+    ],
     "featured": true
   },
   {
@@ -60,8 +83,19 @@
     "date": "MAY 2022",
     "Link": "https://www.linkedin.com/company/seti-colombia/",
     "category": "FullStack",
-    "technologies": ["Node.js", "Express.js", "REST APIs", "SOAP", "Microservices", "Security & Auth"],
-    "highlights": ["Strict banking regulatory compliance", "Automated credit risk assessment logic", "High-concurrency transaction handling"],
+    "technologies": [
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+      "SOAP",
+      "Microservices",
+      "Security & Auth"
+    ],
+    "highlights": [
+      "Strict banking regulatory compliance",
+      "Automated credit risk assessment logic",
+      "High-concurrency transaction handling"
+    ],
     "featured": true
   },
   {
@@ -74,7 +108,11 @@
     "Link": "https://www.linkedin.com/company/quantum-connexion",
     "category": "Frontend",
     "technologies": ["Angular", "React", "JavaScript ES6+", "RxJS", "Sass", "REST APIs"],
-    "highlights": ["35% reduction in client-side load times", "Mobile-first responsive UX", "Real-time state synchronization"]
+    "highlights": [
+      "35% reduction in client-side load times",
+      "Mobile-first responsive UX",
+      "Real-time state synchronization"
+    ]
   },
   {
     "id": "tuap",
@@ -86,7 +124,11 @@
     "Link": "https://www.linkedin.com/company/quantum-connexion",
     "category": "FullStack",
     "technologies": ["Angular", "Ionic", "TypeScript", "Node.js", "Firebase", "REST APIs"],
-    "highlights": ["Cross-platform iOS & Android distribution", "Instant payment gateway integration", "Offline cart persistence"]
+    "highlights": [
+      "Cross-platform iOS & Android distribution",
+      "Instant payment gateway integration",
+      "Offline cart persistence"
+    ]
   },
   {
     "id": "moviesearcher",
@@ -97,8 +139,19 @@
     "date": "DEC 2020",
     "Link": "https://github.com/krisyupher/Movie-Searcher-TMDB",
     "category": "Frontend",
-    "technologies": ["JavaScript", "HTML5", "CSS3", "Fetch API", "Async/Await", "Responsive Design"],
-    "highlights": ["Instant debounced search input", "Detailed movie cast modal", "Interactive trailer links"]
+    "technologies": [
+      "JavaScript",
+      "HTML5",
+      "CSS3",
+      "Fetch API",
+      "Async/Await",
+      "Responsive Design"
+    ],
+    "highlights": [
+      "Instant debounced search input",
+      "Detailed movie cast modal",
+      "Interactive trailer links"
+    ]
   },
   {
     "id": "theworld",
@@ -110,7 +163,11 @@
     "Link": "https://github.com/krisyupher/countriesflag",
     "category": "Frontend",
     "technologies": ["React", "React Router", "CSS Modules", "REST API", "LocalStorage Theme"],
-    "highlights": ["Dark & Light mode persistence", "Dynamic routing per country code", "Filter by geographic region"]
+    "highlights": [
+      "Dark & Light mode persistence",
+      "Dynamic routing per country code",
+      "Filter by geographic region"
+    ]
   },
   {
     "id": "nodeexpress",
@@ -122,7 +179,11 @@
     "Link": "https://github.com/krisyupher/express-test",
     "category": "FullStack",
     "technologies": ["Node.js", "Express.js", "JWT", "MongoDB", "Postman", "Heroku"],
-    "highlights": ["Clean controller-service architecture", "Robust error-handling middleware", "Automated Postman test suite"]
+    "highlights": [
+      "Clean controller-service architecture",
+      "Robust error-handling middleware",
+      "Automated Postman test suite"
+    ]
   },
   {
     "id": "titamedia",
@@ -133,8 +194,18 @@
     "date": "AGO 2021",
     "Link": "https://github.com/krisyupher/TitaMedia-Challenge",
     "category": "Frontend",
-    "technologies": ["Vanilla JavaScript", "CSS Grid", "HTML5", "Responsive Web Design", "REST API"],
-    "highlights": ["Zero-dependency masonry layout", "Smooth image load transitions", "Optimized reflow and repaint"]
+    "technologies": [
+      "Vanilla JavaScript",
+      "CSS Grid",
+      "HTML5",
+      "Responsive Web Design",
+      "REST API"
+    ],
+    "highlights": [
+      "Zero-dependency masonry layout",
+      "Smooth image load transitions",
+      "Optimized reflow and repaint"
+    ]
   },
   {
     "id": "tictac",
@@ -158,7 +229,11 @@
     "Link": "https://github.com/krisyupher/BookMe-platzi",
     "category": "Frontend",
     "technologies": ["React", "React Router", "Whirligig Carousel", "REST APIs"],
-    "highlights": ["Smooth carousel transitions", "Dynamic book metadata preview", "Clean mobile navigation"]
+    "highlights": [
+      "Smooth carousel transitions",
+      "Dynamic book metadata preview",
+      "Clean mobile navigation"
+    ]
   },
   {
     "id": "PendulodeGalileo",
@@ -170,7 +245,11 @@
     "Link": "https://github.com/krisyupher/Pendulo-de-Galileo",
     "category": "AI & Tools",
     "technologies": ["React", "CSS Keyframe Physics", "Math Algorithms", "SVG"],
-    "highlights": ["Realistic harmonic physics calculation", "Configurable wave parameters", "Smooth 60fps animations"]
+    "highlights": [
+      "Realistic harmonic physics calculation",
+      "Configurable wave parameters",
+      "Smooth 60fps animations"
+    ]
   },
   {
     "id": "reloj",
@@ -182,6 +261,10 @@
     "Link": "https://github.com/krisyupher/Reloj-Animacion-Css",
     "category": "Frontend",
     "technologies": ["HTML5", "CSS3 3D Transforms", "JavaScript", "Web Audio"],
-    "highlights": ["Pure CSS mechanical animations", "Chime at the top of every hour", "Real-time analog clock synchronization"]
+    "highlights": [
+      "Pure CSS mechanical animations",
+      "Chime at the top of every hour",
+      "Real-time analog clock synchronization"
+    ]
   }
 ]

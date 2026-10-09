@@ -137,17 +137,10 @@ src/
 ### Standalone Component Template
 
 ```typescript
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  computed,
-  input,
-  output,
-} from "@angular/core";
+import { Component, ChangeDetectionStrategy, signal, computed, input, output } from '@angular/core';
 
 @Component({
-  selector: "app-feature-name",
+  selector: 'app-feature-name',
   imports: [
     /* required dependencies */
   ],
@@ -175,9 +168,7 @@ export class FeatureNameComponent {
   readonly isLoading = this.loading.asReadonly();
 
   // Use computed for derived state
-  readonly items = computed(
-    () => this.data()?.filter((item) => item.active) ?? [],
-  );
+  readonly items = computed(() => this.data()?.filter((item) => item.active) ?? []);
 
   // Use inject() instead of constructor injection
   private readonly service = inject(FeatureService);
@@ -187,10 +178,10 @@ export class FeatureNameComponent {
 ### Service with Signals
 
 ```typescript
-import { Injectable, signal, computed, inject } from "@angular/core";
+import { Injectable, signal, computed, inject } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class FeatureService {
   private readonly http = inject(HttpClient);

@@ -13,28 +13,42 @@ export const Toast: React.FC<ToastProps> = ({ toast, onDismiss }) => {
   const isError = toast.type === 'error';
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 animate-slideUp flex items-center gap-3 px-5 py-3.5 bg-slate-900/95 text-white rounded-2xl shadow-2xl border border-slate-700/80 backdrop-blur-md">
+    <div
+      className="fixed bottom-6 right-6 z-50 animate-slideUp flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-2xl border backdrop-blur-2xl"
+      style={{
+        background: isSuccess
+          ? 'rgba(0, 196, 151, 0.95)'
+          : isError
+            ? 'rgba(239, 68, 68, 0.95)'
+            : 'rgba(3, 67, 120, 0.95)',
+        borderColor: isSuccess
+          ? 'rgba(0, 196, 151, 0.3)'
+          : isError
+            ? 'rgba(239, 68, 68, 0.3)'
+            : 'rgba(3, 67, 120, 0.3)',
+        color: isSuccess || isError ? 'var(--color-ink)' : 'white',
+      }}
+    >
       <div
-        className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold ${
-          isSuccess
-            ? 'bg-bermuda text-slate-900'
+        className="w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold"
+        style={{
+          background: isSuccess ? 'var(--color-ink)' : 'white',
+          color: isSuccess
+            ? 'var(--color-accent)'
             : isError
-            ? 'bg-red-500 text-white'
-            : 'bg-accent-cyan text-slate-900'
-        }`}
+              ? 'var(--color-ink)'
+              : 'var(--color-brand)',
+        }}
       >
-        <i
-          className={`fas ${
-            isSuccess ? 'fa-check' : isError ? 'fa-exclamation' : 'fa-info'
-          }`}
-        ></i>
+        <i className={`fas ${isSuccess ? 'fa-check' : isError ? 'fa-exclamation' : 'fa-info'}`}></i>
       </div>
-      <p className="text-sm font-medium text-slate-100 pr-2">{toast.text}</p>
+      <p className="text-sm font-medium pr-2">{toast.text}</p>
       <button
         type="button"
         onClick={onDismiss}
         aria-label="Close notification"
-        className="text-slate-400 hover:text-white transition-colors text-xs p-1"
+        className="text-sm font-bold p-1 transition-opacity hover:opacity-70"
+        style={{ color: isSuccess || isError ? 'var(--color-ink)' : 'white' }}
       >
         <i className="fas fa-times"></i>
       </button>

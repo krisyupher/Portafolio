@@ -6,11 +6,19 @@ interface SectionHeaderProps {
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ title }) => {
   return (
-    <div className="mb-8 pb-4 border-b border-gray-100">
-      <h2 className="text-2xl sm:text-3xl font-bold text-regal-blue tracking-tight mb-2">
+    <div className="mb-8 pb-6 border-b" style={{ borderColor: 'var(--color-border)' }}>
+      <h2
+        className="font-heading font-extrabold tracking-tight mb-3"
+        style={{ fontSize: 'var(--text-h2)', color: 'var(--color-brand)' }}
+      >
         {title}
       </h2>
-      <div className="h-1 w-20 bg-gradient-to-r from-bermuda to-regal-blue rounded-full"></div>
+      <div
+        className="w-16 h-1 rounded-full"
+        style={{
+          background: 'linear-gradient(90deg, var(--color-accent) 0%, var(--color-brand) 100%)',
+        }}
+      ></div>
     </div>
   );
 };

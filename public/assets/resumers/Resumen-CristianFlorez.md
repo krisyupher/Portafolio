@@ -19,6 +19,7 @@
 Results-driven Full-Stack Software Developer with **4+ years of experience** delivering high-impact web applications for government and enterprise clients. Proven track record of architecting scalable solutions that dramatically improve system performance and user experience. Expert in modern JavaScript/TypeScript ecosystems with deep expertise in Angular, React, Node.js, and cloud deployment. Successfully reduced search times from minutes to milliseconds and processing times from 4 months to 10 days through innovative technical solutions.
 
 **Core Competencies:**
+
 - Full-stack web application development and architecture
 - Government and enterprise-scale system design
 - Database optimization and search implementation
@@ -50,10 +51,12 @@ Agile/Scrum, CI/CD, Responsive Design, RESTful Services, SOAP
 ## PROFESSIONAL EXPERIENCE
 
 ### Full-Stack Developer
+
 **Supreme Court of Justice of Colombia** | Bogotá, Colombia
-*2022 – 2024*
+_2022 – 2024_
 
 #### Project: Supreme Court Main Website Modernization
+
 **Website:** [cortesuprema.gov.co](https://cortesuprema.gov.co)
 
 - Led modernization of Colombia's Supreme Court official website, serving thousands of daily users
@@ -62,6 +65,7 @@ Agile/Scrum, CI/CD, Responsive Design, RESTful Services, SOAP
 - Collaborated with legal teams and stakeholders to ensure compliance with government accessibility standards
 
 #### Project: Supreme Court Judicial Rulings Search Application
+
 **Website:** [consultaprovidencias.cortesuprema.gov.co](https://consultaprovidencias.cortesuprema.gov.co)
 
 - **Designed and developed end-to-end solution** enabling public access to 500,000+ judicial rulings with advanced search capabilities
@@ -73,6 +77,7 @@ Agile/Scrum, CI/CD, Responsive Design, RESTful Services, SOAP
 - Ensured mobile responsiveness and cross-device compatibility for public accessibility
 
 #### Project: Judicial Process Management System (ESAV)
+
 **Website:** [ESAV.cortesuprema.gov.co](https://ESAV.cortesuprema.gov.co)
 
 - Contributed to enterprise-scale system managing the complete judicial process for Colombia's Supreme Court
@@ -86,10 +91,12 @@ Agile/Scrum, CI/CD, Responsive Design, RESTful Services, SOAP
 ---
 
 ### Back-End Developer
+
 **SETI S.A.S** | Bogotá, Colombia
-*2021 – 2022*
+_2021 – 2022_
 
 #### Project: Real Estate Platform for Davivienda Bank
+
 **Website:** [davivienda.com](https://davivienda.com)
 
 - Developed secure backend infrastructure for major Colombian bank's real estate sales platform (apartments and houses)
@@ -102,10 +109,12 @@ Agile/Scrum, CI/CD, Responsive Design, RESTful Services, SOAP
 ---
 
 ### Front-End Developer
+
 **Quantum Connexion** | Bogotá, Colombia
-*2019 – 2021*
+_2019 – 2021_
 
 #### Project: Troop Platform Development
+
 **Website:** [troop.com.co](https://troop.com.co)
 
 - Designed and implemented responsive user interfaces creating intuitive user experiences
@@ -120,13 +129,13 @@ Agile/Scrum, CI/CD, Responsive Design, RESTful Services, SOAP
 ## EDUCATION
 
 **Bachelor of Computer Systems Engineering**
-Universidad Distrital | Bogotá, Colombia | *2023*
+Universidad Distrital | Bogotá, Colombia | _2023_
 
 **Diploma in Information Systems Technology**
-Universidad Distrital | Bogotá, Colombia | *2018*
+Universidad Distrital | Bogotá, Colombia | _2018_
 
 **English Language Certification (C1 Level)**
-ESU Toronto | Canada | *2025*
+ESU Toronto | Canada | _2025_
 
 ---
 
@@ -147,4 +156,4 @@ ESU Toronto | Canada | *2025*
 
 ---
 
-*References available upon request*
+_References available upon request_

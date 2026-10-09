@@ -7,7 +7,8 @@ export const FILOSOFY_SECTIONS: Section[] = [
     subsections: [
       {
         title: 'Directory Structure',
-        description: 'Clear, scalable, and modular organization following feature-driven and atomic design principles',
+        description:
+          'Clear, scalable, and modular organization following feature-driven and atomic design principles',
         example: `src/
 ├── components/          # Reusable UI & layout components
 │   ├── common/          # Global presentational components (Header, Footer, Button, Modal)

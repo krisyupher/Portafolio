@@ -1,5 +1,6 @@
 [
-  {    "id": "lumina-red",
+  {
+    "id": "lumina-red",
     "title": "Lumina Red Lab",
     "poster": "../assets/img/LuminaRed.png",
     "description": "Built during the 'Building Our Future in AI' Vibe Coding hackathon — 14 teams turned community data into AI-powered prototypes.",
@@ -7,7 +8,8 @@
     "date": "MAR 2026",
     "Link": "https://lumina-red.lovable.app/"
   },
-  {    "id": "cortesupremadejusticia",
+  {
+    "id": "cortesupremadejusticia",
     "title": "Corte Suprema de Justicia",
     "poster": "../assets/img/CorteSuprema.png",
     "description": "Current job, collaborator with Angular technology. Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.Current job, collaborator with Angular technology.",

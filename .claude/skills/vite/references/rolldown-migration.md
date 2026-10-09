@@ -9,13 +9,13 @@ Vite 8 replaces esbuild+Rollup with Rolldown, a unified Rust-based bundler.
 
 ## What Changed
 
-| Before (Vite 7) | After (Vite 8) |
-|-----------------|----------------|
-| esbuild (dev transform) | Oxc Transformer |
-| esbuild (dep pre-bundling) | Rolldown |
-| Rollup (production build) | Rolldown |
-| `rollupOptions` | `rolldownOptions` |
-| `esbuild` option | `oxc` option |
+| Before (Vite 7)            | After (Vite 8)    |
+| -------------------------- | ----------------- |
+| esbuild (dev transform)    | Oxc Transformer   |
+| esbuild (dep pre-bundling) | Rolldown          |
+| Rollup (production build)  | Rolldown          |
+| `rollupOptions`            | `rolldownOptions` |
+| `esbuild` option           | `oxc` option      |
 
 ## Performance Impact
 
@@ -36,7 +36,7 @@ export default defineConfig({
       output: { globals: { vue: 'Vue' } },
     },
   },
-})
+});
 
 // After (Vite 8)
 export default defineConfig({
@@ -46,7 +46,7 @@ export default defineConfig({
       output: { globals: { vue: 'Vue' } },
     },
   },
-})
+});
 ```
 
 ### esbuild → oxc
@@ -58,7 +58,7 @@ export default defineConfig({
     jsxFactory: 'h',
     jsxFragment: 'Fragment',
   },
-})
+});
 
 // After (Vite 8)
 export default defineConfig({
@@ -69,7 +69,7 @@ export default defineConfig({
       pragmaFrag: 'Fragment',
     },
   },
-})
+});
 ```
 
 ### JSX Configuration
@@ -78,12 +78,12 @@ export default defineConfig({
 export default defineConfig({
   oxc: {
     jsx: {
-      runtime: 'automatic',  // or 'classic'
+      runtime: 'automatic', // or 'classic'
       importSource: 'react', // for automatic runtime
     },
-    jsxInject: `import React from 'react'`,  // auto-inject
+    jsxInject: `import React from 'react'`, // auto-inject
   },
-})
+});
 ```
 
 ### Custom Transform Targets
@@ -94,7 +94,7 @@ export default defineConfig({
     include: ['**/*.ts', '**/*.tsx'],
     exclude: ['node_modules/**'],
   },
-})
+});
 ```
 
 ## Plugin Compatibility

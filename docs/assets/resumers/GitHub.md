@@ -5,9 +5,11 @@
 ---
 
 ### About Me
+
 Full-stack developer passionate about creating impactful web applications that solve real-world problems. Currently contributing to Colombia's largest judicial institution, with a proven track record of delivering enterprise-scale projects in government and fintech sectors. Based in Bogota, Colombia.
 
 ### 🎯 What I Do
+
 - **Frontend Development**: Expert in Angular, React, and modern web standards
 - **Backend Systems**: Node.js, Express, GraphQL APIs, microservices
 - **Database Design**: PostgreSQL, MongoDB, Redis optimization
@@ -19,11 +21,13 @@ Full-stack developer passionate about creating impactful web applications that s
 </p>
 
 ### 🏆 Recognition
+
 <p align="center">
   <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=krisyupher" alt="GitHub Trophies" /></a>
 </p>
 
 ### 📡 Stay Connected
+
 <p align="center">
   <a href="https://twitter.com/krisyupher" target="blank"><img src="https://img.shields.io/twitter/follow/krisyupher?logo=twitter&style=for-the-badge" alt="Twitter Follow" /></a>
 </p>
@@ -31,6 +35,7 @@ Full-stack developer passionate about creating impactful web applications that s
 ---
 
 ### 💼 Current Focus
+
 - 🔭 **Working on**: <a href="https://cortesuprema.gov.co/corte/" target="_blank">Corte Suprema de Justicia</a> - Colombia's Supreme Court of Justice
 - 🌐 Building robust, scalable web applications for government and enterprise clients
 
@@ -48,6 +53,7 @@ I'm always interested in connecting with fellow developers, potential collaborat
 ### 🛠️ Tech Stack & Tools
 
 **Languages & Frameworks**
+
 <p align="left">
   <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/></a>
   <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/></a>
@@ -58,6 +64,7 @@ I'm always interested in connecting with fellow developers, potential collaborat
 </p>
 
 **Databases & Caching**
+
 <p align="left">
   <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/></a>
   <a href="https://www.mongodb.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" alt="mongodb" width="40" height="40"/></a>
@@ -66,6 +73,7 @@ I'm always interested in connecting with fellow developers, potential collaborat
 </p>
 
 **DevOps & Cloud**
+
 <p align="left">
   <a href="https://www.docker.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" alt="docker" width="40" height="40"/></a>
   <a href="https://azure.microsoft.com/" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="azure" width="40" height="40"/></a>
@@ -74,6 +82,7 @@ I'm always interested in connecting with fellow developers, potential collaborat
 </p>
 
 **Frontend Tools & APIs**
+
 <p align="left">
   <a href="https://graphql.org" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/graphql/graphql-icon.svg" alt="graphql" width="40" height="40"/></a>
   <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/></a>
@@ -84,6 +93,7 @@ I'm always interested in connecting with fellow developers, potential collaborat
 </p>
 
 **Development & Testing**
+
 <p align="left">
   <a href="https://git-scm.com/" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/></a>
   <a href="https://jestjs.io" target="_blank" rel="noreferrer"><img src="https://www.vectorlogo.zone/logos/jestjsio/jestjsio-icon.svg" alt="jest" width="40" height="40"/></a>
@@ -93,16 +103,19 @@ I'm always interested in connecting with fellow developers, potential collaborat
 ### 💼 Featured Projects
 
 #### Enterprise & Government Solutions
+
 - **<a href="https://cortesuprema.gov.co/corte/" target="_blank">🗽 Corte Suprema de Justicia</a>** - Colombia's Supreme Court of Justice digital platform
 - **<a href="http://consultaprovidencias.cortesuprema.gov.co/busqueda" target="_blank">🔍 Supremo Buscador</a>** - High-performance legal document search engine
 - **<a href="https://ecosistemadigital.cortesuprema.gov.co/#/" target="_blank">📜 ESAV</a>** - Digital ecosystem for judicial services
 - **<a href="https://www.davivienda.com/wps/portal/personas/nuevo" target="_blank">🏦 Davivienda</a>** - Colombia's leading financial institution portal
 
 #### Fintech & Business Applications
+
 - **<a href="https://www.troop.com.co/#/" target="_blank">💵 troop.com.co</a>** - Financial services platform
 - **<a href="https://TuAp.com" target="_blank">🍱 TuAp.com</a>** - Food & service delivery platform
 
 #### Interactive Projects & Challenges
+
 - **<a href="https://krisyupher.github.io/Movie-Searcher-TMDB/" target="_blank">🎥 Movie Searcher TMDB</a>** - React app with TMDB API integration
 - **<a href="https://krisyupher.github.io/countriesflag/" target="_blank">🗺 Where in the world?</a>** - REST countries data visualization
 - **<a href="https://krisyupher.github.io/tres-en-linea/" target="_blank">🕹 Tic-Tac-Toe</a>** - Interactive game

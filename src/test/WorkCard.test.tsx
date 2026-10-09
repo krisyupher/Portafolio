@@ -19,14 +19,18 @@ describe('WorkCard Component', () => {
 
     expect(screen.getByText('Corte Suprema de Justicia')).toBeInTheDocument();
     expect(screen.getByText('ENE 2023')).toBeInTheDocument();
-    expect(screen.getByText('Modernized official judicial portal for Colombia.')).toBeInTheDocument();
+    expect(
+      screen.getByText('Modernized official judicial portal for Colombia.')
+    ).toBeInTheDocument();
   });
 
   it('triggers onOpenModal callback when View Project button is clicked', () => {
     const onOpenModal = vi.fn();
     render(<WorkCard work={mockWork} onOpenModal={onOpenModal} />);
 
-    const button = screen.getByRole('button', { name: /view corte suprema de justicia project details/i });
+    const button = screen.getByRole('button', {
+      name: /view corte suprema de justicia project details/i,
+    });
     fireEvent.click(button);
 
     expect(onOpenModal).toHaveBeenCalledWith(mockWork);

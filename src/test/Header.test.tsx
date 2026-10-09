@@ -16,7 +16,7 @@ describe('Header Component', () => {
     expect(screen.getByText('Home')).toBeInTheDocument();
     expect(screen.getByText('About')).toBeInTheDocument();
     expect(screen.getByText('Portfolio')).toBeInTheDocument();
-    expect(screen.getByText('Philosophy & Standards')).toBeInTheDocument();
+    expect(screen.getByText('Philosophy')).toBeInTheDocument();
   });
 
   it('toggles mobile menu on button click', () => {
@@ -44,12 +44,12 @@ describe('Header Component', () => {
     );
 
     const headerElement = container.querySelector('header');
-    expect(headerElement).not.toHaveClass('shadow-md');
+    expect(headerElement).not.toHaveClass('shadow-sm');
 
     // Simulate window scroll
     window.scrollY = 100;
     fireEvent.scroll(window);
 
-    expect(headerElement).toHaveClass('shadow-md');
+    expect(headerElement).toHaveClass('shadow-sm');
   });
 });

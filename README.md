@@ -9,6 +9,7 @@ A modern, responsive portfolio application built with Angular 20, TypeScript, an
 This portfolio showcases 4+ years of Full-Stack development experience delivering high-impact web applications for government and enterprise clients. Built with modern Angular 20+ patterns including signals, standalone components, and reactive state management.
 
 **Key Achievements:**
+
 - 🚀 Reduced search query time from minutes to milliseconds
 - 📊 Supported 80% process digitalization reducing case processing from 4 months to 10 days
 - 🎯 40% website performance improvement through custom CMS implementation
@@ -17,6 +18,7 @@ This portfolio showcases 4+ years of Full-Stack development experience deliverin
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - **Framework:** Angular 20.2+
 - **Language:** TypeScript 5.4+
 - **State Management:** Angular Signals
@@ -24,16 +26,19 @@ This portfolio showcases 4+ years of Full-Stack development experience deliverin
 - **Architecture:** Scope Rule Pattern with Standalone Components
 
 ### Backend/Services
+
 - **Node.js & Express.js**
 - **.NET Core**
 - **REST APIs & GraphQL**
 
 ### Database
+
 - **PostgreSQL**
 - **MongoDB**
 - **Redis**
 
 ### DevOps & Cloud
+
 - **Azure**
 - **Docker**
 - **Firebase**
@@ -91,6 +96,7 @@ src/
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 18+
 - npm 9+
 
@@ -140,6 +146,7 @@ npm test -- --no-watch --code-coverage
 ## 📁 Features
 
 ### Portfolio Section
+
 - Displays 14+ professional projects with detailed information
 - Grid layout with responsive design
 - Modal dialogs for project details
@@ -147,6 +154,7 @@ npm test -- --no-watch --code-coverage
 - Search and filtering capabilities
 
 ### About Section
+
 - Professional profile with summary
 - 6 skill categories (Frontend, Backend, Database, DevOps, Testing, Methodologies)
 - Professional experience timeline (3 major positions)
@@ -154,6 +162,7 @@ npm test -- --no-watch --code-coverage
 - Proficiency levels for each skill
 
 ### Navigation
+
 - Sticky header with smooth scrolling
 - Responsive navigation menu
 - Mobile-friendly hamburger menu
@@ -180,6 +189,7 @@ npm test -- --no-watch --code-coverage
 ## 📦 Data Structure
 
 ### Portfolio Projects (`assets/data/works.json`)
+
 ```json
 {
   "id": "unique-id",
@@ -193,7 +203,9 @@ npm test -- --no-watch --code-coverage
 ```
 
 ### Professional Info (`assets/data/about.json`)
+
 Contains:
+
 - `aboutInfo` - Profile information and bio
 - `skillCategories` - Skills organized by category
 - `experience` - Work experience timeline
@@ -210,18 +222,21 @@ Contains:
 ## ✅ Quality Assurance
 
 ### Testing
+
 - Unit tests with Jasmine/Karma
 - Mock data factory for consistent test data
 - 93%+ test coverage on service layer
 - Component integration tests
 
 ### Code Quality
+
 - TypeScript strict mode enabled
 - ESLint for code linting
 - Prettier for code formatting
 - Conventional commits for git history
 
 ### Performance
+
 - OnPush change detection on all components
 - Lazy loading routes (when applicable)
 - Tree-shaking optimization
@@ -269,6 +284,7 @@ This project is personal portfolio content. Respect copyright and licensing.
 ## 🤝 Contributing
 
 This is a personal portfolio project. To contribute:
+
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feat/amazing-feature`)
 3. Commit changes (`git commit -m 'feat: add amazing feature'`)
@@ -278,6 +294,7 @@ This is a personal portfolio project. To contribute:
 ## 📞 Contact
 
 Feel free to reach out for collaboration or inquiries:
+
 - **Email:** ccflorezrud@gmail.com
 - **LinkedIn:** [ccflorezrud](https://www.linkedin.com/in/ccflorezrud/)
 - **GitHub:** [@krisyupher](https://github.com/krisyupher)

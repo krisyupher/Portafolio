@@ -19,6 +19,7 @@
 Desarrollador de Software Full-Stack orientado a resultados con **más de 4 años de experiencia** entregando aplicaciones web de alto impacto para clientes gubernamentales y empresariales. Trayectoria comprobada en arquitectura de soluciones escalables que mejoran drásticamente el rendimiento del sistema y la experiencia del usuario. Experto en ecosistemas modernos de JavaScript/TypeScript con profunda experiencia en Angular, React, Node.js y despliegue en la nube. Logré reducir tiempos de búsqueda de minutos a milisegundos y tiempos de procesamiento de 4 meses a 10 días mediante soluciones técnicas innovadoras.
 
 **Competencias Principales:**
+
 - Desarrollo y arquitectura de aplicaciones web full-stack
 - Diseño de sistemas a escala gubernamental y empresarial
 - Optimización de bases de datos e implementación de motores de búsqueda
@@ -50,10 +51,12 @@ Agile/Scrum, CI/CD, Diseño Responsivo, Servicios RESTful, SOAP
 ## EXPERIENCIA PROFESIONAL
 
 ### Desarrollador Full-Stack
+
 **Corte Suprema de Justicia de Colombia** | Bogotá, Colombia
-*2022 – 2024*
+_2022 – 2024_
 
 #### Proyecto: Modernización del Sitio Web Principal de la Corte Suprema
+
 **Sitio Web:** [cortesuprema.gov.co](https://cortesuprema.gov.co)
 
 - Lideré la modernización del sitio web oficial de la Corte Suprema de Colombia, sirviendo a miles de usuarios diarios
@@ -62,6 +65,7 @@ Agile/Scrum, CI/CD, Diseño Responsivo, Servicios RESTful, SOAP
 - Colaboré con equipos jurídicos y stakeholders para garantizar cumplimiento con estándares de accesibilidad gubernamental
 
 #### Proyecto: Aplicación de Búsqueda de Providencias Judiciales
+
 **Sitio Web:** [consultaprovidencias.cortesuprema.gov.co](https://consultaprovidencias.cortesuprema.gov.co)
 
 - **Diseñé y desarrollé solución completa end-to-end** permitiendo acceso público a más de 500,000 providencias judiciales con capacidades de búsqueda avanzada
@@ -73,6 +77,7 @@ Agile/Scrum, CI/CD, Diseño Responsivo, Servicios RESTful, SOAP
 - Garanticé responsividad móvil y compatibilidad entre dispositivos para accesibilidad pública
 
 #### Proyecto: Sistema de Gestión de Procesos Judiciales (ESAV)
+
 **Sitio Web:** [ESAV.cortesuprema.gov.co](https://ESAV.cortesuprema.gov.co)
 
 - Contribuí a sistema a escala empresarial que gestiona el proceso judicial completo de la Corte Suprema de Colombia
@@ -86,10 +91,12 @@ Agile/Scrum, CI/CD, Diseño Responsivo, Servicios RESTful, SOAP
 ---
 
 ### Desarrollador Back-End
+
 **SETI S.A.S** | Bogotá, Colombia
-*2021 – 2022*
+_2021 – 2022_
 
 #### Proyecto: Plataforma Inmobiliaria para Banco Davivienda
+
 **Sitio Web:** [davivienda.com](https://davivienda.com)
 
 - Desarrollé infraestructura backend segura para plataforma de venta de bienes raíces de uno de los bancos más importantes de Colombia (apartamentos y casas)
@@ -102,10 +109,12 @@ Agile/Scrum, CI/CD, Diseño Responsivo, Servicios RESTful, SOAP
 ---
 
 ### Desarrollador Front-End
+
 **Quantum Connexion** | Bogotá, Colombia
-*2019 – 2021*
+_2019 – 2021_
 
 #### Proyecto: Desarrollo de Plataforma Troop
+
 **Sitio Web:** [troop.com.co](https://troop.com.co)
 
 - Diseñé e implementé interfaces de usuario responsivas creando experiencias intuitivas para usuarios
@@ -120,13 +129,13 @@ Agile/Scrum, CI/CD, Diseño Responsivo, Servicios RESTful, SOAP
 ## EDUCACIÓN
 
 **Ingeniería en Sistemas de Computación**
-Universidad Distrital | Bogotá, Colombia | *2023*
+Universidad Distrital | Bogotá, Colombia | _2023_
 
 **Diplomado en Tecnología en Sistemas de Información**
-Universidad Distrital | Bogotá, Colombia | *2018*
+Universidad Distrital | Bogotá, Colombia | _2018_
 
 **Certificación de Idioma Inglés (Nivel C1)**
-ESU Toronto | Canadá | *2025*
+ESU Toronto | Canadá | _2025_
 
 ---
 
@@ -147,4 +156,4 @@ ESU Toronto | Canadá | *2025*
 
 ---
 
-*Referencias disponibles bajo solicitud*
+_Referencias disponibles bajo solicitud_
