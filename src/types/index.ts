@@ -1,63 +1,53 @@
 export interface NavItem {
   id: string;
   label: string;
-  section?: string;
-  path?: string;
+  path: string;
 }
 
 export interface SocialLink {
   id: string;
   label: string;
   url: string;
+  /** Font Awesome brand icon name without the `fa-` prefix, e.g. `github`. */
   icon: string;
 }
 
 export interface MetricHighlight {
   value: string;
   label: string;
-  sublabel?: string;
-  icon?: string;
 }
 
 export interface AboutInfo {
   name: string;
   title: string;
+  headline: string;
   bio: string;
   profileImage: string;
   focus: string;
-  availability?: string;
-  location?: string;
-  yearsOfExperience?: string;
-  metrics?: MetricHighlight[];
+  availability: string;
+  location: string;
+  yearsOfExperience: string;
 }
 
-export interface Skill {
+export interface StackGroup {
   id: string;
   name: string;
-  category: string;
-  proficiency: 'Beginner' | 'Intermediate' | 'Advanced' | 'Expert';
-  icon?: string;
-  levelPercentage?: number;
-}
-
-export interface SkillCategory {
-  name: string;
-  icon?: string;
-  skills: Skill[];
+  summary: string;
+  /** Font Awesome solid icon class, e.g. `fa-server`. */
+  icon: string;
+  items: string[];
 }
 
 export interface Experience {
   id: string;
   title: string;
   company: string;
+  location?: string;
   description: string;
   startDate: string;
   endDate?: string;
+  achievements: string[];
   technologies: string[];
-  companyUrl?: string;
-  location?: string;
-  achievements?: string[];
-  metrics?: string;
 }
 
 export interface Education {
@@ -67,48 +57,32 @@ export interface Education {
   field: string;
   graduationYear: number;
   description?: string;
-  badge?: string;
-  honors?: string;
 }
 
 export interface AboutData {
   aboutInfo: AboutInfo;
-  skillCategories: SkillCategory[];
+  metrics: MetricHighlight[];
+  stack: StackGroup[];
   experience: Experience[];
   education: Education[];
 }
 
+export type WorkCategory = 'Enterprise' | 'FullStack' | 'Frontend' | 'AI & Tools';
+
 export interface Work {
   id: string;
   title: string;
-  poster: string;
+  /** Runtime path such as `../assets/img/X.png`, served from `public/assets/img/`. */
+  poster?: string;
   description: string;
+  /** Live site URL. */
   linkView?: string;
+  /** e.g. `OCT 2026` or `2022 – 2024`. */
   date: string;
+  /** Source repository or organization URL. */
   Link?: string;
-  category?: 'Enterprise' | 'FullStack' | 'Frontend' | 'AI & Tools' | string;
+  category?: WorkCategory;
   technologies?: string[];
   highlights?: string[];
   featured?: boolean;
-}
-
-export interface Subsection {
-  title: string;
-  items?: string[];
-  description?: string;
-  example?: string;
-}
-
-export interface Section {
-  id: string;
-  title: string;
-  icon?: string;
-  content?: string;
-  subsections?: Subsection[];
-}
-
-export interface ToastMessage {
-  id: string;
-  text: string;
-  type?: 'success' | 'info' | 'error';
 }
