@@ -1,233 +1,190 @@
-import React, { useState, useEffect } from 'react';
-import { Work } from '../types';
+import React, { useMemo, useState } from 'react';
+import { Reveal } from '../components/common/Reveal';
+import { WorkArchive } from '../components/portfolio/WorkArchive';
 import { WorkList } from '../components/portfolio/WorkList';
 import { WorkModal } from '../components/portfolio/WorkModal';
-import fallbackWorksData from '../assets/data/works.json';
+import { works } from '../data/content';
+import { SITE } from '../data/site';
+import { useDocumentTitle } from '../hooks/useDocumentTitle';
+import { useWorkModal } from '../hooks/useWorkModal';
+import { cn } from '../lib/cn';
+import {
+  CATEGORIES,
+  CATEGORY_LABELS,
+  CategoryFilter,
+  matchesFilters,
+  splitWorks,
+} from '../lib/projects';
 
-const CATEGORIES = ['All', 'Enterprise', 'FullStack', 'Frontend', 'AI & Tools'];
+const FILTERS: CategoryFilter[] = ['All', ...CATEGORIES];
+const FILTER_LABELS: Record<CategoryFilter, string> = { All: 'All', ...CATEGORY_LABELS };
+
+const countFor = (filter: CategoryFilter) =>
+  filter === 'All' ? works.length : works.filter((work) => work.category === filter).length;
 
 export const PortfolioPage: React.FC = () => {
-  const [works, setWorks] = useState<Work[]>(fallbackWorksData as Work[]);
-  const [selectedWork, setSelectedWork] = useState<Work | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  useDocumentTitle(`Projects — ${SITE.name}`);
+  const [category, setCategory] = useState<CategoryFilter>('All');
   const [searchTerm, setSearchTerm] = useState('');
-  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    let isMounted = true;
+  const { featured, more } = useMemo(
+    () => splitWorks(works.filter((work) => matchesFilters(work, category, searchTerm))),
+    [category, searchTerm]
+  );
+  // Modal prev/next follows the on-screen order: featured first, then the archive.
+  const visible = useMemo(() => [...featured, ...more], [featured, more]);
+  const modal = useWorkModal(visible);
+  const isFiltered = category !== 'All' || searchTerm.trim() !== '';
 
-    fetch('./assets/data/works.json')
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load portfolio data');
-        return res.json();
-      })
-      .then((data: Work[]) => {
-        if (isMounted && Array.isArray(data)) {
-          setWorks(data);
-          setLoading(false);
-        }
-      })
-      .catch((_err) => {
-        if (isMounted) setLoading(false);
-      });
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  const filteredWorks = works.filter((work) => {
-    const matchesCategory =
-      selectedCategory === 'All'
-        ? true
-        : work.category?.toLowerCase() === selectedCategory.toLowerCase();
-    if (!matchesCategory) return false;
-    if (!searchTerm.trim()) return true;
-    const term = searchTerm.toLowerCase();
-    return (
-      work.title.toLowerCase().includes(term) ||
-      work.description.toLowerCase().includes(term) ||
-      work.date.toLowerCase().includes(term) ||
-      (work.technologies && work.technologies.some((t) => t.toLowerCase().includes(term)))
-    );
-  });
-
-  const currentIndex = selectedWork ? filteredWorks.findIndex((w) => w.id === selectedWork.id) : -1;
-  const hasPrev = currentIndex > 0;
-  const hasNext = currentIndex >= 0 && currentIndex < filteredWorks.length - 1;
-
-  const handlePrev = () => {
-    if (hasPrev) setSelectedWork(filteredWorks[currentIndex - 1]);
-  };
-  const handleNext = () => {
-    if (hasNext) setSelectedWork(filteredWorks[currentIndex + 1]);
+  const resetFilters = () => {
+    setCategory('All');
+    setSearchTerm('');
   };
 
   return (
-    <div className="min-h-screen py-12 px-4 sm:px-6 lg:px-8">
-      <div className="container">
-        {/* Portfolio Header */}
-        <section className="text-center max-w-3xl mx-auto mb-10 space-y-3 animate-fadeIn">
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider"
-            style={{ background: 'var(--color-accent-pale)', color: 'var(--color-accent)' }}
-          >
-            <i className="fas fa-layer-group"></i>
-            <span>Production Portfolio</span>
-          </div>
+    <>
+      <section aria-labelledby="projects-title">
+        <div className="container-page pb-12 pt-14 sm:pt-20 lg:pt-24">
+          <p className="eyebrow animate-rise">
+            <span className="text-accent-ink">Projects</span>
+            <span className="mx-2 text-ink-faint" aria-hidden="true">
+              /
+            </span>
+            {works.length} builds
+          </p>
           <h1
-            className="font-heading font-extrabold tracking-tight"
-            style={{ fontSize: 'var(--text-display)', color: 'var(--color-brand)' }}
+            id="projects-title"
+            className="mt-6 max-w-4xl animate-rise text-display-lg font-semibold text-ink"
+            style={{ animationDelay: '90ms' }}
           >
-            Featured Projects & Work
+            Work that ships — and keeps running.
           </h1>
-          <p className="text-body-lg" style={{ color: 'var(--color-ink-muted)' }}>
-            A showcase of enterprise systems, high-concurrency search platforms, open-source
-            utilities, and interactive applications built over 4+ years of full-stack engineering.
+          <p
+            className="mt-6 max-w-2xl animate-rise text-base leading-relaxed text-ink-muted sm:text-lg"
+            style={{ animationDelay: '180ms' }}
+          >
+            Enterprise platforms for Colombia&apos;s Supreme Court and banking, real-time and
+            AI-powered builds, and the experiments in between.
           </p>
 
-          {/* Filter Chips & Search Control Bar */}
-          <div className="pt-6 space-y-5 animate-slideUp delay-1">
-            {/* Category Chips */}
-            <div
-              className="flex flex-wrap items-center justify-center gap-2"
-              role="tablist"
-              aria-label="Project categories"
-            >
-              {CATEGORIES.map((category) => {
-                const isActive = selectedCategory === category;
+          <div
+            className="mt-12 flex animate-rise flex-col gap-4 border-y border-line py-5 lg:flex-row lg:items-center lg:justify-between"
+            style={{ animationDelay: '270ms' }}
+          >
+            <div className="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
+              {FILTERS.map((filter) => {
+                const isActive = category === filter;
                 return (
                   <button
-                    key={category}
+                    key={filter}
                     type="button"
-                    role="tab"
-                    aria-selected={isActive}
-                    onClick={() => setSelectedCategory(category)}
-                    className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
-                      isActive ? 'shadow-md' : 'hover:shadow-sm'
-                    }`}
-                    style={{
-                      background: isActive ? 'var(--color-brand)' : 'var(--color-paper)',
-                      color: isActive ? 'white' : 'var(--color-ink-muted)',
-                      border: isActive ? 'none' : '1px solid var(--color-border)',
-                      boxShadow: isActive ? '0 4px 16px -4px rgba(3, 67, 120, 0.4)' : undefined,
-                    }}
+                    aria-pressed={isActive}
+                    onClick={() => setCategory(filter)}
+                    className={cn(
+                      'inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition duration-300 ease-out-expo',
+                      isActive
+                        ? 'border-ink bg-ink text-paper'
+                        : 'border-line bg-paper-raised text-ink-muted hover:border-line-strong hover:text-ink'
+                    )}
                   >
-                    {category}
+                    {FILTER_LABELS[filter]}
+                    <span
+                      className={cn(
+                        'font-mono text-[0.68rem]',
+                        isActive ? 'text-paper/60' : 'text-ink-faint'
+                      )}
+                    >
+                      {countFor(filter)}
+                    </span>
                   </button>
                 );
               })}
             </div>
 
-            {/* Search Bar */}
-            <div className="max-w-md mx-auto relative">
-              <div
-                className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none"
-                style={{ color: 'var(--color-ink-faint)' }}
-              >
-                <i className="fas fa-search text-xs"></i>
-              </div>
+            <div className="relative w-full lg:max-w-xs">
+              <label htmlFor="project-search" className="sr-only">
+                Search projects
+              </label>
+              <i
+                className="fas fa-magnifying-glass pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-[0.75rem] text-ink-muted"
+                aria-hidden="true"
+              ></i>
               <input
-                type="text"
+                id="project-search"
+                type="search"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search by project name, keyword or tech (e.g. Angular, React)..."
-                className="input pl-10 pr-10 py-2.5 rounded-full text-xs sm:text-sm"
+                placeholder="Search by name or technology"
+                autoComplete="off"
+                className="w-full rounded-full border border-line bg-paper-raised py-2.5 pl-10 pr-4 text-sm text-ink placeholder:text-ink-muted/80 transition focus:border-accent focus:outline-none focus:ring-4 focus:ring-accent/15 [&::-webkit-search-cancel-button]:hidden"
               />
-              {searchTerm && (
-                <button
-                  type="button"
-                  onClick={() => setSearchTerm('')}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center transition-colors"
-                  style={{ color: 'var(--color-ink-faint)' }}
-                  aria-label="Clear search"
-                >
-                  <i className="fas fa-times text-xs"></i>
-                </button>
-              )}
-            </div>
-
-            {/* Results Count Banner */}
-            <div
-              className="flex items-center justify-center gap-2 font-mono"
-              style={{ fontSize: 'var(--text-xs)', color: 'var(--color-ink-faint)' }}
-            >
-              <span>
-                Showing {filteredWorks.length} of {works.length} projects
-              </span>
-              {(selectedCategory !== 'All' || searchTerm) && (
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedCategory('All');
-                    setSearchTerm('');
-                  }}
-                  className="font-bold ml-1 transition-colors"
-                  style={{ color: 'var(--color-accent)' }}
-                >
-                  (Reset filters)
-                </button>
-              )}
             </div>
           </div>
-        </section>
 
-        {/* Loading state */}
-        {loading ? (
-          <div className="flex flex-col items-center justify-center min-h-[350px] space-y-4 animate-fadeIn">
-            <div
-              className="w-12 h-12 border-4 rounded-full animate-spin-custom"
-              style={{ borderColor: 'var(--color-border)', borderTopColor: 'var(--color-accent)' }}
-            ></div>
-            <p className="font-semibold text-sm" style={{ color: 'var(--color-ink-muted)' }}>
-              Loading portfolio catalog...
-            </p>
-          </div>
-        ) : filteredWorks.length === 0 ? (
-          <div
-            className="max-w-md mx-auto my-12 p-8 glass rounded-3xl border text-center space-y-3"
-            style={{ borderColor: 'var(--color-border)' }}
+          <p
+            className="mt-4 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink-muted"
+            aria-live="polite"
           >
-            <div
-              className="w-12 h-12 rounded-full flex items-center justify-center mx-auto text-lg"
-              style={{ background: 'var(--color-paper-subtle)', color: 'var(--color-ink-faint)' }}
-            >
-              <i className="fas fa-filter"></i>
-            </div>
-            <h3
-              className="font-heading font-extrabold"
-              style={{ fontSize: 'var(--text-h3)', color: 'var(--color-brand)' }}
-            >
-              No matching projects found
-            </h3>
-            <p className="text-xs sm:text-sm" style={{ color: 'var(--color-ink-muted)' }}>
-              Try tweaking your search term or selecting a different category filter.
-            </p>
-            <button
-              type="button"
-              onClick={() => {
-                setSelectedCategory('All');
-                setSearchTerm('');
-              }}
-              className="btn btn-primary px-5 py-2 rounded-full text-xs mx-auto"
-            >
-              Show All Projects
-            </button>
-          </div>
-        ) : (
-          <WorkList works={filteredWorks} onSelectWork={(work) => setSelectedWork(work)} />
+            Showing {visible.length} of {works.length} projects
+            {isFiltered && (
+              <button
+                type="button"
+                onClick={resetFilters}
+                className="ml-3 text-accent-ink underline-offset-4 hover:underline"
+              >
+                Reset filters
+              </button>
+            )}
+          </p>
+        </div>
+      </section>
+
+      <div className="container-page pb-28 sm:pb-32">
+        {featured.length > 0 && (
+          <section aria-labelledby="featured-title">
+            <h2 id="featured-title" className="eyebrow">
+              Featured
+            </h2>
+            <WorkList works={featured} onSelectWork={modal.open} className="mt-6" />
+          </section>
         )}
 
-        {/* Work Modal */}
-        <WorkModal
-          work={selectedWork}
-          onClose={() => setSelectedWork(null)}
-          onPrev={handlePrev}
-          onNext={handleNext}
-          hasPrev={hasPrev}
-          hasNext={hasNext}
-        />
+        {more.length > 0 && (
+          <section aria-labelledby="more-title" className={cn(featured.length > 0 && 'mt-20')}>
+            <Reveal>
+              <h2 id="more-title" className="eyebrow">
+                More projects &amp; experiments
+              </h2>
+            </Reveal>
+            <Reveal delay={80} className="mt-6">
+              <WorkArchive works={more} onSelectWork={modal.open} />
+            </Reveal>
+          </section>
+        )}
+
+        {visible.length === 0 && (
+          <div className="mx-auto max-w-md rounded-3xl border border-dashed border-line-strong px-8 py-16 text-center">
+            <p className="font-display text-2xl font-semibold tracking-tight text-ink">
+              No matching projects
+            </p>
+            <p className="mt-3 text-sm text-ink-muted">
+              Try another technology or clear the filters.
+            </p>
+            <button type="button" onClick={resetFilters} className="btn btn-primary mt-8">
+              Show all projects
+            </button>
+          </div>
+        )}
       </div>
-    </div>
+
+      <WorkModal
+        work={modal.selected}
+        onClose={modal.close}
+        onPrev={modal.prev}
+        onNext={modal.next}
+        hasPrev={modal.hasPrev}
+        hasNext={modal.hasNext}
+      />
+    </>
   );
 };

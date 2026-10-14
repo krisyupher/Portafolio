@@ -1,59 +1,100 @@
+/** Colors resolve to the RGB-channel tokens in src/index.css, so opacity modifiers work. */
+const token = (name) => `rgb(var(--${name}) / <alpha-value>)`;
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
+  // Mirrors the token switch in src/index.css: an explicit data-theme wins, otherwise the OS.
+  darkMode: [
+    'variant',
+    [
+      '@media (prefers-color-scheme: dark) { &:not([data-theme=light] *) }',
+      '&:is([data-theme=dark] *)',
+    ],
+  ],
   theme: {
     extend: {
       colors: {
-        'regal-blue': '#034378',
-        'regal-dark': '#022849',
-        'regal-light': '#0a5ea1',
-        'san-juan': '#2d4e68',
-        bermuda: '#00c497',
-        'bermuda-dark': '#009e7a',
-        'bermuda-light': '#38eabf',
-        accent: {
-          cyan: '#06b6d4',
-          emerald: '#10b981',
-          teal: '#14b8a6',
-          indigo: '#6366f1',
-          amber: '#f59e0b',
+        paper: {
+          DEFAULT: token('paper'),
+          raised: token('paper-raised'),
+          sunken: token('paper-sunken'),
         },
-        slate: {
-          850: '#152033',
-          900: '#0f172a',
-          950: '#080d1a',
+        ink: {
+          DEFAULT: token('ink'),
+          soft: token('ink-soft'),
+          muted: token('ink-muted'),
+          faint: token('ink-faint'),
+        },
+        line: {
+          DEFAULT: token('line'),
+          strong: token('line-strong'),
+        },
+        brand: {
+          DEFAULT: token('brand'),
+          soft: token('brand-soft'),
+        },
+        accent: {
+          DEFAULT: token('accent'),
+          ink: token('accent-ink'),
+          soft: token('accent-soft'),
         },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', '"Open Sans"', 'sans-serif'],
-        heading: ['Outfit', 'Montserrat', 'sans-serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
+        sans: ['"Hanken Grotesk"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        display: ['"Bricolage Grotesque"', '"Hanken Grotesk"', 'ui-sans-serif', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
+      fontSize: {
+        'display-2xl': [
+          'clamp(3.25rem, 9vw, 7.25rem)',
+          { lineHeight: '0.92', letterSpacing: '-0.045em' },
+        ],
+        'display-lg': ['clamp(2.25rem, 5vw, 4rem)', { lineHeight: '1', letterSpacing: '-0.035em' }],
+        'display-md': [
+          'clamp(1.875rem, 3.4vw, 2.75rem)',
+          { lineHeight: '1.05', letterSpacing: '-0.03em' },
+        ],
+        'display-sm': [
+          'clamp(1.375rem, 2.2vw, 1.75rem)',
+          { lineHeight: '1.3', letterSpacing: '-0.015em' },
+        ],
       },
       boxShadow: {
-        glass: '0 8px 32px 0 rgba(3, 67, 120, 0.08)',
-        'glass-hover': '0 14px 40px 0 rgba(0, 196, 151, 0.18)',
-        'glow-teal': '0 0 25px -5px rgba(0, 196, 151, 0.4)',
-        'glow-blue': '0 0 25px -5px rgba(3, 67, 120, 0.4)',
+        soft: '0 1px 2px rgb(var(--shadow) / 0.04), 0 12px 32px -18px rgb(var(--shadow) / 0.22)',
+        lift: '0 2px 6px rgb(var(--shadow) / 0.05), 0 28px 56px -24px rgb(var(--shadow) / 0.35)',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-6px)' },
+        rise: {
+          from: { opacity: '0', transform: 'translateY(14px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
         },
-        pulseSlow: {
-          '0%, 100%': { opacity: '1' },
-          '50%': { opacity: '0.5' },
+        'fade-in': {
+          from: { opacity: '0' },
+          to: { opacity: '1' },
         },
-        fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(8px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        'modal-in': {
+          from: { opacity: '0', transform: 'translateY(24px) scale(0.98)' },
+          to: { opacity: '1', transform: 'translateY(0) scale(1)' },
+        },
+        'icon-in': {
+          from: { opacity: '0', transform: 'rotate(-90deg) scale(0.6)' },
+          to: { opacity: '1', transform: 'rotate(0) scale(1)' },
+        },
+        'slide-down': {
+          from: { opacity: '0', transform: 'translateY(-8px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
         },
       },
       animation: {
-        float: 'float 4s ease-in-out infinite',
-        'pulse-slow': 'pulseSlow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'fade-in': 'fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+        rise: 'rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'fade-in': 'fade-in 0.3s ease-out both',
+        'modal-in': 'modal-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'icon-in': 'icon-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'slide-down': 'slide-down 0.35s cubic-bezier(0.16, 1, 0.3, 1) both',
       },
     },
   },

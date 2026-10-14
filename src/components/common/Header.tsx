@@ -1,219 +1,147 @@
-import React, { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
-import { NavItem, SocialLink } from '../../types';
+import React, { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { NAV_ITEMS, SITE } from '../../data/site';
+import { useScrolled } from '../../hooks/useScrolled';
+import { cn } from '../../lib/cn';
+import { NavItem } from '../../types';
+import { ThemeToggle } from './ThemeToggle';
 
 interface HeaderProps {
   navItems?: NavItem[];
-  socialLinks?: SocialLink[];
-  brandName?: string;
 }
 
-const DEFAULT_NAV_ITEMS: NavItem[] = [
-  { id: 'home', label: 'Home', path: '/home' },
-  { id: 'about', label: 'About', path: '/about' },
-  { id: 'portfolio', label: 'Portfolio', path: '/portfolio' },
-  { id: 'filosofy', label: 'Philosophy', path: '/filosofy' },
-];
+const scrollToContact = () => {
+  document.getElementById('contact')?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+};
 
-const DEFAULT_SOCIAL_LINKS: SocialLink[] = [
-  { id: 'github', label: 'GitHub', url: 'https://github.com/krisyupher', icon: 'github' },
-  {
-    id: 'linkedin',
-    label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/ccflorezrud/',
-    icon: 'linkedin',
-  },
-  {
-    id: 'instagram',
-    label: 'Instagram',
-    url: 'https://www.instagram.com/krisyupher/',
-    icon: 'instagram',
-  },
-];
-
-export const Header: React.FC<HeaderProps> = ({
-  navItems = DEFAULT_NAV_ITEMS,
-  socialLinks = DEFAULT_SOCIAL_LINKS,
-  brandName = 'Cristian Florez',
-}) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+export const Header: React.FC<HeaderProps> = ({ navItems = NAV_ITEMS }) => {
+  const scrolled = useScrolled();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-500 ${
-        isScrolled
-          ? 'bg-white/80 backdrop-blur-2xl border-b border-neutral-200/80 py-3 shadow-sm'
-          : 'bg-transparent py-4'
-      }`}
-      style={{ borderColor: 'var(--color-border)' }}
+      data-scrolled={scrolled}
+      className={cn(
+        'sticky top-0 z-40 border-b transition-[background-color,border-color] duration-300',
+        scrolled || menuOpen
+          ? 'border-line bg-paper/80 backdrop-blur-xl'
+          : 'border-transparent bg-transparent'
+      )}
     >
-      <nav className="container flex items-center justify-between">
-        {/* Brand */}
+      <div className="container-page flex h-16 items-center justify-between gap-6 sm:h-[4.5rem]">
         <Link
           to="/home"
-          className="flex items-center gap-3 group focus:outline-none"
-          onClick={() => setMobileMenuOpen(false)}
-          aria-label={`${brandName} - Home`}
+          onClick={closeMenu}
+          className="group flex items-center gap-3"
+          aria-label={`${SITE.name}, home`}
         >
-          <div
-            className="w-10 h-10 rounded-xl brand-gradient flex items-center justify-center text-white font-heading font-black text-base shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-500"
-            style={{ boxShadow: '0 4px 20px -4px rgba(3, 67, 120, 0.4)' }}
-          >
+          <span className="relative grid h-9 w-9 place-items-center rounded-[0.6rem] bg-ink font-display text-[0.8rem] font-bold tracking-tight text-paper transition-transform duration-500 ease-out-expo group-hover:-rotate-6">
             CF
-          </div>
-          <div className="hidden sm:flex flex-col">
-            <span className="text-xl font-heading font-extrabold tracking-tight text-ink group-hover:text-accent transition-colors duration-300">
-              {brandName}
+            <span className="absolute -right-0.5 -top-0.5 h-2.5 w-2.5 rounded-full bg-accent ring-2 ring-paper" />
+          </span>
+          <span className="leading-tight">
+            <span className="block font-display text-[0.95rem] font-semibold tracking-tight text-ink">
+              {SITE.name}
             </span>
-            <span className="text-xs font-semibold text-ink-muted tracking-wider uppercase">
-              Full-Stack Software Engineer
+            <span className="hidden font-mono text-[0.65rem] uppercase tracking-[0.16em] text-ink-muted sm:block">
+              {SITE.role}
             </span>
-          </div>
+          </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div
-          className="hidden lg:flex items-center gap-1 px-1 bg-neutral-100/80 rounded-full border border-neutral-200/70"
-          style={{ background: 'var(--color-paper-subtle)', borderColor: 'var(--color-border)' }}
-        >
+        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
             <NavLink
               key={item.id}
-              to={item.path || `/${item.id}`}
-              className={({ isActive }) =>
-                `text-sm font-semibold px-4 py-2.5 rounded-full transition-all duration-300 ${
-                  isActive
-                    ? 'bg-white text-brand shadow-md font-bold'
-                    : 'text-ink-muted hover:text-ink hover:bg-white/50'
-                }`
-              }
-              style={{ color: 'var(--color-ink-muted)' }}
+              to={item.path}
+              className={({ isActive }) => cn('nav-link', isActive && 'is-active')}
             >
               {item.label}
             </NavLink>
           ))}
-        </div>
+          <button type="button" onClick={scrollToContact} className="nav-link">
+            Contact
+          </button>
+        </nav>
 
-        {/* Right Actions */}
-        <div className="hidden md:flex items-center space-x-3">
-          <div
-            className="flex items-center space-x-1.5 pr-3 border-r"
-            style={{ borderColor: 'var(--color-border)' }}
-          >
-            {socialLinks.map((link) => (
-              <a
-                key={link.id}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={link.label}
-                aria-label={link.label}
-                className="w-9 h-9 flex items-center justify-center rounded-full text-ink-muted hover:text-white hover:bg-accent transition-all duration-300 hover:-translate-y-0.5"
-                style={{ color: 'var(--color-ink-muted)' }}
-              >
-                <i className={`fab fa-${link.icon} text-base`}></i>
-              </a>
-            ))}
-          </div>
-
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <a
-            href="./assets/resumers/HojaDeVida-CristianFlorez.pdf"
+            href={SITE.resume.en}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-primary px-5 py-2 text-xs"
+            className="btn btn-primary hidden h-9 px-4 text-[0.8rem] sm:inline-flex"
           >
-            <i className="fas fa-file-arrow-down text-accent"></i>
-            <span>Resume</span>
-          </a>
-        </div>
-
-        {/* Mobile Hamburger */}
-        <div className="flex lg:hidden items-center space-x-2">
-          <a
-            href="./assets/resumers/HojaDeVida-CristianFlorez.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary px-4 py-1.5 text-xs"
-          >
-            CV
+            Résumé
+            <i className="fas fa-arrow-down text-[0.65rem]" aria-hidden="true"></i>
           </a>
           <button
             type="button"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-xl text-brand hover:bg-neutral-100 focus:outline-none"
-            style={{ color: 'var(--color-brand)' }}
+            onClick={() => setMenuOpen((open) => !open)}
+            className="icon-btn md:hidden"
             aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
           >
-            <i className={`fas ${mobileMenuOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
+            <i
+              className={cn('fas text-[0.85rem]', menuOpen ? 'fa-xmark' : 'fa-bars-staggered')}
+              aria-hidden="true"
+            ></i>
           </button>
         </div>
-      </nav>
+      </div>
 
-      {/* Mobile Menu Dropdown */}
-      {mobileMenuOpen && (
-        <div
-          className="lg:hidden glass-strong border-t animate-slideDown px-4 pt-3 pb-6 space-y-2"
-          style={{ borderColor: 'var(--color-border)' }}
-        >
-          {navItems.map((item) => (
-            <NavLink
-              key={item.id}
-              to={item.path || `/${item.id}`}
-              onClick={() => setMobileMenuOpen(false)}
-              className={({ isActive }) =>
-                `block px-4 py-3 rounded-2xl text-sm font-semibold transition-all duration-200 ${
-                  isActive
-                    ? 'bg-accent-pale text-brand font-bold border-l-4'
-                    : 'text-ink-muted hover:bg-neutral-100 hover:text-ink'
-                }`
-              }
-              style={{
-                borderLeftColor: 'var(--color-accent)',
-                background: 'var(--color-accent-pale)',
-                color: 'var(--color-ink-muted)',
+      {menuOpen && (
+        <div id="mobile-menu" className="animate-slide-down border-t border-line md:hidden">
+          <nav aria-label="Mobile" className="container-page flex flex-col py-4">
+            {navItems.map((item) => (
+              <NavLink
+                key={item.id}
+                to={item.path}
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  cn(
+                    'flex items-center justify-between border-b border-line py-4 font-display text-2xl font-semibold tracking-tight',
+                    isActive ? 'text-ink' : 'text-ink-muted'
+                  )
+                }
+              >
+                {item.label}
+                <i className="fas fa-arrow-right text-sm text-accent-ink" aria-hidden="true"></i>
+              </NavLink>
+            ))}
+            <button
+              type="button"
+              onClick={() => {
+                closeMenu();
+                scrollToContact();
               }}
+              className="flex items-center justify-between border-b border-line py-4 text-left font-display text-2xl font-semibold tracking-tight text-ink-muted"
             >
-              {item.label}
-            </NavLink>
-          ))}
-          <div
-            className="pt-4 border-t flex items-center justify-between px-2"
-            style={{ borderColor: 'var(--color-border)' }}
-          >
-            <div className="flex items-center space-x-3">
-              {socialLinks.map((link) => (
-                <a
-                  key={link.id}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="w-9 h-9 flex items-center justify-center rounded-full text-ink-muted hover:bg-accent hover:text-white transition-all duration-200"
-                  style={{ color: 'var(--color-ink-muted)' }}
-                >
-                  <i className={`fab fa-${link.icon}`}></i>
-                </a>
-              ))}
-            </div>
+              Contact
+              <i className="fas fa-arrow-down text-sm text-accent-ink" aria-hidden="true"></i>
+            </button>
             <a
-              href="mailto:ccflorezrud@gmail.com"
-              className="text-xs font-semibold flex items-center gap-1.5"
-              style={{ color: 'var(--color-brand)' }}
+              href={SITE.resume.en}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-primary mt-6 self-start"
             >
-              <i className="fas fa-envelope" style={{ color: 'var(--color-accent)' }}></i>
-              ccflorezrud@gmail.com
+              Download résumé
+              <i className="fas fa-arrow-down text-[0.7rem]" aria-hidden="true"></i>
             </a>
-          </div>
+          </nav>
         </div>
       )}
     </header>

@@ -1,55 +1,77 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, within } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { MemoryRouter } from 'react-router-dom';
 import { Header } from '../components/common/Header';
 
+const renderHeader = (path = '/home') =>
+  render(
+    <MemoryRouter initialEntries={[path]}>
+      <Header />
+    </MemoryRouter>
+  );
+
 describe('Header Component', () => {
-  it('renders brand name and navigation items', () => {
-    render(
-      <MemoryRouter>
-        <Header brandName="Cristian Florez" />
-      </MemoryRouter>
-    );
+  it('renders brand, role and primary navigation without the retired Philosophy page', () => {
+    renderHeader();
 
     expect(screen.getByText('Cristian Florez')).toBeInTheDocument();
     expect(screen.getByText('Full-Stack Software Engineer')).toBeInTheDocument();
-    expect(screen.getByText('Home')).toBeInTheDocument();
-    expect(screen.getByText('About')).toBeInTheDocument();
-    expect(screen.getByText('Portfolio')).toBeInTheDocument();
-    expect(screen.getByText('Philosophy')).toBeInTheDocument();
+
+    const nav = screen.getByRole('navigation', { name: 'Primary' });
+    expect(within(nav).getByRole('link', { name: 'Home' })).toHaveAttribute('href', '/home');
+    expect(within(nav).getByRole('link', { name: 'Projects' })).toHaveAttribute(
+      'href',
+      '/portfolio'
+    );
+    expect(within(nav).getByRole('button', { name: 'Contact' })).toBeInTheDocument();
+    expect(screen.queryByText(/philosophy/i)).not.toBeInTheDocument();
   });
 
-  it('toggles mobile menu on button click', () => {
-    render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
+  it('marks the current route as active', () => {
+    renderHeader('/portfolio');
+
+    const nav = screen.getByRole('navigation', { name: 'Primary' });
+    expect(within(nav).getByRole('link', { name: 'Projects' })).toHaveAttribute(
+      'aria-current',
+      'page'
     );
+    expect(within(nav).getByRole('link', { name: 'Home' })).not.toHaveAttribute('aria-current');
+  });
+
+  it('toggles the mobile menu and closes it with Escape', () => {
+    renderHeader();
 
     const toggleButton = screen.getByRole('button', { name: /toggle navigation menu/i });
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
 
     fireEvent.click(toggleButton);
     expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByRole('navigation', { name: 'Mobile' })).toBeInTheDocument();
 
-    fireEvent.click(toggleButton);
+    fireEvent.keyDown(window, { key: 'Escape' });
     expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument();
   });
 
-  it('updates scroll state on window scroll', () => {
-    const { container } = render(
-      <MemoryRouter>
-        <Header />
-      </MemoryRouter>
-    );
+  it('switches to the condensed style after scrolling', () => {
+    const { container } = renderHeader();
+    const header = container.querySelector('header');
+    expect(header).toHaveAttribute('data-scrolled', 'false');
 
-    const headerElement = container.querySelector('header');
-    expect(headerElement).not.toHaveClass('shadow-sm');
-
-    // Simulate window scroll
     window.scrollY = 100;
     fireEvent.scroll(window);
+    expect(header).toHaveAttribute('data-scrolled', 'true');
 
-    expect(headerElement).toHaveClass('shadow-sm');
+    window.scrollY = 0;
+    fireEvent.scroll(window);
+  });
+
+  it('links the résumé download to the English PDF', () => {
+    renderHeader();
+
+    expect(screen.getByRole('link', { name: /^résumé/i })).toHaveAttribute(
+      'href',
+      './assets/resumers/Resumen-CristianFlorez.pdf'
+    );
   });
 });

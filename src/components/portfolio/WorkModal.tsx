@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { CATEGORY_LABELS, getSourceLink } from '../../lib/projects';
 import { Work } from '../../types';
-import { normalizeImagePath } from './WorkCard';
+import { WorkCover } from './WorkCover';
 
 interface WorkModalProps {
   work: Work | null;
@@ -11,6 +12,8 @@ interface WorkModalProps {
   hasNext?: boolean;
 }
 
+const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 export const WorkModal: React.FC<WorkModalProps> = ({
   work,
   onClose,
@@ -19,10 +22,26 @@ export const WorkModal: React.FC<WorkModalProps> = ({
   hasPrev = false,
   hasNext = false,
 }) => {
-  const [imgError, setImgError] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const isOpen = work !== null;
 
+  // Lock page scroll, move focus into the dialog, and restore focus when it closes.
   useEffect(() => {
-    setImgError(false);
+    if (!isOpen) return;
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    document.body.style.overflow = 'hidden';
+    closeRef.current?.focus();
+    return () => {
+      document.body.style.overflow = '';
+      previouslyFocused?.focus?.();
+    };
+  }, [isOpen]);
+
+  // Start each project at the top when navigating with prev/next.
+  useEffect(() => {
+    bodyRef.current?.scrollTo?.({ top: 0 });
   }, [work]);
 
   useEffect(() => {
@@ -32,247 +51,166 @@ export const WorkModal: React.FC<WorkModalProps> = ({
       if (e.key === 'Escape') onClose();
       else if (e.key === 'ArrowLeft' && onPrev && hasPrev) onPrev();
       else if (e.key === 'ArrowRight' && onNext && hasNext) onNext();
+      else if (e.key === 'Tab' && panelRef.current) {
+        const focusable = panelRef.current.querySelectorAll<HTMLElement>(FOCUSABLE);
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
 
-    document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
+    return () => window.removeEventListener('keydown', handleKeyDown);
   }, [work, onClose, onPrev, onNext, hasPrev, hasNext]);
 
   if (!work) return null;
 
+  const source = getSourceLink(work);
+
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 z-50 flex animate-fade-in items-end justify-center bg-black/50 backdrop-blur-sm sm:items-center sm:p-6"
       onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="modal-title"
-      style={{ background: 'rgba(10, 15, 26, 0.85)', backdropFilter: 'blur(20px)' }}
     >
       <div
-        className="relative w-full max-w-3xl max-h-[90vh] rounded-3xl shadow-2xl overflow-hidden flex flex-col animate-scaleIn"
+        ref={panelRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="work-modal-title"
         onClick={(e) => e.stopPropagation()}
-        style={{ background: 'var(--color-paper)', border: '1px solid var(--color-border)' }}
+        className="relative flex max-h-[92vh] w-full max-w-3xl animate-modal-in flex-col overflow-hidden rounded-t-3xl border border-line bg-paper-raised shadow-lift sm:rounded-3xl"
       >
-        {/* Navigation & Close Bar */}
-        <div className="absolute top-4 right-4 z-30 flex items-center gap-2">
-          {hasPrev && onPrev && (
-            <button
-              type="button"
-              onClick={onPrev}
-              aria-label="Previous project"
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg"
-              style={{
-                background: 'var(--color-paper)',
-                border: '1px solid var(--color-border)',
-                color: 'var(--color-ink)',
-              }}
-            >
-              <i className="fas fa-chevron-left text-sm"></i>
-            </button>
-          )}
-          {hasNext && onNext && (
-            <button
-              type="button"
-              onClick={onNext}
-              aria-label="Next project"
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg"
-              style={{
-                background: 'var(--color-paper)',
-                border: '1px solid var(--color-border)',
-                color: 'var(--color-ink)',
-              }}
-            >
-              <i className="fas fa-chevron-right text-sm"></i>
-            </button>
-          )}
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label="Close modal"
-            className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 shadow-lg"
-            style={{
-              background: 'var(--color-paper)',
-              border: '1px solid var(--color-border)',
-              color: 'var(--color-ink-muted)',
-            }}
-          >
-            <i className="fas fa-times text-base"></i>
-          </button>
-        </div>
-
-        {/* Modal Header Media Banner */}
-        <div className="relative w-full h-60 sm:h-72 lg:h-80 flex-shrink-0 overflow-hidden">
-          {!imgError ? (
-            <img
-              src={normalizeImagePath(work.poster)}
-              alt={work.title}
-              onError={() => setImgError(true)}
-              className="w-full h-full object-cover"
-            />
-          ) : (
-            <div
-              className="w-full h-full flex items-center justify-center"
-              style={{
-                background: 'linear-gradient(135deg, var(--color-brand) 0%, var(--color-ink) 100%)',
-              }}
-            >
-              <i className="fas fa-code text-5xl" style={{ color: 'var(--color-accent)' }}></i>
-            </div>
-          )}
-          <div
-            className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/40 to-transparent"
-            style={{
-              background:
-                'linear-gradient(to top, rgba(10,15,26,0.9) 0%, rgba(10,15,26,0.4) 50%, transparent 100%)',
-            }}
-          ></div>
-
-          <div className="absolute bottom-6 left-6 right-6 space-y-2">
-            <div className="flex items-center gap-2 flex-wrap">
-              {work.category && (
-                <span
-                  className="inline-block px-3 py-1 rounded-full text-slate-900 font-black uppercase tracking-wider text-xs shadow-sm flex items-center gap-1.5"
-                  style={{ background: 'var(--color-accent)', color: 'var(--color-ink)' }}
-                >
-                  {work.category}
-                </span>
-              )}
-              <span
-                className="inline-block px-2.5 py-1 rounded-full text-white text-xs font-mono font-bold backdrop-blur-md"
-                style={{ background: 'rgba(255,255,255,0.15)' }}
-              >
-                {work.date}
+        <div className="flex items-center justify-between gap-4 border-b border-line px-5 py-3 sm:px-6">
+          <p className="font-mono text-[0.68rem] uppercase tracking-[0.14em] text-ink-muted">
+            {work.category && (
+              <span className="text-accent-ink">{CATEGORY_LABELS[work.category]}</span>
+            )}
+            {work.category && (
+              <span className="mx-2 text-ink-faint" aria-hidden="true">
+                /
               </span>
-            </div>
-            <h2
-              id="modal-title"
-              className="font-heading font-extrabold text-white drop-shadow-lg"
-              style={{ fontSize: 'var(--text-h2)' }}
+            )}
+            {work.date}
+          </p>
+          <div className="flex items-center gap-1.5">
+            {hasPrev && onPrev && (
+              <button
+                type="button"
+                onClick={onPrev}
+                aria-label="Previous project"
+                className="icon-btn"
+              >
+                <i className="fas fa-arrow-left text-[0.75rem]" aria-hidden="true"></i>
+              </button>
+            )}
+            {hasNext && onNext && (
+              <button type="button" onClick={onNext} aria-label="Next project" className="icon-btn">
+                <i className="fas fa-arrow-right text-[0.75rem]" aria-hidden="true"></i>
+              </button>
+            )}
+            <button
+              ref={closeRef}
+              type="button"
+              onClick={onClose}
+              aria-label="Close modal"
+              className="icon-btn"
             >
-              {work.title}
-            </h2>
+              <i className="fas fa-xmark text-[0.85rem]" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
 
-        {/* Modal Body */}
-        <div className="p-6 sm:p-8 lg:p-10 overflow-y-auto space-y-7 flex-1 text-left">
-          {/* Project Overview */}
-          <div className="space-y-2.5">
-            <h3
-              className="text-xs font-extrabold uppercase tracking-wider"
-              style={{ color: 'var(--color-ink-faint)' }}
-            >
-              Project Overview & Architecture
-            </h3>
-            <p
-              className="text-sm sm:text-base leading-relaxed whitespace-pre-line"
-              style={{ color: 'var(--color-ink-soft)' }}
-            >
-              {work.description}
-            </p>
+        <div ref={bodyRef} className="overflow-y-auto overscroll-contain">
+          <div className="p-5 sm:p-6">
+            <WorkCover
+              key={work.id}
+              work={work}
+              eager
+              className="group aspect-[16/9] rounded-2xl border border-line"
+            />
           </div>
 
-          {/* Key Achievements / Highlights */}
-          {work.highlights && work.highlights.length > 0 && (
-            <div className="space-y-3">
-              <h3
-                className="text-xs font-extrabold uppercase tracking-wider"
-                style={{ color: 'var(--color-ink-faint)' }}
+          <div className="space-y-8 px-6 pb-8 sm:px-10 sm:pb-10">
+            <div>
+              <h2
+                id="work-modal-title"
+                className="text-display-md font-semibold tracking-tight text-ink"
               >
-                Key Technical Highlights & Impact
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {work.highlights.map((h, i) => (
-                  <div
-                    key={i}
-                    className="p-4 rounded-xl flex items-start gap-3"
-                    style={{
-                      background: 'var(--color-paper-subtle)',
-                      border: '1px solid var(--color-border)',
-                    }}
-                  >
-                    <i
-                      className="fas fa-circle-check text-sm mt-0.5 flex-shrink-0"
-                      style={{ color: 'var(--color-accent)' }}
-                    ></i>
-                    <span className="text-xs font-semibold" style={{ color: 'var(--color-ink)' }}>
-                      {h}
-                    </span>
-                  </div>
-                ))}
-              </div>
+                {work.title}
+              </h2>
+              <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-ink-soft sm:text-lg">
+                {work.description}
+              </p>
             </div>
-          )}
 
-          {/* Technology Stack */}
-          {work.technologies && work.technologies.length > 0 && (
-            <div className="space-y-2.5">
-              <h3
-                className="text-xs font-extrabold uppercase tracking-wider"
-                style={{ color: 'var(--color-ink-faint)' }}
-              >
-                Technologies & Tools Employed
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {work.technologies.map((t) => (
-                  <span
-                    key={t}
-                    className="px-3 py-1 rounded-full text-xs font-mono font-bold border transition-all duration-200"
-                    style={{
-                      background: 'var(--color-paper-subtle)',
-                      borderColor: 'var(--color-border)',
-                      color: 'var(--color-brand)',
-                    }}
-                  >
-                    {t}
-                  </span>
-                ))}
+            {work.highlights && work.highlights.length > 0 && (
+              <div>
+                <h3 className="eyebrow">Impact & highlights</h3>
+                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+                  {work.highlights.map((highlight) => (
+                    <li
+                      key={highlight}
+                      className="flex gap-3 rounded-xl border border-line bg-paper-sunken/60 p-4 text-sm text-ink-soft"
+                    >
+                      <i
+                        className="fas fa-check mt-1 text-[0.7rem] text-accent-ink"
+                        aria-hidden="true"
+                      ></i>
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-          )}
-
-          {/* Action Links */}
-          <div
-            className="flex flex-col sm:flex-row gap-3 pt-4 border-t"
-            style={{ borderColor: 'var(--color-border)' }}
-          >
-            {work.linkView && (
-              <a
-                href={work.linkView}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:scale-[1.02] transition-all duration-200"
-                style={{
-                  background: 'var(--color-accent)',
-                  color: 'var(--color-ink)',
-                  boxShadow: '0 4px 20px -4px rgba(0, 196, 151, 0.4)',
-                }}
-              >
-                <i className="fas fa-arrow-up-right-from-square"></i>
-                Live Project Demo
-              </a>
             )}
 
-            {work.Link && (
-              <a
-                href={work.Link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-bold text-sm shadow-lg hover:scale-[1.02] transition-all duration-200"
-                style={{
-                  background: 'var(--color-brand)',
-                  color: 'white',
-                  boxShadow: '0 4px 20px -4px rgba(3, 67, 120, 0.4)',
-                }}
-              >
-                <i className="fab fa-github"></i>
-                Source / Details
-              </a>
+            {work.technologies && work.technologies.length > 0 && (
+              <div>
+                <h3 className="eyebrow">Built with</h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {work.technologies.map((tech) => (
+                    <li key={tech} className="chip">
+                      {tech}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {(work.linkView || source) && (
+              <div className="flex flex-col gap-3 border-t border-line pt-8 sm:flex-row">
+                {work.linkView && (
+                  <a
+                    href={work.linkView}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-primary"
+                  >
+                    Visit live site
+                    <i
+                      className="fas fa-arrow-up-right-from-square text-[0.7rem]"
+                      aria-hidden="true"
+                    ></i>
+                  </a>
+                )}
+                {source && (
+                  <a
+                    href={source.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn btn-secondary"
+                  >
+                    <i className={source.icon} aria-hidden="true"></i>
+                    {source.label}
+                  </a>
+                )}
+              </div>
             )}
           </div>
         </div>

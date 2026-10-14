@@ -1,285 +1,137 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { NavItem, SocialLink } from '../../types';
+import { NAV_ITEMS, SITE, SOCIAL_LINKS } from '../../data/site';
+import { useCopyToClipboard } from '../../hooks/useCopyToClipboard';
+import { SocialLink } from '../../types';
+import { Reveal } from './Reveal';
 
 interface FooterProps {
-  quickLinks?: NavItem[];
-  socialLinks?: SocialLink[];
-  technologies?: string[];
   contactEmail?: string;
-  onShowToast?: (text: string) => void;
+  socialLinks?: SocialLink[];
 }
 
-const DEFAULT_QUICK_LINKS: NavItem[] = [
-  { id: 'home', label: 'Home', path: '/home' },
-  { id: 'about', label: 'About', path: '/about' },
-  { id: 'portfolio', label: 'Featured Portfolio', path: '/portfolio' },
-  { id: 'filosofy', label: 'Architecture & Standards', path: '/filosofy' },
-];
-
-const DEFAULT_SOCIAL_LINKS: SocialLink[] = [
-  { id: 'github', label: 'GitHub', url: 'https://github.com/krisyupher', icon: 'github' },
-  {
-    id: 'linkedin',
-    label: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/ccflorezrud/',
-    icon: 'linkedin',
-  },
-  {
-    id: 'instagram',
-    label: 'Instagram',
-    url: 'https://www.instagram.com/krisyupher/',
-    icon: 'instagram',
-  },
-];
-
-const DEFAULT_TECHNOLOGIES: string[] = [
-  'React 19',
-  'TypeScript',
-  'Vite',
-  'Angular',
-  'Node.js',
-  'Express.js',
-  '.NET',
-  'PostgreSQL',
-  'Docker',
-  'Azure',
-  'Tailwind CSS',
-];
-
+/** Global contact section and footer. Always dark via `.theme-inverse`. */
 export const Footer: React.FC<FooterProps> = ({
-  quickLinks = DEFAULT_QUICK_LINKS,
-  socialLinks = DEFAULT_SOCIAL_LINKS,
-  technologies = DEFAULT_TECHNOLOGIES,
-  contactEmail = 'ccflorezrud@gmail.com',
-  onShowToast,
+  contactEmail = SITE.email,
+  socialLinks = SOCIAL_LINKS,
 }) => {
-  const [copied, setCopied] = useState(false);
+  const { copied, copy } = useCopyToClipboard();
   const currentYear = new Date().getFullYear();
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(contactEmail);
-    setCopied(true);
-    if (onShowToast) onShowToast('Email copied to clipboard!');
-    setTimeout(() => setCopied(false), 2500);
-  };
 
   return (
     <footer
-      className="relative mt-auto pt-20 pb-12 overflow-hidden noise-overlay"
-      style={{ background: 'var(--color-ink)', color: 'var(--color-paper)' }}
+      id="contact"
+      aria-labelledby="contact-title"
+      className="theme-inverse relative mt-auto scroll-mt-16 overflow-hidden border-t border-line bg-paper text-ink"
     >
-      {/* Ambient Glows */}
-      <div
-        className="ambient-glow"
-        style={{
-          width: '32rem',
-          height: '32rem',
-          top: '-16rem',
-          left: '25%',
-          background: 'radial-gradient(circle, rgba(3, 67, 120, 0.15) 0%, transparent 70%)',
-        }}
-      ></div>
-      <div
-        className="ambient-glow"
-        style={{
-          width: '28rem',
-          height: '28rem',
-          bottom: '-14rem',
-          right: '10%',
-          background: 'radial-gradient(circle, rgba(0, 196, 151, 0.12) 0%, transparent 70%)',
-        }}
-      ></div>
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-grid opacity-40 [mask-image:radial-gradient(ellipse_80%_70%_at_50%_0%,black,transparent_75%)]" />
+        <div className="absolute -top-48 left-1/2 h-96 w-[48rem] -translate-x-1/2 rounded-full bg-accent/10 blur-[110px]" />
+      </div>
 
-      <div className="container relative z-10">
-        {/* Top Callout */}
-        <div
-          className="glass-strong rounded-3xl p-8 md:p-12 mb-16 flex flex-col md:flex-row items-center justify-between gap-8"
-          style={{ borderColor: 'var(--color-border)' }}
-        >
-          <div className="text-center md:text-left space-y-2">
-            <h2
-              className="text-2xl md:text-3xl font-heading font-extrabold tracking-tight"
-              style={{ color: 'var(--color-paper)' }}
-            >
-              Let&apos;s build something high-impact together
-            </h2>
-            <p className="text-sm max-w-md" style={{ color: 'var(--color-ink-muted)' }}>
-              Available for full-stack engineering roles, enterprise consulting, and architectural
-              design.
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="btn btn-accent px-6 py-3 text-sm"
-            >
-              <i className={`fas ${copied ? 'fa-check' : 'fa-copy'}`}></i>
-              <span>{copied ? 'Email Copied!' : 'Copy Email'}</span>
-            </button>
-            <a
-              href={`mailto:${contactEmail}`}
-              className="btn btn-outline px-6 py-3 text-sm"
-              style={{ borderColor: 'var(--color-border)', color: 'var(--color-paper)' }}
-            >
-              <i className="fas fa-paper-plane"></i>
-              <span>Send Message</span>
-            </a>
-          </div>
-        </div>
+      <div className="container-page relative pb-10 pt-24 sm:pt-32">
+        <Reveal>
+          <p className="eyebrow">Contact</p>
+          <h2 id="contact-title" className="mt-5 max-w-4xl text-display-lg font-semibold text-ink">
+            Have a platform to build, scale or modernize?{' '}
+            <span className="text-ink-muted">Let&apos;s make it fast.</span>
+          </h2>
+        </Reveal>
 
-        {/* Main Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 mb-16">
-          {/* Brand Column */}
-          <div className="space-y-6 lg:col-span-1">
-            <div className="flex items-center gap-3">
-              <div
-                className="w-9 h-9 rounded-xl brand-gradient flex items-center justify-center font-heading font-black text-base"
-                style={{ boxShadow: '0 4px 16px -4px rgba(3, 67, 120, 0.4)' }}
-              >
-                CF
-              </div>
-              <span
-                className="text-xl font-heading font-extrabold tracking-tight"
-                style={{ color: 'var(--color-paper)' }}
-              >
-                Cristian Florez
-              </span>
-            </div>
-            <p className="text-sm leading-relaxed" style={{ color: 'var(--color-ink-muted)' }}>
-              Full-Stack Software Developer specializing in TypeScript, React 19, Angular, Node.js,
-              and enterprise cloud solutions with 4+ years of proven performance.
-            </p>
-            <div
-              className="pt-2 flex items-center gap-2 text-xs font-semibold"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              <span
-                className="w-2 h-2 rounded-full animate-pulse"
-                style={{ background: 'var(--color-accent)' }}
-              ></span>
-              <span>Based in Colombia • Open to Global & Remote</span>
-            </div>
-          </div>
+        <Reveal delay={120} className="mt-12 flex flex-col gap-5 sm:flex-row sm:items-center">
+          <a
+            href={`mailto:${contactEmail}`}
+            className="link-draw self-start font-display text-2xl font-medium tracking-tight text-ink sm:text-3xl"
+          >
+            {contactEmail}
+          </a>
+          <button
+            type="button"
+            onClick={() => copy(contactEmail)}
+            className="btn btn-secondary self-start sm:self-auto"
+          >
+            <i
+              className={`fas ${copied ? 'fa-check text-accent' : 'fa-copy'}`}
+              aria-hidden="true"
+            ></i>
+            {copied ? 'Copied' : 'Copy email'}
+          </button>
+          <span className="sr-only" role="status" aria-live="polite">
+            {copied ? 'Email address copied to clipboard' : ''}
+          </span>
+        </Reveal>
 
-          {/* Quick Links */}
-          <div className="space-y-6">
-            <h3
-              className="text-xs font-bold uppercase tracking-wider"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              Navigation
-            </h3>
-            <ul className="space-y-3">
-              {quickLinks.map((link) => (
+        <Reveal delay={200} className="mt-20 grid gap-10 border-t border-line pt-10 sm:grid-cols-3">
+          <div>
+            <h3 className="eyebrow">Connect</h3>
+            <ul className="mt-4 space-y-2.5">
+              {socialLinks.map((link) => (
                 <li key={link.id}>
-                  <Link
-                    to={link.path || `/${link.id}`}
-                    className="text-sm flex items-center gap-2 transition-all duration-200 group"
-                    style={{ color: 'var(--color-ink-muted)' }}
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-3 text-ink-soft transition-colors hover:text-ink"
                   >
                     <i
-                      className="fas fa-chevron-right text-[10px] group-hover:translate-x-1 transition-transform duration-200"
-                      style={{ color: 'var(--color-accent)' }}
+                      className={`fab fa-${link.icon} w-4 text-center text-ink-muted transition-colors group-hover:text-accent`}
+                      aria-hidden="true"
                     ></i>
-                    <span>{link.label}</span>
+                    <span className="link-draw">{link.label}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="eyebrow">Navigate</h3>
+            <ul className="mt-4 space-y-2.5">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.id}>
+                  <Link
+                    to={item.path}
+                    className="link-draw text-ink-soft transition-colors hover:text-ink"
+                  >
+                    {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Technologies */}
-          <div className="space-y-6">
-            <h3
-              className="text-xs font-bold uppercase tracking-wider"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              Core Tech Stack
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {technologies.map((tech) => (
-                <span
-                  key={tech}
-                  className="chip"
-                  style={{
-                    background: 'var(--color-paper-subtle)',
-                    borderColor: 'var(--color-border)',
-                    color: 'var(--color-ink-muted)',
-                  }}
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Connect */}
-          <div className="space-y-6">
-            <h3
-              className="text-xs font-bold uppercase tracking-wider"
-              style={{ color: 'var(--color-accent)' }}
-            >
-              Connect
-            </h3>
-            <div className="space-y-3">
-              {socialLinks.map((link) => (
+          <div>
+            <h3 className="eyebrow">Résumé</h3>
+            <ul className="mt-4 space-y-2.5">
+              <li>
                 <a
-                  key={link.id}
-                  href={link.url}
+                  href={SITE.resume.en}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center space-x-3 text-sm transition-all duration-200 group"
-                  style={{ color: 'var(--color-ink-muted)' }}
+                  className="link-draw text-ink-soft transition-colors hover:text-ink"
                 >
-                  <div
-                    className="w-8 h-8 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200"
-                    style={{
-                      background: 'var(--color-paper-subtle)',
-                      borderColor: 'var(--color-border)',
-                    }}
-                  >
-                    <i
-                      className={`fab fa-${link.icon} text-sm`}
-                      style={{ color: 'var(--color-accent)' }}
-                    ></i>
-                  </div>
-                  <span>{link.label}</span>
+                  English (PDF)
                 </a>
-              ))}
-              <a
-                href={`mailto:${contactEmail}`}
-                className="flex items-center space-x-3 text-sm transition-all duration-200 group pt-1"
-                style={{ color: 'var(--color-ink-muted)' }}
-              >
-                <div
-                  className="w-8 h-8 rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-200"
-                  style={{ background: 'var(--color-paper-subtle)' }}
+              </li>
+              <li>
+                <a
+                  href={SITE.resume.es}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="link-draw text-ink-soft transition-colors hover:text-ink"
                 >
-                  <i
-                    className="fas fa-envelope text-xs"
-                    style={{ color: 'var(--color-accent)' }}
-                  ></i>
-                </div>
-                <span className="truncate">{contactEmail}</span>
-              </a>
-            </div>
+                  Español (PDF)
+                </a>
+              </li>
+            </ul>
           </div>
-        </div>
+        </Reveal>
 
-        {/* Footer Bottom */}
-        <div
-          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs"
-          style={{ borderTopColor: 'var(--color-border)', color: 'var(--color-ink-faint)' }}
-        >
-          <p>&copy; {currentYear} Cristian Florez. Designed with precision & clean code.</p>
-          <p
-            className="flex items-center gap-1.5 font-mono"
-            style={{ color: 'var(--color-accent)' }}
-          >
-            Engineered with <span>React 19 + TypeScript + Tailwind</span>
+        <div className="mt-16 flex flex-col gap-3 border-t border-line pt-8 font-mono text-[0.7rem] uppercase tracking-[0.14em] text-ink-muted sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            &copy; {currentYear} {SITE.name} · {SITE.location}
           </p>
+          <p>Built with React, TypeScript &amp; Tailwind CSS</p>
         </div>
       </div>
     </footer>
