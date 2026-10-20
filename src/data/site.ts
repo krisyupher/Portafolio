@@ -4,9 +4,9 @@ export const SITE = {
   name: 'Cristian Florez',
   role: 'Full-Stack Software Engineer',
   email: 'ccflorezrud@gmail.com',
-  location: 'Bogotá, Colombia',
+  location: 'Toronto, ON, Canada',
   resume: {
-    en: './assets/resumers/Resumen-CristianFlorez.pdf',
+    en: './assets/resumers/Cristian_Florez_Resume.pdf',
     es: './assets/resumers/HojaDeVida-CristianFlorez.pdf',
   },
 } as const;

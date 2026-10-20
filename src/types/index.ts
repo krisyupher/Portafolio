@@ -55,7 +55,8 @@ export interface Education {
   degree: string;
   institution: string;
   field: string;
-  graduationYear: number;
+  /** Year or period, e.g. `2023` or `Jun 2026 – Present`. */
+  graduationYear: string;
   description?: string;
 }
 

@@ -3,23 +3,15 @@
     "id": "supremobuscador",
     "title": "Supremo Buscador — Jurisprudence Search",
     "poster": "../assets/img/SupremoBuscador.png",
-    "description": "Designed and built the Supreme Court of Colombia's public search engine end to end — PostgreSQL schema, Node.js API and Angular client — giving citizens instant access to more than 500,000 rulings and precedents.",
+    "description": "Designed and built the Supreme Court of Colombia's public search platform end to end — backend query engine, database structure and React frontend — giving citizens instant access to more than 500,000 legal records.",
     "linkView": "https://consultaprovidencias.cortesuprema.gov.co/busqueda",
     "date": "SEP 2022",
     "Link": "https://www.linkedin.com/company/corte-suprema-de-justicia/",
     "category": "Enterprise",
-    "technologies": [
-      "Angular",
-      "TypeScript",
-      "Node.js",
-      "PostgreSQL",
-      "Elasticsearch",
-      "Docker",
-      "Azure"
-    ],
+    "technologies": ["React", "TypeScript", "Node.js", "PostgreSQL", "Docker", "Azure"],
     "highlights": [
-      "Search time cut from minutes to milliseconds",
-      "500,000+ rulings indexed for public access",
+      "Search time cut from minutes to milliseconds by redesigning indexing and queries",
+      "500,000+ legal records searchable by the public",
       "Faceted filters that improved result relevance by 60%",
       "Containerized with Docker and deployed on Azure"
     ],
@@ -58,11 +50,11 @@
     "date": "AUG 2022",
     "Link": "https://www.linkedin.com/company/corte-suprema-de-justicia/",
     "category": "Enterprise",
-    "technologies": ["Angular", "RxJS", ".NET", "PostgreSQL", "Docker", "Azure"],
+    "technologies": ["Angular", ".NET Core", "PostgreSQL", "Docker", "Azure", "CI/CD"],
     "highlights": [
       "Case processing cut from 4 months to 10 days",
-      "80% of the judicial process digitalized",
-      "Automatic legal-document generation in .NET",
+      "80%+ of court workflows systematized",
+      "PostgreSQL schema and .NET Core backend modules designed end to end",
       "Role-based security and audit logging"
     ],
     "featured": true
@@ -70,7 +62,7 @@
   {
     "id": "institute-ai",
     "title": "Institute AI — Quiz Generation Platform",
-    "description": "Role-based learning platform where teachers generate, review and publish AI-written quizzes and students take them with instant server-side grading. Angular 22 client over an ASP.NET Core 10 API backed by an OpenAI-compatible LLM provider.",
+    "description": "Humber Polytechnic education project: a role-based learning platform where teachers generate, review and publish AI-written quizzes and students take them with instant server-side grading. Angular 22 client over an ASP.NET Core 10 API backed by an OpenAI-compatible LLM provider.",
     "date": "SEP 2026",
     "Link": "https://github.com/krisyupher/Institute-s-AI-Powered-Command-Center",
     "category": "AI & Tools",

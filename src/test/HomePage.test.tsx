@@ -19,7 +19,7 @@ describe('HomePage', () => {
     renderHome();
 
     expect(screen.getByRole('heading', { level: 1, name: 'Cristian Florez' })).toBeInTheDocument();
-    expect(screen.getByText(/building fast, reliable platforms/i)).toBeInTheDocument();
+    expect(screen.getByText(/building secure, reliable platforms/i)).toBeInTheDocument();
     expect(screen.getByRole('region', { name: 'Impact highlights' })).toBeInTheDocument();
     expect(screen.getByText('500k+')).toBeInTheDocument();
 
