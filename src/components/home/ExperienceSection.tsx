@@ -17,7 +17,7 @@ export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ experience
             index="02"
             eyebrow="Experience"
             title="Where I've shipped"
-            description="Platforms for the highest court in Colombia, a top national bank and fast-moving product teams."
+            description="Platforms for the highest court in Colombia, a top national bank, product teams and small businesses."
           />
         </Reveal>
       </div>

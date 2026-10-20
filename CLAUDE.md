@@ -63,7 +63,7 @@ The quality gates are `npm run build`, `npm run test` and `npm run lint`. No CI 
 
 - Posters are written as `../assets/img/X.png`. `normalizeImagePath` turns them into `./assets/img/X.png` and they load at runtime, so the files must live in **`public/assets/img/`**. Vite copies `public/` into `docs/`.
 - Nothing imports `src/assets/img/`; an image that exists only there will 404.
-- The résumé PDFs are served from `public/assets/resumers/`. `Resumen-*` is English and `HojaDeVida-*` is Spanish.
+- The résumé PDFs are served from `public/assets/resumers/`. The site links `Cristian_Florez_Resume.pdf` (current, English) and `HojaDeVida-CristianFlorez.pdf` (Spanish) via `SITE.resume` in `src/data/site.ts`; the other files there are older versions.
 - Icons are Font Awesome 6 classes (`fas fa-…`, `fab fa-github`) from the CDN `<link>` in `index.html`. The npm package isn't used.
 - Fonts come from Google Fonts in `index.html`: Bricolage Grotesque (display), Hanken Grotesk (body) and JetBrains Mono (labels and metadata).
 
@@ -109,7 +109,8 @@ The quality gates are `npm run build`, `npm run test` and `npm run lint`. No CI 
 - `base` comes from `VITE_BASE_PATH` (default `/`). **Vercel** is the primary target: `vercel.json` builds with `npm run build` into `docs/`, adds an SPA rewrite and sets immutable caching on `/assets/*`. For GitHub Pages, build with `VITE_BASE_PATH=./`.
 - Docker:
   - `Dockerfile` builds on Node 20 and serves `docs/` from nginx using `nginx.conf`.
-  - `docker-compose.yml` runs `app` on :8080 and `dev` (hot reload, `Dockerfile.dev`) on :5173.
+  - `docker-compose.yml` runs `app` on :8080 and `dev` (hot reload, `Dockerfile.dev`) on :5173. Start the production image with `docker compose up -d --build app` and stop it with `docker compose down`.
+  - `.dockerignore` excludes `*.md` and `docs/`, so the image builds its own `docs/` and ships only the résumé PDFs, not the Markdown copies.
 
 ## Conventions
 

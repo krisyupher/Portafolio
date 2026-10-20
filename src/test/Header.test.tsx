@@ -71,7 +71,7 @@ describe('Header Component', () => {
 
     expect(screen.getByRole('link', { name: /^résumé/i })).toHaveAttribute(
       'href',
-      './assets/resumers/Resumen-CristianFlorez.pdf'
+      './assets/resumers/Cristian_Florez_Resume.pdf'
     );
   });
 });

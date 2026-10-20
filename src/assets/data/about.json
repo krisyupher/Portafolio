@@ -2,19 +2,19 @@
   "aboutInfo": {
     "name": "Cristian Florez",
     "title": "Full-Stack Software Engineer",
-    "headline": "Full-stack engineer building fast, reliable platforms for government and enterprise — now shipped with AI-native workflows.",
-    "bio": "For 4+ years I've delivered mission-critical web platforms for Colombia's Supreme Court and one of the country's largest banks. I work across the stack — Angular, React, Node.js and .NET, from database schema to cloud deployment — and I measure success in latency, uptime and hours saved. Today I pair that foundation with AI engineering: Claude Code, Gemini and agentic workflows driven by spec-driven development.",
+    "headline": "Full-stack engineer building secure, reliable platforms for government and finance — now shipped with AI-native workflows.",
+    "bio": "For 6+ years I've shipped production web applications end to end, from React and Angular frontends to .NET Core, Node.js and Java backends, for Colombia's Supreme Court, one of the country's largest banks and small businesses. I turn complex, highly regulated processes into simple, dependable products, working directly with judges and business analysts to get requirements right the first time. Based in Toronto, I'm deepening my backend work at Humber Polytechnic and building with Claude, Copilot and agentic, spec-driven workflows.",
     "profileImage": "https://avatars.githubusercontent.com/u/48220112?s=400&u=46447c107f92bdf15dc1c63ed42189546147d16e&v=4",
-    "focus": "Scalable architecture, performance and AI-assisted delivery",
-    "availability": "Open to remote roles",
-    "location": "Bogotá, Colombia",
-    "yearsOfExperience": "4+ years"
+    "focus": "Database design, performance tuning and end-to-end feature ownership",
+    "availability": "Open to new roles",
+    "location": "Toronto, ON, Canada",
+    "yearsOfExperience": "6+ years"
   },
   "metrics": [
-    { "value": "500k+", "label": "Judicial rulings made instantly searchable" },
-    { "value": "min → ms", "label": "Search time after re-engineering the index" },
-    { "value": "4 mo → 10 d", "label": "Average case processing time with ESAV" },
-    { "value": "40%", "label": "Faster Supreme Court portal after a CMS rebuild" }
+    { "value": "6+ yrs", "label": "Shipping production web apps end to end" },
+    { "value": "500k+", "label": "Legal records made instantly searchable" },
+    { "value": "min → ms", "label": "Search time after redesigning indexing and queries" },
+    { "value": "4 mo → 10 d", "label": "Average case processing time with ESAV" }
   ],
   "stack": [
     {
@@ -25,11 +25,11 @@
       "items": [
         "Claude",
         "Claude Code",
+        "GitHub Copilot",
         "OpenCode",
         "Gemini",
         "AI Agents",
-        "Spec-Driven Development (SDD)",
-        "LLM API Integration"
+        "Spec-Driven Development (SDD)"
       ]
     },
     {
@@ -37,53 +37,67 @@
       "name": "Frontend",
       "summary": "Typed, accessible interfaces that stay fast at scale.",
       "icon": "fa-layer-group",
-      "items": ["TypeScript", "Angular", "React", "RxJS", "Tailwind CSS", "Astro"]
+      "items": ["React", "TypeScript", "JavaScript", "Angular", "HTML5 & CSS3", "Tailwind CSS"]
     },
     {
       "id": "backend",
       "name": "Backend",
-      "summary": "Secure services, real-time APIs and integrations.",
+      "summary": "Secure services and integrations for regulated domains.",
       "icon": "fa-server",
-      "items": ["Node.js", "Express", "ASP.NET Core", "SignalR", "REST", "GraphQL"]
+      "items": [".NET Core", "Node.js", "Express", "Java", "RESTful APIs", "SOAP"]
     },
     {
       "id": "data",
       "name": "Data",
-      "summary": "Schemas and indexes designed for query speed.",
+      "summary": "Schemas, indexes and queries designed for speed.",
       "icon": "fa-database",
-      "items": ["PostgreSQL", "MongoDB", "Redis", "Entity Framework Core"]
+      "items": ["PostgreSQL", "MongoDB", "Redis"]
     },
     {
       "id": "cloud",
       "name": "Cloud & DevOps",
       "summary": "Containerized, repeatable deployments to the cloud.",
       "icon": "fa-cloud",
-      "items": ["Azure", "Docker", "Nginx", "Vercel", "CI/CD", "Git"]
+      "items": ["Docker", "Azure", "AWS", "CI/CD pipelines", "Git", "Linux"]
     },
     {
-      "id": "quality",
-      "name": "Quality & Delivery",
-      "summary": "Test-first habits and accessible-by-default UI.",
+      "id": "practices",
+      "name": "Practices",
+      "summary": "How features get from first idea to production.",
       "icon": "fa-shield-halved",
-      "items": ["Test-Driven Development", "Vitest & Jest", "xUnit", "WCAG 2.1 AA", "Agile / Scrum"]
+      "items": ["Scrum", "Unit & integration testing", "Code reviews", "Clean architecture"]
     }
   ],
   "experience": [
     {
+      "id": "freelance",
+      "title": "Freelance Full-Stack Developer",
+      "company": "Self-Employed",
+      "location": "Toronto, ON (Remote)",
+      "startDate": "2024",
+      "description": "Custom web applications for small businesses, from first requirements through production.",
+      "achievements": [
+        "Designed, built and deployed client web applications end to end.",
+        "Delivered a React, TypeScript, Node.js, Express and PostgreSQL site, deployed with Docker.",
+        "Handled ongoing maintenance, bug fixes and feature requests directly with clients."
+      ],
+      "technologies": ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Docker"]
+    },
+    {
       "id": "corte-suprema",
       "title": "Full-Stack Developer",
-      "company": "Corte Suprema de Justicia de Colombia",
+      "company": "Supreme Court of Justice of Colombia",
       "location": "Bogotá, Colombia",
       "startDate": "2022",
       "endDate": "2024",
-      "description": "Built the public-facing judicial platforms used every day by citizens, lawyers and magistrates.",
+      "description": "Owned the Court's judicial workflow platform end to end — from architecture and database design through deployment — spanning case management, public search and the institutional website.",
       "achievements": [
-        "Led the modernization of the Supreme Court's official portal; a custom CMS made it 40% faster.",
-        "Built Supremo Buscador end to end: 500,000+ rulings searchable in milliseconds instead of minutes.",
-        "Contributed to ESAV, digitalizing 80% of the judicial process and cutting case handling from 4 months to 10 days.",
-        "Worked directly with magistrates to meet government accessibility standards."
+        "Cut average case processing time from 4 months to 10 days by systematizing 80%+ of court workflows in ESAV.",
+        "Designed the PostgreSQL schema, built .NET Core backend modules and implemented the full CRUD workflow.",
+        "Cut public document search from minutes to milliseconds by redesigning indexing and queries across 500,000+ legal records.",
+        "Led architecture discussions and UX trade-offs with magistrates and judges; containerized with Docker and improved CI."
       ],
-      "technologies": ["Angular", "TypeScript", "Node.js", ".NET", "PostgreSQL", "Docker", "Azure"]
+      "technologies": [".NET Core", "React", "Angular", "PostgreSQL", "Docker", "Azure"]
     },
     {
       "id": "seti-sas",
@@ -92,13 +106,12 @@
       "location": "Bogotá, Colombia",
       "startDate": "2021",
       "endDate": "2022",
-      "description": "Backend engineering for Davivienda's real-estate sales platform — one of Colombia's largest banks.",
+      "description": "Backend services for Davivienda's property sales platform — one of Colombia's largest banks.",
       "achievements": [
-        "Designed a secure, scalable service architecture compliant with banking regulations.",
-        "Automated client financial-history validation and credit-risk analysis.",
-        "Integrated REST and SOAP services across core banking systems."
+        "Built backend services using REST and SOAP for secure integration with banking systems.",
+        "Implemented financial-history verification and customer risk-analysis logic under strict regulatory requirements."
       ],
-      "technologies": ["Node.js", "Express", "REST", "SOAP", "Microservices"]
+      "technologies": ["Node.js", "Express", "REST", "SOAP"]
     },
     {
       "id": "quantum-connexion",
@@ -107,39 +120,36 @@
       "location": "Bogotá, Colombia",
       "startDate": "2019",
       "endDate": "2021",
-      "description": "Front-end engineering for the Troop collaboration platform and the TuAp marketplace.",
+      "description": "Front-end engineering for the Troop corporate platform.",
       "achievements": [
-        "Built responsive, mobile-first interfaces with Angular and React.",
-        "Cut page load times by 35% through front-end performance work.",
-        "Integrated REST APIs for authentication and dynamic data."
+        "Built responsive, cross-browser UI components in Angular and JavaScript with REST API integration for authentication and dynamic data.",
+        "Applied front-end performance practices to reduce load times across devices."
       ],
-      "technologies": ["Angular", "React", "TypeScript", "RxJS", "Ionic"]
+      "technologies": ["Angular", "JavaScript", "REST APIs"]
     }
   ],
   "education": [
     {
-      "id": "education-systems",
-      "degree": "B.Sc. Computer Systems Engineering",
-      "institution": "Universidad Distrital",
-      "field": "Computer Systems Engineering",
-      "graduationYear": 2023,
-      "description": "Software architecture, database design and enterprise application development."
+      "id": "education-humber",
+      "degree": "Software Development Bridging Program — Back-End Stream",
+      "institution": "Humber Polytechnic, Toronto",
+      "field": "Back-End Software Development",
+      "graduationYear": "Jun 2026 – Present",
+      "description": "Backend-focused training for the Canadian market; education project: Institute AI, a quiz generation platform."
     },
     {
-      "id": "education-english",
-      "degree": "English Certification — C1",
-      "institution": "ESU Toronto, Canada",
-      "field": "Advanced English",
-      "graduationYear": 2025,
-      "description": "Professional working proficiency for international engineering teams."
+      "id": "education-telematics",
+      "degree": "Bachelor of Telematics Engineering",
+      "institution": "Universidad Distrital Francisco José de Caldas",
+      "field": "Telematics Engineering",
+      "graduationYear": "2023"
     },
     {
-      "id": "education-diploma",
-      "degree": "Information Systems Technology",
-      "institution": "Universidad Distrital",
-      "field": "Information Systems Technology",
-      "graduationYear": 2018,
-      "description": "Technical diploma in information systems and IT infrastructure."
+      "id": "education-technologist",
+      "degree": "Technologist in Data Systematization",
+      "institution": "Universidad Distrital Francisco José de Caldas",
+      "field": "Data Systematization",
+      "graduationYear": "2019"
     }
   ]
 }
